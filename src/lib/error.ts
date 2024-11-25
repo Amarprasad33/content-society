@@ -2,11 +2,13 @@
 
 const ERROR_NAME = {
     UNAUTHORIZED: 'Unauthorized access',
-    BAD_REQUEST: 'Bad request'
+    BAD_REQUEST: 'Bad request',
+    INTERNAL_SERVER_ERROR: 'Internal server error'
 }
 const STATUS_CODES = {
     UNAUTHORIZED: 401,
-    BAD_REQUEST: 400
+    BAD_REQUEST: 400,
+    INTERNAL_SERVER_ERROR: 501
 }
 
 export type ErrorResponseType = {
