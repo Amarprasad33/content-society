@@ -19,24 +19,43 @@ import { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { GoogleOAuthButton } from './social-auth';
 import { ButtonLoading } from '../custom/button-loading';
-import { signIn } from 'next-auth/react';
+import signUp  from '@/actions/auth.actions';
+
+import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 
 export default function Signup() {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const { toast } = useToast();
+    const router = useRouter();
 
     const form = useForm<SignupSchemaType>({
         resolver: zodResolver(signupFormSchema),
         defaultValues: {
+            name: '',
             email: '',
-            password: ''
+            password: '',
         }
     })
 
     async function formHandler(data: SignupSchemaType){
-        const result = await    ('signin', { ...data, redirect: false });
-        console.log("result-signin", result);
         console.log("data", data);
+        const result = await signUp(data);
+        console.log("result-signup", result);
+
+        if(!result.status){
+            toast({
+                variant: 'destructive',
+                title: "Something went wrong!! try again after sometime."
+            })
+        }else{
+            toast({
+                variant: 'default',
+                title: "Signup successful, Welcome!"
+            })
+        }
+
 
     }
     const togglePassword = () => {

@@ -7,7 +7,7 @@ import bcryptjs from 'bcryptjs';
 // import { v4 as uuidv4 } from "uuid";
 
 
-export default async function Signup(_data: SignupSchemaType){
+export default async function signUp(_data: SignupSchemaType){
     try {
         const data = signupFormSchema.parse(_data);
 
@@ -23,29 +23,36 @@ export default async function Signup(_data: SignupSchemaType){
             10
         );
         console.log("hashedPassword", hashedPassword);
-
-        await prisma.$transaction(
-            async (txn) => {
-                const user = await txn.user.create({
-                    data: {
-                        ...data,
-                        password: hashedPassword
-                    }
-                });
-                console.log("user created in db: ", user);
-                return user;
-            },
-            {
-                maxWait: 5000,
-                timeout: 15000
+         
+        const user = await prisma.user.create({
+            data: {
+                ...data,
+                password: hashedPassword
             }
-        );
+        })
+        console.log("user -- db", user);
+
+        // await prisma.$transaction(
+        //     async (txn) => {
+        //         const user = await txn.user.create({
+        //             data: {
+        //                 ...data,
+        //                 password: hashedPassword
+        //             }
+        //         });
+        //         console.log("user created in db: ", user);
+        //         return user;
+        //     },
+        //     {
+        //         maxWait: 5000,
+        //         timeout: 15000
+        //     }
+        // );
         return {
             status: true,
             code: 201,
             message: "User registered successfully."
         };
-
 
     } catch (error) {
         console.error("err", error);
