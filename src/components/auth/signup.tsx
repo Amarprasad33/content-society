@@ -1,7 +1,7 @@
 "use client"
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
+import { PATHS } from '@/config/path.config';
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -40,23 +40,29 @@ export default function Signup() {
     })
 
     async function formHandler(data: SignupSchemaType){
-        console.log("data", data);
-        const result = await signUp(data);
-        console.log("result-signup", result);
+        try {
+            console.log("data", data);
+            const result = await signUp(data);
+            console.log("result-signup", result);
 
-        if(!result.status){
+            if(!result.status){
+                toast({
+                    variant: 'destructive',
+                    title: "Something went wrong!! try again after sometime."
+                })
+            }else{
+                toast({
+                    variant: 'default',
+                    title: "Signup successful, Welcome!"
+                })
+                router.push(PATHS.HOME);
+            }
+        } catch {
             toast({
                 variant: 'destructive',
                 title: "Something went wrong!! try again after sometime."
             })
-        }else{
-            toast({
-                variant: 'default',
-                title: "Signup successful, Welcome!"
-            })
         }
-
-
     }
     const togglePassword = () => {
         setPasswordVisible(!passwordVisible);
@@ -127,7 +133,7 @@ export default function Signup() {
                     </ButtonLoading>
                     <div className="text-center text-sm mt-4">
                         <div className="space-x-1">
-                            <span className="text-gray-400">Don&apos;t have an account?</span>
+                            <span className="text-gray-400">Already have an account?</span>
                             <Link className="text-indigo-600 hover:text-indigo-500" href="/signin">
                                 Sign In
                             </Link>

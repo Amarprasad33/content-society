@@ -5,6 +5,7 @@ import GoogleProvider  from 'next-auth/providers/google';
 import { signInFormSchema } from "./schema/authSchema";
 import { ErrorHandler } from "./error";
 import prisma from '@/config/prisma.config';
+import bcrypt from 'bcryptjs';
 
 export const authOptions = {
     providers: [
@@ -21,7 +22,7 @@ export const authOptions = {
             },
             async authorize(credentials: any): Promise<any> {
                 const result = signInFormSchema.safeParse(credentials);
-                console.log('result-authOptions', result);
+                // console.log('result-authOptions', result);
 
                 if(!result.success){
                     throw new ErrorHandler(
@@ -33,11 +34,24 @@ export const authOptions = {
                     )
                 }
                 const { email, password } = result.data;
-                const user = await prisma.user.findUnique({ 
+                const user:any = await prisma.user.findUnique({
                     where: {
                         email: email,
+                    },
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        password: true,
                     }
-                 })
+                });
+                if(!user || !user.password){
+                    throw new ErrorHandler('Email or password is incorrect', 'AUTHENTICATION_FAILED');
+                }
+                
+                console.log("user -", user)
+                const isPasswordMatch = await bcrypt.compare(password, user.password);
+                console.log("matchj-- ", isPasswordMatch);
 
                 console.log("credentials", credentials);
                 return {
@@ -56,7 +70,7 @@ export const authOptions = {
         },
 
         async jwt(jwtProps){
-            console.log("jwtProps - ", jwtProps);
+            // console.log("jwtProps - ", jwtProps);
             const { token } = jwtProps;
             return token;
         },

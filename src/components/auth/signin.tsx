@@ -20,10 +20,18 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { GoogleOAuthButton } from './social-auth';
 import { ButtonLoading } from '../custom/button-loading';
 import { signIn } from 'next-auth/react';
+import { useToast } from '@/hooks/use-toast';
 
+type signInResponseType = {
+    error: string | null
+    ok: boolean
+    status: number
+    url: string | null
+}
 
 export default function Signin() {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const { toast } = useToast();
 
     const form = useForm<SigninSchemaType>({
         resolver: zodResolver(signInFormSchema),
@@ -34,9 +42,29 @@ export default function Signin() {
     })
 
     async function formHandler(data: SigninSchemaType){
-        const result = await signIn('signin', { ...data, redirect: false });
-        console.log("result-signin", result);
-        console.log("data", data);
+        try {
+            const result: signInResponseType | undefined = await signIn('signin', { ...data, redirect: false });
+            console.log("result-signin", result);
+            if(!result?.ok){
+                const errorMessage = result?.error?.includes('User') && result?.error?.includes('does not exist') 
+                    ? 'User does not exist' : result?.error || 'Internal server error';
+
+                toast({
+                    title: errorMessage,
+                    variant: 'destructive'
+                })
+            }
+            toast({
+                title: 'Login successful!',
+                variant: 'default'
+            })
+            
+        } catch (_error) {
+            return toast({
+                title: 'Internal server error',
+                variant: 'destructive',
+            });
+        }
 
     }
     const togglePassword = () => {

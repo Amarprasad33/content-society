@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Appbar() {
     const session = useSession();
+    const router = useRouter();
 
     return (
         <main>
@@ -15,8 +17,8 @@ export default function Appbar() {
                     </div>
                 </div>
                 <div className="variable-menu">
-                    <Button variant="outline" className="bg-inherit border-black">
-                        <Link href="/signin" className="">Login</Link>                
+                    <Button onClick={() => router.push("/signin")} variant="outline" className="bg-inherit border-black">
+                        <span  className="">Login</span>                
                     </Button>
                     <Button variant="outline" className="bg-inherit border-black">
                         <Link href="/" className="" onClick={() => signOut({redirect:false})}>Logout</Link>                
