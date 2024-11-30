@@ -92,7 +92,10 @@ export const authOptions = {
 
             return true;
         },
-
+        async redirect({ url, baseUrl }) {
+            // Always redirect to the assigned page after login
+            return baseUrl;
+        },
         async jwt(jwtProps){
             // console.log("jwtProps - ", jwtProps);
             const { token } = jwtProps;

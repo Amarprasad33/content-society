@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
-import { GoogleOAuthButton } from './social-auth';
+import GoogleOAuthButton from './social-auth';
 import { ButtonLoading } from '../custom/button-loading';
 import { signIn } from 'next-auth/react';
 import { useToast } from '@/hooks/use-toast';

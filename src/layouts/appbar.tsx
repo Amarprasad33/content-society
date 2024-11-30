@@ -21,7 +21,10 @@ export default function Appbar() {
                         <span  className="">Login</span>                
                     </Button>
                     <Button variant="outline" className="bg-inherit border-black">
-                        <Link href="/" className="" onClick={() => signOut({redirect:false})}>Logout</Link>                
+                        <Link href="/" className="" onClick={() => {
+                            signOut({redirect:false});
+                            router.refresh()
+                        }}>Logout</Link>                
                     </Button>
                 </div>
                 {JSON.stringify(session)}
