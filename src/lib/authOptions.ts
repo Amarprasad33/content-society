@@ -48,16 +48,20 @@ export const authOptions = {
                 if(!user || !user.password){
                     throw new ErrorHandler('Email or password is incorrect', 'AUTHENTICATION_FAILED');
                 }
-                
+
                 console.log("user -", user)
                 const isPasswordMatch = await bcrypt.compare(password, user.password);
                 console.log("matchj-- ", isPasswordMatch);
 
-                console.log("credentials", credentials);
+                if(!isPasswordMatch){
+                    throw new ErrorHandler('Email or password is incorrect', 'AUTHENTICATION_FAILED');
+                }
+
+                // console.log("credentials", credentials);
                 return {
-                    id: 1,
-                    name: "test user",
-                    email: credentials.email,
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
                 }
             }
         }),
@@ -65,6 +69,26 @@ export const authOptions = {
     callbacks: {
         async signIn(signInProps: any) {
             console.log("props", signInProps);
+            let { user, account, profile } = signInProps;
+
+            if(account.provider === 'google'){
+                const { id: googleOauthId, name, email, image: profileImg } = user;
+                let isUserExist = await prisma.user.findFirst({
+                    where: {
+                        OR: [{email: email!}, {googleOauthId: googleOauthId!}]
+                    }
+                })
+                if(!isUserExist){
+                    isUserExist = await prisma.user.create({
+                        data: {
+                            name: name as string,
+                            email: email as string,
+                            googleOauthId,
+                            profileImg
+                        }
+                    });
+                }
+            }
 
             return true;
         },
@@ -81,9 +105,9 @@ export const authOptions = {
             return session;
         }
     },
-    // pages: {
-    //     signIn: '/signin',
-    // },
+    pages: {
+        signIn: '/signin',
+    },
     session: {
         strategy: 'jwt',
         maxAge: TOKEN_EXPIRATION_TIME

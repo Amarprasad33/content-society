@@ -1,10 +1,11 @@
+"use client"
 import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
 
 export const GoogleOAuthButton = ({ label }: { label: string }) => (
 
     <Button
-        className="w-full mt-4 bg-gray-900 hover:bg-gray-800 text-white border border-gray-800"
+        className="w-full mt-4 bg-gray-900 hover:bg-gray-800 hover:text-white text-white border border-gray-800"
         variant="outline"
         onClick={(e) => {
             e.preventDefault();
