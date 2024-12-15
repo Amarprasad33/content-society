@@ -20,6 +20,11 @@ model User {
   email             String      @unique
   googleOauthId     String?
   profileImg        String?
+  jobs              Job[]
+  portfolioUrl      String?
+  skills            String[]
+  experience        String?
+
 }
 
 model Job{
@@ -34,6 +39,9 @@ model Job{
   type            EmployementType
   currency        Currency      @default(INR)
   Salary          Int?
+  requiredSkills  String[]
+  experience      String?
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
