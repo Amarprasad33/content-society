@@ -89,7 +89,7 @@ export default function Jobs() {
                   src='/images/bookmark-icon.svg'
                   width={18}
                   height={18}
-                  alt="bookmark"z
+                  alt="bookmark"
                 />
                 <span className="sr-only">Bookmark job</span>
               </button>
@@ -100,10 +100,10 @@ export default function Jobs() {
                 {job.type}
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-emerald-400 rounded-full text-xs">
-                $ 20k-30k
+                $ {(job.minSalary)/1000}k-{(job.maxSalary)/1000}k
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs">
-                1-3 Yrs
+                {job.minExperience}-{job.maxExperience} Yrs
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs flex items-center gap-1">
                 <span>Gislasonberg</span>
