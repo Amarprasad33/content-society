@@ -29,6 +29,7 @@ export default function Jobs() {
       minSalary: 60000,
       maxSalary: 100000,
       isVerifiedJob: true,
+      requiredSkills: ['Premiere Pro', 'After Effects', 'Audacity', 'Blender']
     },
     {
       id: '2',
@@ -53,6 +54,7 @@ export default function Jobs() {
       minSalary: 40000,
       maxSalary: 60000,
       isVerifiedJob: true,
+      requiredSkills: ['Premiere Pro', 'After Effects', 'Audacity', 'Blender', 'Notion', 'Linear']
     }
   ]
 
@@ -61,7 +63,7 @@ export default function Jobs() {
     <div className="jobs-page border flex justify-center border-green-600 my-30 ">
       <div className="max-w-6xl flex flex-col gap-4">
         {jobs.map((job) => (
-          <Card key={job.id} className="w-full max-w-2xl md:min-w-[40rem] bg-inherit hover:bg-[#121212] border-zinc-800 p-4">
+          <Card key={job.id} className="w-full max-w-2xl md:min-w-[40rem] bg-inherit hover:bg-[#111111] border-zinc-800 p-4">
             <div className="flex items-start justify-between">
               <div className="flex gap-3">
                 <img
@@ -112,21 +114,16 @@ export default function Jobs() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
-                Premiere Pro
-              </span>
-              <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
-                After Effects
-              </span>
-              <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
-                Audacity
-              </span>
-              <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
-                Blender
-              </span>
-              <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
-                +2 more
-              </span>
+              {job.requiredSkills.slice(0, 4).map((skill) => (
+                <span key={skill} className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
+                  {skill}
+                </span>
+              ))}
+              {job.requiredSkills.length > 4 && (
+                <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
+                  +{(job.requiredSkills.length - 4)} more
+                </span>
+              )}
             </div>
           </Card>
         ))}
