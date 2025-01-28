@@ -158,7 +158,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Employment Type</FormLabel>
                 <FormControl>
-                  <select {...field}>
+                  <select {...field} className='bg-black border border-slate-700'>
                     <option value="Full_time">Full-time</option>
                     <option value="Part_time">Part-time</option>
                     <option value="Internship">Internship</option>
@@ -177,7 +177,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Currency</FormLabel>
                 <FormControl>
-                  <select {...field}>
+                  <select {...field} className='bg-black border border-slate-700'>
                     <option value="INR">INR</option>
                     <option value="USD">USD</option>
                   </select>
