@@ -17,6 +17,8 @@ import { ButtonLoading } from './custom/button-loading';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJob } from '@/actions/job.actions';
+import { MultiSelect } from './multi-select';
+import { CustomSelect } from './custom-select';
 
 export default function JobForm() {
   const { toast } = useToast();
@@ -41,19 +43,20 @@ export default function JobForm() {
 
   async function onSubmit(data: JobSchemaType) {
     try {
-      const result = await createJob(data);
-      if (!result.status) {
-        toast({
-          variant: 'destructive',
-          title: "Something went wrong! Please try again.",
-        });
-      } else {
-        toast({
-          variant: 'default',
-          title: "Job created successfully!",
-        });
-        router.push('/jobs'); // Redirect to the jobs page or any other page
-      }
+      console.log("data", data);
+      // const result = await createJob(data);
+      // if (!result.status) {
+      //   toast({
+      //     variant: 'destructive',
+      //     title: "Something went wrong! Please try again.",
+      //   });
+      // } else {
+      //   toast({
+      //     variant: 'default',
+      //     title: "Job created successfully!",
+      //   });
+      //   router.push('/jobs'); // Redirect to the jobs page or any other page
+      // }
     } catch (error) {
       toast({
         variant: 'destructive',
@@ -158,12 +161,12 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Employment Type</FormLabel>
                 <FormControl>
-                  <select {...field} className='bg-black border border-slate-700'>
+                  <CustomSelect {...field} className='bg-black border border-slate-700'>
                     <option value="Full_time">Full-time</option>
                     <option value="Part_time">Part-time</option>
                     <option value="Internship">Internship</option>
                     <option value="Contract">Contract</option>
-                  </select>
+                  </CustomSelect>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -177,10 +180,10 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Currency</FormLabel>
                 <FormControl>
-                  <select {...field} className='bg-black border border-slate-700'>
+                  <CustomSelect {...field} className='bg-black border border-slate-700'>
                     <option value="INR">INR</option>
                     <option value="USD">USD</option>
-                  </select>
+                  </CustomSelect>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -194,7 +197,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Salary</FormLabel>
                 <FormControl>
-                  <Input type="number" {...field} placeholder="Enter salary" />
+                  <Input type="number" {...field} onChange={(e) => field.onChange(Number(e.target.value))} placeholder="Enter salary" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -208,7 +211,17 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Required Skills</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter required skills (comma separated)" />
+                  {/* <Input {...field} placeholder="Enter required skills (comma separated)" /> */}
+                  <MultiSelect 
+                    selected={field.value}
+                    options={[
+                      { value: "Video", label: "Video" },
+                      { value: "Audio", label: "Audio" },
+                      { value: "Editing", label: "Editing" },
+                      { value: "Photography", label: "Photography" },
+                    ]}
+                    onChange={(selectedValues) => { field.onChange(selectedValues)}}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
