@@ -18,7 +18,13 @@ import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { createJob } from '@/actions/job.actions';
 import { MultiSelect } from './multi-select';
-import { CustomSelect } from './custom-select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function JobForm() {
   const { toast } = useToast();
@@ -161,12 +167,17 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Employment Type</FormLabel>
                 <FormControl>
-                  <CustomSelect {...field} className='bg-black border border-slate-700'>
-                    <option value="Full_time">Full-time</option>
-                    <option value="Part_time">Part-time</option>
-                    <option value="Internship">Internship</option>
-                    <option value="Contract">Contract</option>
-                  </CustomSelect>
+                  <Select {...field} onValueChange={(e) => field.onChange(e)}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Theme" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Full_time">Full-time</SelectItem>
+                      <SelectItem value="Part_time">Part-time</SelectItem>
+                      <SelectItem value="Internship">Internship</SelectItem>
+                      <SelectItem value="Contract">Contract</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -180,10 +191,18 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Currency</FormLabel>
                 <FormControl>
-                  <CustomSelect {...field} className='bg-black border border-slate-700'>
-                    <option value="INR">INR</option>
-                    <option value="USD">USD</option>
-                  </CustomSelect>
+                  {/* <CustomSelect {...field} className='bg-black border border-slate-700'>
+                    
+                  </CustomSelect> */}
+                  <Select {...field} onValueChange={(e) => field.onChange(e)}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Theme" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="INR">INR</SelectItem>
+                      <SelectItem value="USD">USD</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </FormControl>
                 <FormMessage />
               </FormItem>
