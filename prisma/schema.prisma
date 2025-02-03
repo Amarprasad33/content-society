@@ -34,7 +34,7 @@ model Job{
   description     String?
   orgName         String        @map("org_name")
   orgEmail        String        @map("org_email")
-  orgBio          String        @map("org_bio")
+  orgBio          String?       @map("org_bio")
   category        String
   type            EmployementType
   currency        Currency      @default(INR)

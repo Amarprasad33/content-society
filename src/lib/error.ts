@@ -4,13 +4,15 @@ const ERROR_NAME = {
     UNAUTHORIZED: 'Unauthorized access',
     BAD_REQUEST: 'Bad request',
     INTERNAL_SERVER_ERROR: 'Internal server error',
-    AUTHENTICATION_FAILED: 'Authentication failed'
+    AUTHENTICATION_FAILED: 'Authentication failed',
+    USER_NOT_FOUND: 'User not found'
 }
 const STATUS_CODES = {
     UNAUTHORIZED: 401,
     BAD_REQUEST: 400,
     INTERNAL_SERVER_ERROR: 501,
-    AUTHENTICATION_FAILED: 401
+    AUTHENTICATION_FAILED: 401,
+    USER_NOT_FOUND: 404
 }
 
 export type ErrorResponseType = {

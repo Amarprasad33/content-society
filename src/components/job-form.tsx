@@ -50,7 +50,8 @@ export default function JobForm() {
   async function onSubmit(data: JobSchemaType) {
     try {
       console.log("data", data);
-      // const result = await createJob(data);
+      const result = await createJob(data);
+      console.log("Ress--", result);
       // if (!result.status) {
       //   toast({
       //     variant: 'destructive',
@@ -73,7 +74,7 @@ export default function JobForm() {
   }
 
   return (
-    <div className='max-w-7xl w-[55%] pb-12'>
+    <div className='max-w-2xl w-[55%] pb-12'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField

@@ -6,6 +6,13 @@ import { signInFormSchema } from "./schema/authSchema";
 import { ErrorHandler } from "./error";
 import prisma from '@/config/prisma.config';
 import bcrypt from 'bcryptjs';
+import { DefaultSession } from "next-auth";
+
+declare module "next-auth" {
+    interface Session extends DefaultSession {
+      id?: string; // Adding the 'id' field
+    }
+  }
 
 export const authOptions = {
     providers: [
@@ -103,7 +110,13 @@ export const authOptions = {
         },
 
         session({ session, token, user}) {
-            // console.log("session", session);
+            // console.log("session -authop", session);
+            // console.log("TOKEN", token);
+            // console.log("user", user);
+            
+            if(token.sub){
+                session.id = token.sub;
+            }
             // Can edit the session OR add the new fields as required in the front-end
             return session;
         }
