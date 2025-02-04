@@ -24,7 +24,22 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
+
+type JobAPIErrorResponse = {
+  status: boolean;
+  error: {
+    code: number;
+    message: string;
+    statusCode: boolean;
+  };
+};
+
+type JobAPISuccessResponse = {
+  status: boolean,
+  job: JobSchemaType,
+  error?: undefined
+}
 
 export default function JobForm() {
   const { toast } = useToast();
@@ -50,20 +65,20 @@ export default function JobForm() {
   async function onSubmit(data: JobSchemaType) {
     try {
       console.log("data", data);
-      const result = await createJob(data);
+      const result: JobAPISuccessResponse | JobAPIErrorResponse = await createJob(data);
       console.log("Ress--", result);
-      // if (!result.status) {
-      //   toast({
-      //     variant: 'destructive',
-      //     title: "Something went wrong! Please try again.",
-      //   });
-      // } else {
-      //   toast({
-      //     variant: 'default',
-      //     title: "Job created successfully!",
-      //   });
-      //   router.push('/jobs'); // Redirect to the jobs page or any other page
-      // }
+      if (!result.status) {
+        toast({
+          variant: 'destructive',
+          title: result?.error?.message || "Error while creating a job! Please try again.",
+        });
+      } else {
+        toast({ 
+          variant: 'default',
+          title: "Job created successfully!",
+        });
+        router.push('/jobs'); // Redirect to the jobs page or any other page
+      }
     } catch (error) {
       toast({
         variant: 'destructive',

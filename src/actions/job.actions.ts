@@ -1,4 +1,4 @@
-// actions/job.actions.ts
+"use server"
 import { JobSchemaType, jobFormSchema } from '@/lib/schema/jobSchema';
 // import prisma from '@/lib/prisma';
 import prisma from "@/config/prisma.config";
@@ -15,10 +15,14 @@ export async function createJob(_data: JobSchemaType) {
     const session = await getServerSession(authOptions);
     console.log('job-session', session)
     if (!session || !session.user?.email) {
-      throw new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED');
+      throw new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.");
+      // return {
+      //   status: false,
+      //   error: new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.")
+      // }
     }
 
-     // Fetch the user from the database
+    // Fetch the user from the database
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
       select: { id: true }, // Only fetch the `id`
@@ -33,23 +37,43 @@ export async function createJob(_data: JobSchemaType) {
     const job = await prisma.job.create({
       data: {
         title: data.title,
-        description: data.description,
+        description: data.description ?? undefined,
         orgName: data.orgName,
         orgEmail: data.orgEmail,
-        orgBio: data.orgBio || 'no bio provided',
+        orgBio: data.orgBio ?? undefined,
         category: data.category,
         type: data.type,
         currency: data.currency,
-        Salary: data.salary,
+        Salary: data.salary ?? undefined,
         requiredSkills: data.requiredSkills,
-        experience: data.experience,
+        experience: data.experience ?? undefined,
         userId: user.id, 
       },
     });
 
-    return { status: true, job };
-  } catch (error) {
-    console.error("Error creating job:", error);
-    return { status: false, error };
+    return { 
+      status: true, 
+      job: {
+        ...job,
+        description: data.description ?? undefined,
+        orgBio: data.orgBio ?? undefined,
+        Salary: data.salary ?? undefined,
+        experience: data.experience ?? undefined,
+      } 
+    };
+  } catch (error: any) {
+    // console.error("Error creating a job:", error);
+    // console.log("----------- STATUS ------------", error.status);
+    // console.log("----------- error-msg ------------", error.error);
+    // console.log("----------- error-code ------------", error.code);
+
+    return { 
+      status: false, 
+      error: {
+        message: error?.error, 
+        code: error.code, 
+        statusCode: error.status 
+      } 
+    };
   }
 }
