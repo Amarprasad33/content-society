@@ -100,8 +100,6 @@ export default function JobForm() {
       });
       console.error(uploadRes.message);
     }
-
-    return "logo.png";
   }
 
   async function onSubmit(data: JobSchemaType) {

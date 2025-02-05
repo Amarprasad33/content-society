@@ -21,7 +21,6 @@ const uploadToClouodinary = async (formData: FormData): Promise<CloudinaryRespon
     try {
         const arrayBuffer = await file.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
-        console.log("buffer", buffer);
 
         const fileStream = Readable.from(buffer);
 
