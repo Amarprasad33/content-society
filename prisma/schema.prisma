@@ -42,6 +42,7 @@ model Job{
   requiredSkills  String[]
   experience      String?
   user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orgLogo         String?
 }
 
 model VerificationToken {

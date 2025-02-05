@@ -7,7 +7,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
 
 
-export async function createJob(_data: JobSchemaType) {
+export async function createJob(_data: JobSchemaType, logoUrl: string | undefined) {
   try {
     const data = jobFormSchema.parse(_data);
 
@@ -47,7 +47,8 @@ export async function createJob(_data: JobSchemaType) {
         Salary: data.salary ?? undefined,
         requiredSkills: data.requiredSkills,
         experience: data.experience ?? undefined,
-        userId: user.id, 
+        userId: user.id,
+        orgLogo: logoUrl
       },
     });
 
