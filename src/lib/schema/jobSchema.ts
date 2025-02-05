@@ -12,6 +12,7 @@ export const jobFormSchema = z.object({
   salary: z.number().optional(),
   requiredSkills: z.array(z.string()).min(1, "At least one skill is required"),
   experience: z.string().optional(),
+  logoUrl: z.string().optional()
 });
 
 export type JobSchemaType = z.infer<typeof jobFormSchema>;

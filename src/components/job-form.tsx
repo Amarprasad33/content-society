@@ -25,6 +25,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { uploadToClouodinary } from '@/actions/upload-to-cdn';
+import { useState } from 'react';
+import Image from 'next/image';
+import { API_RESPONSE_TYPE } from '@/lib/types';
 
 type JobAPIErrorResponse = {
   status: boolean;
@@ -44,6 +48,8 @@ type JobAPISuccessResponse = {
 export default function JobForm() {
   const { toast } = useToast();
   const router = useRouter();
+  const [uploading, setUploading] = useState(false);
+  const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
 
   const form = useForm<JobSchemaType>({
     resolver: zodResolver(jobFormSchema),
@@ -59,13 +65,49 @@ export default function JobForm() {
       salary: undefined,
       requiredSkills: [],
       experience: '',
+      logoUrl: ''
     }
   });
+
+  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>){
+    console.log("fileEvent", e);
+    const file = e.target.files?.[0];
+    if(!file) return;
+    
+    console.log('file', file);
+    const sizeinKb = Math.ceil(file.size / 1024);
+    console.log("size-Kb", sizeinKb);
+    if(sizeinKb > 1024){
+      toast({
+        variant: 'destructive',
+        title: "Please upload a smaller image",
+      });
+      return;
+    }
+    setUploading(true);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const uploadRes = await uploadToClouodinary(formData);
+    console.log("img-uploadd--", uploadRes);
+    if(uploadRes.success){
+      setImageUrl(uploadRes.url);
+    }else{
+      toast({
+        variant: 'destructive',
+        title: uploadRes?.message || "Image upload failed, Please try again",
+      });
+      console.error(uploadRes.message);
+    }
+
+    return "logo.png";
+  }
 
   async function onSubmit(data: JobSchemaType) {
     try {
       console.log("data", data);
-      const result: JobAPISuccessResponse | JobAPIErrorResponse = await createJob(data);
+      const result: JobAPISuccessResponse | JobAPIErrorResponse = await createJob(data, imageUrl);
       console.log("Ress--", result);
       if (!result.status) {
         toast({
@@ -73,7 +115,7 @@ export default function JobForm() {
           title: result?.error?.message || "Error while creating a job! Please try again.",
         });
       } else {
-        toast({ 
+        toast({
           variant: 'default',
           title: "Job created successfully!",
         });
@@ -92,6 +134,35 @@ export default function JobForm() {
     <div className='max-w-2xl w-[55%] pb-12'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="logoUrl"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Org. logo</FormLabel>
+                <FormControl>
+                  <Input 
+                    {...field}
+
+                    type='file' 
+                    placeholder="Upload Org. logo" 
+                    className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600' 
+                    onChange={(e) => {
+                      handleFileChange(e);
+                      field.onChange(e);
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {imageUrl && 
+            <div className='!my-1.5 w-fit p-2 rounded-lg border border-slate-700'> 
+              <Image src={imageUrl} width={36} height={36} alt='org-logo' />
+            </div>
+          }
+
           <FormField
             control={form.control}
             name="title"
