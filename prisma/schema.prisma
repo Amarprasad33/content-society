@@ -14,44 +14,59 @@ datasource db {
 }
 
 model User {
-  id                String      @id @default(cuid())
-  password          String?
-  name              String
-  email             String      @unique
-  googleOauthId     String?
-  profileImg        String?
-  jobs              Job[]
-  portfolioUrl      String?
-  skills            String[]
-  experience        String?
-
+  id            String       @id @default(cuid())
+  password      String?
+  name          String
+  email         String       @unique
+  googleOauthId String?
+  profileImg    String?
+  jobs          Job[]
+  portfolioUrl  String?
+  skills        String[]
+  experience    String?
+  role          UserRole     @default(USER)
+  appliedJobs   AppliedJob[]
 }
 
-model Job{
-  id              String        @id @default(cuid())
-  userId          String
-  title           String
-  description     String?
-  orgName         String        @map("org_name")
-  orgEmail        String        @map("org_email")
-  orgBio          String?       @map("org_bio")
-  category        String
-  type            EmployementType
-  currency        Currency      @default(INR)
-  Salary          Int?
-  requiredSkills  String[]
-  experience      String?
-  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  orgLogo         String?
+model Job {
+  id             String          @id @default(cuid())
+  userId         String
+  title          String
+  description    String?
+  orgName        String          @map("org_name")
+  orgEmail       String          @map("org_email")
+  orgBio         String?         @map("org_bio")
+  category       String
+  type           EmployementType
+  currency       Currency        @default(INR)
+  Salary         Int?
+  requiredSkills String[]
+  experience     String?
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orgLogo        String?
+  appliedJobs    AppliedJob[]
 }
 
 model VerificationToken {
-  token String
+  token      String
   identifier String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  type String
-  @@unique([token,identifier])
+  type       String
+
+  @@unique([token, identifier])
+}
+
+model AppliedJob {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  resume    String?
+  createdAt DateTime @default(now())
+
+  @@unique([userId, jobId]) // To prevent duplicate applications
 }
 
 enum Currency {
@@ -61,6 +76,13 @@ enum Currency {
 
 enum Role {
   USER
+  ADMIN
+}
+
+enum UserRole {
+  USER
+  EMPLOYER
+  APPLICANT
   ADMIN
 }
 
