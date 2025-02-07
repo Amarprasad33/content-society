@@ -80,8 +80,9 @@ export default function JobForm() {
     if(sizeinKb > 1024){
       toast({
         variant: 'destructive',
-        title: "Please upload a smaller image",
+        title: "Please upload a smaller image (less than 1MB)",
       });
+      e.target.value = '';
       return;
     }
     setUploading(true);

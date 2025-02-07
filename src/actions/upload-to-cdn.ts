@@ -1,8 +1,5 @@
 "use server"
 import cloudinary from "@/lib/cloudinary"
-import { writeFile } from "fs/promises";
-import path, { resolve } from "path";
-import os from "os";
 import { Readable } from "stream";
 
 interface CloudinaryResponse {

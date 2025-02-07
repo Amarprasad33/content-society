@@ -78,3 +78,8 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
     };
   }
 }
+
+export async function getJobs() {
+  const jobs = await prisma.job.findMany();
+  return jobs;
+}

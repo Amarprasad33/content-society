@@ -45,6 +45,7 @@ model Job {
   user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   orgLogo        String?
   appliedJobs    AppliedJob[]
+  createdAt DateTime @default(now())
 }
 
 model VerificationToken {

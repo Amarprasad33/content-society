@@ -1,62 +1,21 @@
+"use client"
+import { getJobs } from "@/actions/job.actions"
 import CustomTooltip from "@/components/custom/Tooltip"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Jobs() {
+  const [jobs, setJobs] = useState<any>([]);
 
-  const jobs = [
-    {
-      id: '1',
-      userId: '1',
-      title: 'Video Editor',
-      description: 'Create enganging content which will help the business grow and gather more distribution.',
-      companyName: 'Tech Corp',
-      companyBio:
-        'Leading tech solutions provider specializing in innovative web development.',
-      companyEmail: 'contact@techcorp.com',
-      category: 'Editing',
-      type: 'Full time',
-      workMode: 'remote',
-      currency: 'INR',
-      hasExperiencerange: true,
-      minExperience: 1,
-      maxExperience: 2,
-      companyLogo: '',
-      hasSalaryRange: true,
-      hasExpiryDate: true,
-      expiryDate: new Date(new Date().setDate(new Date().getDate() + 49)),
-      minSalary: 60000,
-      maxSalary: 100000,
-      isVerifiedJob: true,
-      requiredSkills: ['Premiere Pro', 'After Effects', 'Audacity', 'Blender']
-    },
-    {
-      id: '2',
-      userId: '2',
-      title: 'Script Writer',
-      description: 'Develop compelling scripts and storylines to captivate and engage audiences.',
-      companyName: 'Media Makers Inc.',
-      companyBio:
-        'A dynamic production company specializing in creating high-quality video content for a global audience.',
-      companyEmail: 'hr@mediamakers.com',
-      category: 'Writing',
-      type: 'Part time',
-      workMode: 'hybrid',
-      currency: 'INR',
-      hasExperiencerange: true,
-      minExperience: 2,
-      maxExperience: 4,
-      companyLogo: '',
-      hasSalaryRange: true,
-      hasExpiryDate: true,
-      expiryDate: new Date(new Date().setDate(new Date().getDate() + 30)),
-      minSalary: 40000,
-      maxSalary: 60000,
-      isVerifiedJob: true,
-      requiredSkills: ['Premiere Pro', 'After Effects', 'Audacity', 'Blender', 'Notion', 'Linear']
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const jobs = await getJobs();
+      console.log("jobs", jobs);
+      setJobs(jobs);
     }
-  ]
+    fetchJobs();
+  }, []);
 
 
   return (
@@ -66,10 +25,17 @@ export default function Jobs() {
           <Card key={job.id} className="w-full max-w-2xl md:min-w-[40rem] bg-inherit hover:bg-[#111111] border-zinc-800 p-4">
             <div className="flex items-start justify-between">
               <div className="flex gap-3">
-                <img
+                {/* <img
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ay5BUIMh24KJJSa2GvpYd5BtmiiX8b.png"
                   alt="Company logo"
                   className="w-[4rem] h-[4.2rem] rounded-lg"
+                /> */}
+                <Image
+                  src={job.orgLogo}
+                  alt="Company logo"
+                  className="w-[4rem] h-[4.2rem] rounded-lg"
+                  width={64}
+                  height={67.2}
                 />
                 <div>
                   <div className="flex items-center gap-2">
@@ -102,10 +68,12 @@ export default function Jobs() {
                 {job.type}
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-emerald-400 rounded-full text-xs">
-                $ {(job.minSalary)/1000}k-{(job.maxSalary)/1000}k
+                {/* $ {(job.minSalary)/1000}k-{(job.maxSalary)/1000}k */}
+                $ {job.Salary/1000}k
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs">
-                {job.minExperience}-{job.maxExperience} Yrs
+                {/* {job.minExperience}-{job.maxExperience} Yrs */}
+                {job.experience} Yrs
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs flex items-center gap-1">
                 <span>Gislasonberg</span>
@@ -114,7 +82,7 @@ export default function Jobs() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {job.requiredSkills.slice(0, 4).map((skill) => (
+              {job.requiredSkills.slice(0, 4).map((skill: string) => (
                 <span key={skill} className="px-2.5 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">
                   {skill}
                 </span>
