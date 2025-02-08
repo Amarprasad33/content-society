@@ -63,11 +63,6 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
       } 
     };
   } catch (error: any) {
-    // console.error("Error creating a job:", error);
-    // console.log("----------- STATUS ------------", error.status);
-    // console.log("----------- error-msg ------------", error.error);
-    // console.log("----------- error-code ------------", error.code);
-
     return { 
       status: false, 
       error: {
