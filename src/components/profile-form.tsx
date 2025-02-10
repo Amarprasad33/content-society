@@ -25,7 +25,7 @@ import { uploadToClouodinary } from '@/actions/upload-to-cdn';
 import { useState } from 'react';
 import Image from 'next/image';
 import { profileSchema } from '@/lib/schema/profileSchema';
-import type { JobSchemaType } from '@/lib/schema/profileSchema';
+import type { ProfileSchemaType } from '@/lib/schema/profileSchema';
 
 export default function ProfileForm() {
   const { toast } = useToast();
@@ -33,7 +33,7 @@ export default function ProfileForm() {
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
 
-  const form = useForm<JobSchemaType>({
+  const form = useForm<ProfileSchemaType>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       profileImg: '',
@@ -75,7 +75,7 @@ export default function ProfileForm() {
     setUploading(false);
   }
 
-  async function onSubmit(data: JobSchemaType) {
+  async function onSubmit(data: ProfileSchemaType) {
     try {
       // TODO: Add your update profile action here
       console.log("Profile data", data);
@@ -146,14 +146,14 @@ export default function ProfileForm() {
                     <FormLabel>Skills</FormLabel>
                     <FormControl>
                         <MultiSelect 
-                        selected={field.value}
-                        options={[
-                            { value: "Video", label: "Video" },
-                            { value: "Audio", label: "Audio" },
-                            { value: "Editing", label: "Editing" },
-                            { value: "Photography", label: "Photography" },
-                        ]}
-                        onChange={(selectedValues) => { field.onChange(selectedValues)}}
+                            selected={field.value}
+                            options={[
+                                { value: "Video", label: "Video" },
+                                { value: "Audio", label: "Audio" },
+                                { value: "Editing", label: "Editing" },
+                                { value: "Photography", label: "Photography" },
+                            ]}
+                            onChange={(selectedValues) => { field.onChange(selectedValues)}}
                         />
                     </FormControl>
                     <FormMessage />

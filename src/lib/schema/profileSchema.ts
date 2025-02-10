@@ -8,4 +8,4 @@ export const profileSchema = z.object({
     role: z.enum(['USER', 'EMPLOYER', 'APPLICANT', 'ADMIN'])
 });
 
-export type JobSchemaType = z.infer<typeof profileSchema>;
+export type ProfileSchemaType = z.infer<typeof profileSchema>;
