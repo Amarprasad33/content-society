@@ -26,6 +26,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { profileSchema } from '@/lib/schema/profileSchema';
 import type { ProfileSchemaType } from '@/lib/schema/profileSchema';
+import { updateProfile } from '@/actions/profile.action';
 
 export default function ProfileForm() {
   const { toast } = useToast();
@@ -62,7 +63,8 @@ export default function ProfileForm() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const uploadRes = await uploadToClouodinary(formData);
+    const uploadRes = await uploadToClouodinary(formData, 'profile');
+    console.log("img-upload-profile", uploadRes);
     if(uploadRes.success){
       setImageUrl(uploadRes.url);
     }else{
@@ -79,11 +81,13 @@ export default function ProfileForm() {
     try {
       // TODO: Add your update profile action here
       console.log("Profile data", data);
+      const res = await updateProfile(data, imageUrl);
+      console.log("updateRes", res);
       toast({
         variant: 'default',
         title: "Profile updated successfully!",
       });
-      router.push('/profile'); // Redirect to the profile page
+      // router.push('/profile'); // Redirect to the profile page
     } catch (error) {
       toast({
         variant: 'destructive',
@@ -105,13 +109,13 @@ export default function ProfileForm() {
                     <FormLabel>Profile Image</FormLabel>
                     <FormControl>
                         <Input 
-                        type='file' 
-                        placeholder="Upload profile image" 
-                        className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600' 
-                        onChange={(e) => {
-                            handleFileChange(e);
-                            field.onChange(e);
-                        }}
+                          type='file' 
+                          placeholder="Upload profile image" 
+                          className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600' 
+                          onChange={(e) => {
+                              handleFileChange(e);
+                              field.onChange(e);
+                          }}
                         />
                     </FormControl>
                     <FormMessage />

@@ -8,7 +8,7 @@ interface CloudinaryResponse {
     url?: string
 }
 
-const uploadToClouodinary = async (formData: FormData): Promise<CloudinaryResponse> => {
+const uploadToClouodinary = async (formData: FormData, formType: string): Promise<CloudinaryResponse> => {
     "use server"
     const file = formData.get('file') as File;
     if (!file) {
@@ -23,7 +23,7 @@ const uploadToClouodinary = async (formData: FormData): Promise<CloudinaryRespon
 
         return new Promise((resolve, reject) => {
             const uploadStream = cloudinary.uploader.upload_stream(
-                { folder: 'cs-org-logo' },
+                { folder: (formType === 'job') ? 'cs-org-logo' : 'cs-profile-img' },
                 (error, result) => {
                     if (error) {
                         console.error("Upload error:", error);
