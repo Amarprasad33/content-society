@@ -90,7 +90,7 @@ export default function JobForm() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const uploadRes = await uploadToClouodinary(formData);
+    const uploadRes = await uploadToClouodinary(formData, 'job');
     console.log("img-uploadd--", uploadRes);
     if(uploadRes.success){
       setImageUrl(uploadRes.url);
