@@ -15,12 +15,13 @@ import {
 import { signInFormSchema, SigninSchemaType } from '@/lib/schema/authSchema';
 import { Input } from "@/components/ui/input";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import GoogleOAuthButton from './social-auth';
 import { ButtonLoading } from '../custom/button-loading';
 import { signIn } from 'next-auth/react';
 import { useToast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 type signInResponseType = {
     error: string | null
@@ -32,6 +33,15 @@ type signInResponseType = {
 export default function Signin() {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const { toast } = useToast();
+    const router = useRouter();
+    const [callbackURL, setCallbackUrl] = useState("/");
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window?.location?.search);
+        const cbUrl = searchParams.get('callbackUrl') || '/';
+        console.log("searchParams", searchParams);
+        console.log("callbackURL-", cbUrl);
+        setCallbackUrl(cbUrl);
+    }, []);
 
     const form = useForm<SigninSchemaType>({
         resolver: zodResolver(signInFormSchema),
@@ -43,8 +53,15 @@ export default function Signin() {
 
     async function formHandler(data: SigninSchemaType){
         try {
-            const result: signInResponseType | undefined = await signIn('signin', { ...data, redirect: false });
+            const searchParams = new URLSearchParams(window?.location?.search);
+            const callbackUrl = searchParams.get('callbackUrl') || '/';
+            const result: signInResponseType | undefined = await signIn('signin', {
+                ...data, 
+                redirect: false, 
+                callbackUrl, 
+            });
             console.log("result-signin", result);
+            console.log("callbackURL-", callbackUrl);
             if(!result?.ok){
                 const errorMessage = result?.error?.includes('User') && result?.error?.includes('does not exist') 
                     ? 'User does not exist' : result?.error || 'Internal server error';
@@ -53,12 +70,13 @@ export default function Signin() {
                     title: errorMessage,
                     variant: 'destructive'
                 })
+            }else{
+                toast({
+                    title: 'Login successful!',
+                    variant: 'default'
+                })
+                window.location.href = result.url || callbackUrl;
             }
-            toast({
-                title: 'Login successful!',
-                variant: 'default'
-            })
-            
         } catch (_error) {
             return toast({
                 title: 'Internal server error',
@@ -137,7 +155,7 @@ export default function Signin() {
                             <span className="bg-black px-2 text-gray-400">or</span>
                         </div>
                     </div>
-                    <GoogleOAuthButton label='Sign in with Google'/>
+                    <GoogleOAuthButton label='Sign in with Google' callbackUrl={callbackURL} />
                 </form>
             </Form>
         </div>

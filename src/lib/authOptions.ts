@@ -7,12 +7,24 @@ import { ErrorHandler } from "./error";
 import prisma from '@/config/prisma.config';
 import bcrypt from 'bcryptjs';
 import { DefaultSession } from "next-auth";
+import { createCipheriv, createDecipheriv, randomBytes, scryptSync } from "crypto";
+
+const ENCRYPTION_KEY = scryptSync(
+    process.env.NEXTAUTH_SECRET || 'fallback-secret',
+    'salt',
+    32
+);
+const IV_LENGTH = 16;
 
 declare module "next-auth" {
     interface Session extends DefaultSession {
       id?: string; // Adding the 'id' field
+      user?: {
+        role?: string,
+        profileImg?: string
+      } & DefaultSession["user"]
     }
-  }
+}
 
 export const authOptions = {
     providers: [
@@ -50,6 +62,8 @@ export const authOptions = {
                         name: true,
                         email: true,
                         password: true,
+                        role: true,
+                        profileImg: true
                     }
                 });
                 if(!user || !user.password){
@@ -63,12 +77,13 @@ export const authOptions = {
                 if(!isPasswordMatch){
                     throw new ErrorHandler('Email or password is incorrect', 'AUTHENTICATION_FAILED');
                 }
-
                 // console.log("credentials", credentials);
                 return {
                     id: user.id,
                     name: user.name,
                     email: user.email,
+                    role: user.role,
+                    profileImg: user.profileImg
                 }
             }
         }),
@@ -83,6 +98,13 @@ export const authOptions = {
                 let isUserExist = await prisma.user.findFirst({
                     where: {
                         OR: [{email: email!}, {googleOauthId: googleOauthId!}]
+                    },
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        role: true,
+                        profileImg: true
                     }
                 })
                 if(!isUserExist){
@@ -91,29 +113,51 @@ export const authOptions = {
                             name: name as string,
                             email: email as string,
                             googleOauthId,
-                            profileImg
+                            profileImg,
+                            role: 'USER'
                         }
                     });
                 }
+                user.dbUser = isUserExist;
+            }
+            if(account.provider === 'signin'){
+                user.dbUser = user;
             }
 
             return true;
         },
         async redirect({ url, baseUrl }) {
             // Always redirect to the assigned page after login
+            if(url.startsWith('/')){
+                return `${baseUrl}${url}`;
+            }
+            // If the url is already absolute but on same host, allow it
+            else if (url.startsWith(baseUrl)) {
+                return url
+            }
             return baseUrl;
         },
-        async jwt(jwtProps){
-            // console.log("jwtProps - ", jwtProps);
-            const { token } = jwtProps;
+        async jwt({ token, user, account }){
+            // console.log("jwt-tok-", token);
+            // console.log("jwt-User-", user);
+            if(user){
+                // This runs when user first signs in
+                token.role = (user as any).dbUser?.role;
+                token.profileImg = (user as any).dbUser.profileImg;
+                token.sub = encryptId((user as any).dbUser?.id);
+
+            }
             return token;
         },
 
         session({ session, token, user}) {
             // console.log("session -authop", session);
             // console.log("TOKEN", token);
-            // console.log("user", user);
-            
+            // console.log("user - A-", user);
+            if(session.user){
+                session.user.role = token.role as string;
+                session.user.profileImg = token.profileImg as string;
+            }
             if(token.sub){
                 session.id = token.sub;
             }
@@ -133,3 +177,21 @@ export const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET
 } satisfies NextAuthOptions;
+
+function encryptId(id: string): string {
+    const iv = randomBytes(IV_LENGTH);
+    const cipher = createCipheriv('aes-256-cbc', Buffer.from(ENCRYPTION_KEY), iv);
+    let encrypted = cipher.update(id);
+    encrypted = Buffer.concat([encrypted, cipher.final()]);
+    return `${iv.toString('hex')}:${encrypted.toString('hex')}`;
+}
+
+function decryptId(encrypted: string): string {
+    const [ivHex, encryptedHex] = encrypted.split(':');
+    const iv = Buffer.from(ivHex, 'hex');
+    const encryptedText = Buffer.from(encryptedHex, 'hex');
+    const decipher = createDecipheriv('aes-256-cbc', Buffer.from(ENCRYPTION_KEY), iv);
+    let decrypted = decipher.update(encryptedText);
+    decrypted = Buffer.concat([decrypted, decipher.final()]);
+    return decrypted.toString();
+}

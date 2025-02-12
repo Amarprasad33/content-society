@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
 
 
-export default function GoogleOAuthButton({ label }: { label: string }) {
+export default function GoogleOAuthButton({ label, callbackUrl }: { label: string, callbackUrl: string }) {
     const router = useRouter();
 
     return (
@@ -14,7 +14,7 @@ export default function GoogleOAuthButton({ label }: { label: string }) {
             onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                signIn('google', {callbackUrl: '/'});
+                signIn('google', {callbackUrl: callbackUrl });
                 // router.replace('/')
             }}
         >

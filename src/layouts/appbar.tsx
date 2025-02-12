@@ -81,7 +81,14 @@ export default function Appbar() {
                      {session?.user?.image? 
                         <div className="cursor-pointer"><Image className="rounded-full" src={session?.user?.image || '' } width={30} height={30} alt="profile-image" /></div>
                         :
-                        <Button onClick={()  => router.push("/signin")} size="sm" variant="outline" className="text-black border-primary hover:bg-slate-300 hover:text-black">
+                        // Should check if user has uploaded a profile image, if yes show that or show the first letter of the name
+                        session?.user && <div className="cursor-pointer">
+                            <div className="rounded-full w-[30px] h-[30px] bg-slate-700 flex justify-center items-center">{session?.user?.name?.substring(0,1).toUpperCase()}</div>
+                        </div>
+                        
+                    }
+                    {
+                        !session?.user && <Button onClick={()  => router.push("/signin")} size="sm" variant="outline" className="text-black border-primary hover:bg-slate-300 hover:text-black">
                             <span  className="">Sign In</span>                
                         </Button>
                     }
