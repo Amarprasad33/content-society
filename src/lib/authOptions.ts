@@ -22,7 +22,8 @@ declare module "next-auth" {
       user?: {
         role?: string,
         profileImg?: string
-      } & DefaultSession["user"]
+      } & DefaultSession["user"];
+      updateRole?: boolean
     }
 }
 
@@ -137,15 +138,23 @@ export const authOptions = {
             }
             return baseUrl;
         },
-        async jwt({ token, user, account }){
+        async jwt({ token, user, trigger, account, session }){
             // console.log("jwt-tok-", token);
-            // console.log("jwt-User-", user);
+            // console.log("jwt-User-", user);            
             if(user){
                 // This runs when user first signs in
                 token.role = (user as any).dbUser?.role;
                 token.profileImg = (user as any).dbUser.profileImg;
                 token.sub = encryptId((user as any).dbUser?.id);
-
+            }
+            if(trigger === "update" && session?.updateRole){
+                console.log("---- update ROLEEE triggered -----");
+                const updatedUser = await prisma.user.findUnique({
+                    where: { email: token.email as string },
+                    select: { role: true }
+                })
+                token.role = updatedUser?.role;
+                console.log("updated token", token)
             }
             return token;
         },
