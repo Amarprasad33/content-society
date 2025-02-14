@@ -27,10 +27,12 @@ import Image from 'next/image';
 import { profileSchema } from '@/lib/schema/profileSchema';
 import type { ProfileSchemaType } from '@/lib/schema/profileSchema';
 import { updateProfile } from '@/actions/profile.action';
+import { useSession } from 'next-auth/react';
 
 export default function ProfileForm() {
   const { toast } = useToast();
   const router = useRouter();
+  const { data: session, update } = useSession();
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
 
@@ -83,6 +85,8 @@ export default function ProfileForm() {
       console.log("Profile data", data);
       const res = await updateProfile(data, imageUrl);
       console.log("updateRes", res);
+      console.log("Triggering SESSION Update");
+      await update({ updateRole: true });
       toast({
         variant: 'default',
         title: "Profile updated successfully!",

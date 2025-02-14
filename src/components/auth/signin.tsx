@@ -119,7 +119,11 @@ export default function Signin() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' type={passwordVisible? 'text' : 'password'} {...field} placeholder='Password' />
                                     </FormControl>
-                                    <button className='absolute right-2 top-8' onClick={togglePassword}>
+                                    <button type='button' className='absolute right-2 top-8' onClick={(e) => {
+                                            e.preventDefault();
+                                            togglePassword();
+                                        }}
+                                    >
                                         {passwordVisible? <EyeOffIcon /> : <EyeIcon />}
                                     </button>
                                     <FormMessage className='text-rose-700' />
