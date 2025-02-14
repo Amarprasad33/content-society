@@ -1,11 +1,28 @@
 "use client"
 // import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 
 export default function Home() {
+  const { toast } = useToast();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const error = searchParams.get('error');
+    const message = searchParams.get('message');
+
+    if(error === 'unauthorized' && message){
+      toast({
+        variant: 'destructive',
+        title: "Access Denied",
+        description: message.replace(/%20/g, ' '),
+      });
+    }
+  }, [searchParams, toast])
 
   return (
     <main className="min-h-screen bg-slate-700">

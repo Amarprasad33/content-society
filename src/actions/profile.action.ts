@@ -60,3 +60,31 @@ export async function getUserProfile() {
         return { status: false, error: "Failed to fetch profile" };
     }
 }
+
+// To get the all the profiles -- APPLICANT
+export async function getProfiles() {
+    try {
+        const profiles = await prisma.user.findMany({
+            where: {
+                role: "APPLICANT"
+            },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                profileImg: true,
+                role: true,
+                skills: true,
+                experience: true,
+                portfolioUrl: true,
+            },
+            orderBy: {
+                name: 'asc'
+            }
+        });
+        return { status: true, profiles };
+    } catch (error) {
+        console.error("Error fetching profiles:", error);
+        return { status: false, error: "Failed to fetch profiles" };
+    }
+}
