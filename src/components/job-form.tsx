@@ -29,6 +29,7 @@ import { uploadToClouodinary } from '@/actions/upload-to-cdn';
 import { useState } from 'react';
 import Image from 'next/image';
 import { API_RESPONSE_TYPE } from '@/lib/types';
+import { useSession } from 'next-auth/react';
 
 type JobAPIErrorResponse = {
   status: boolean;
@@ -37,12 +38,14 @@ type JobAPIErrorResponse = {
     message: string;
     statusCode: boolean;
   };
+  requiresSessionUpdate?: boolean
 };
 
 type JobAPISuccessResponse = {
   status: boolean,
-  job: JobSchemaType,
+  job: JobSchemaType
   error?: undefined
+  requiresSessionUpdate?: boolean
 }
 
 export default function JobForm() {
@@ -50,6 +53,7 @@ export default function JobForm() {
   const router = useRouter();
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
+  const { data: session, update } = useSession();
 
   const form = useForm<JobSchemaType>({
     resolver: zodResolver(jobFormSchema),
@@ -114,10 +118,15 @@ export default function JobForm() {
           title: result?.error?.message || "Error while creating a job! Please try again.",
         });
       } else {
+        if(result.status && result?.requiresSessionUpdate){
+          console.log("Triggering SESSION Update");
+          await update({ updateRole: true });
+        }
         toast({
           variant: 'default',
           title: "Job created successfully!",
         });
+       
         router.push('/jobs'); // Redirect to the jobs page or any other page
       }
     } catch (error) {

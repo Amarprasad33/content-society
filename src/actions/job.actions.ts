@@ -22,46 +22,58 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
       // }
     }
 
-    // Fetch the user from the database
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-      select: { id: true }, // Only fetch the `id`
+    return await prisma.$transaction(async (txn) => {
+      // Fetch the user from the database
+      const user = await txn.user.findUnique({
+        where: { email: session?.user?.email || undefined },
+        select: { id: true }, // Only fetch the `id`
+      });
+
+      if (!user) {
+        throw new ErrorHandler("User not found in the database", 'USER_NOT_FOUND');
+      }
+
+      console.log("user", user);
+
+      const job = await txn.job.create({
+        data: {
+          title: data.title,
+          description: data.description ?? undefined,
+          orgName: data.orgName,
+          orgEmail: data.orgEmail,
+          orgBio: data.orgBio ?? undefined,
+          category: data.category,
+          type: data.type,
+          currency: data.currency,
+          Salary: data.salary ?? undefined,
+          requiredSkills: data.requiredSkills,
+          experience: data.experience ?? undefined,
+          userId: user.id,
+          orgLogo: logoUrl
+        },
+      });
+
+      const updatedUser = await txn.user.update({
+        where: { id: user.id },
+        data: { role: "EMPLOYER" },
+        select: { id: true, role: true }
+      })
+
+      return { 
+        status: true, 
+        job: {
+          ...job,
+          description: data.description ?? undefined,
+          orgBio: data.orgBio ?? undefined,
+          Salary: data.salary ?? undefined,
+          experience: data.experience ?? undefined,
+        } ,
+        requiresSessionUpdate: true
+      };
+
     });
 
-    if (!user) {
-      throw new ErrorHandler("User not found in the database", 'USER_NOT_FOUND');
-    }
-
-    console.log("user", user);
-
-    const job = await prisma.job.create({
-      data: {
-        title: data.title,
-        description: data.description ?? undefined,
-        orgName: data.orgName,
-        orgEmail: data.orgEmail,
-        orgBio: data.orgBio ?? undefined,
-        category: data.category,
-        type: data.type,
-        currency: data.currency,
-        Salary: data.salary ?? undefined,
-        requiredSkills: data.requiredSkills,
-        experience: data.experience ?? undefined,
-        userId: user.id,
-        orgLogo: logoUrl
-      },
-    });
-
-    return { 
-      status: true, 
-      job: {
-        ...job,
-        description: data.description ?? undefined,
-        orgBio: data.orgBio ?? undefined,
-        Salary: data.salary ?? undefined,
-        experience: data.experience ?? undefined,
-      } 
-    };
+    
   } catch (error: any) {
     return { 
       status: false, 
