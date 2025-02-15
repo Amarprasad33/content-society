@@ -31,15 +31,6 @@ export default function ProfilesPage() {
 
     useEffect(() => {
         console.log("SESSION frm--profiles ->", session)
-        // if(session?.user?.role !== "EMPLOYER"){
-        //   console.log("NOT an Employer")
-        //   toast({
-        //     variant: 'destructive',
-        //     title: "Access Denied",
-        //     description: "You have create a job to view the profiles.",
-        //   })
-        // //   return redirect("/");
-        // }
         async function fetchProfiles() {            
             try {
                 setIsLoading(true);

@@ -8,7 +8,6 @@ export default async function ProfilesLayout({ children }: { children: React.Rea
 
     if (!session || session?.user?.role !== "EMPLOYER") {
         // show a toast saying that "you have to create job to view the profiles"
-        // redirect("/signin?callbackUrl=/profiles");
         redirect("/?callbackUrl=/profiles");
     }
 
