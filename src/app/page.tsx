@@ -14,8 +14,10 @@ export default function Home() {
   useEffect(() => {
     const error = searchParams.get('error');
     const message = searchParams.get('message');
-
+    console.log("error", error);
+    console.log("message", message);
     if(error === 'unauthorized' && message){
+      console.log("IFF")
       toast({
         variant: 'destructive',
         title: "Access Denied",
