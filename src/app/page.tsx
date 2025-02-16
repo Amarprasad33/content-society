@@ -21,7 +21,7 @@ export default function Home() {
       toast({
         variant: 'destructive',
         title: "Access Denied",
-        description: message.replace(/%20/g, ' '),
+        description: decodeURIComponent(message),
       });
     }
   }, [searchParams, toast])

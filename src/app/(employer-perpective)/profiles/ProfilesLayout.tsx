@@ -8,7 +8,7 @@ export default async function ProfilesLayout({ children }: { children: React.Rea
 
     if (!session || session?.user?.role !== "EMPLOYER") {
         // show a toast saying that "you have to create job to view the profiles"
-        redirect("/?callbackUrl=/profiles&error=unauthorized&message=Employer access only");
+        redirect("/?callbackUrl=/profiles&error=unauthorized&message=" + encodeURIComponent("Employer access only"));
     }
 
     return <>{children}</>;
