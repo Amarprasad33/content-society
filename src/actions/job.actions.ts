@@ -90,3 +90,16 @@ export async function getJobs() {
   const jobs = await prisma.job.findMany();
   return jobs;
 }
+
+export async function getJobById(id: string) {
+    try {
+        const job = await prisma.job.findUnique({
+            where: { id },
+        });
+        
+        return { status: true, job };
+    } catch (error) {
+        console.error("Error fetching job:", error);
+        return { status: false, error: "Failed to fetch job details" };
+    }
+}
