@@ -3,6 +3,7 @@ import { getJobById } from "@/actions/job.actions";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 interface JobViewProps {
     jobId: string;
@@ -73,7 +74,15 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
     }
 
     return (
-        <section className="w-full h-full min-h-96 bg-zinc-900 rounded-t-xl py-3 px-5">
+        <section className="w-full h-full min-h-96 bg-zinc-900 rounded-t-xl py-3 px-5 overflow-y-auto
+            [&::-webkit-scrollbar]:w-2
+            [&::-webkit-scrollbar-track]:bg-zinc-800
+            [&::-webkit-scrollbar-thumb]:bg-zinc-600
+            [&::-webkit-scrollbar-thumb]:rounded-full
+            [&::-webkit-scrollbar-thumb]:border-2
+            [&::-webkit-scrollbar-thumb]:border-zinc-800
+            [&::-webkit-scrollbar-thumb]:hover:bg-zinc-500"
+        >
             <button 
                 className="absolute top-4 right-7" 
                 onClick={() => setDetailView(false)}
@@ -131,6 +140,19 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                 <div className="mt-8">
                     <h2 className="text-xl font-semibold text-white mb-4">Job Description</h2>
                     <p className="text-zinc-400 whitespace-pre-wrap">{job.description}</p>
+                </div>
+
+                <div className="mt-8">
+                    <h2 className="text-xl font-semibold text-white mb-4">Want to apply ? Write a cover letter</h2>
+                    <textarea 
+                        name="" id="" 
+                        placeholder="Write your cover letter" 
+                        className="w-1/2 rounded-xl focus:outline-none py-2 px-4 text-black"
+                    ></textarea>
+                </div>
+                
+                <div className="mt-8">
+                    <Button variant="default" className="text-black bg-white hover:bg-zinc-300">Apply</Button>
                 </div>
             </div>
         </section>
