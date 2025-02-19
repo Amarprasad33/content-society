@@ -1,12 +1,34 @@
 "use client"
 import { getJobs } from "@/actions/job.actions"
 import CustomTooltip from "@/components/custom/Tooltip"
+import JobView from "@/components/job-view"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "motion/react"
 
 export default function Jobs() {
   const [jobs, setJobs] = useState<any>([]);
+  const [jobDetailView, setJobDetailView] = useState(false);
+  const [selectedJobId, setSelectedJobId] = useState('');
+  const viewRef = useRef<HTMLDivElement | null>(null);
+
+  const handleMouseClick = (event: MouseEvent) => {
+    if(viewRef.current && !viewRef.current.contains(event.target as Node)){
+      setJobDetailView(false);
+    }
+  }
+  useEffect(() => {
+    if(jobDetailView){
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    }
+  }, [jobDetailView])
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -15,6 +37,12 @@ export default function Jobs() {
       setJobs(jobs);
     }
     fetchJobs();
+
+    document.addEventListener('mousedown', handleMouseClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleMouseClick)
+    }
   }, []);
 
 
@@ -22,14 +50,15 @@ export default function Jobs() {
     <div className="jobs-page border flex justify-center border-green-600 my-30 ">
       <div className="max-w-6xl flex flex-col gap-4">
         {jobs.map((job) => (
-          <Card key={job.id} className="w-full max-w-2xl md:min-w-[40rem] bg-inherit hover:bg-[#111111] border-zinc-800 p-4">
+          <Card onClick={() => {
+              setJobDetailView(true);
+              setSelectedJobId(job.id)
+            }} 
+            key={job.id} 
+            className="w-full max-w-2xl md:min-w-[40rem] bg-inherit hover:bg-[#111111] border-zinc-800 p-4"
+          >
             <div className="flex items-start justify-between">
               <div className="flex gap-3">
-                {/* <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ay5BUIMh24KJJSa2GvpYd5BtmiiX8b.png"
-                  alt="Company logo"
-                  className="w-[4rem] h-[4.2rem] rounded-lg"
-                /> */}
                 <Image
                   src={job.orgLogo}
                   alt="Company logo"
@@ -97,6 +126,35 @@ export default function Jobs() {
           </Card>
         ))}
       </div>
+      { jobDetailView && 
+        <div className="inset-0 absolute w-full h-full bg-zinc-700/70">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key="job-view-modal"
+              initial={{
+                opacity: 0.7,
+                translateY: 50,
+              }}
+              animate={{
+                  opacity: 1,
+                  translateY: 0,
+              }}
+              exit={{
+                opacity: 0.6,
+                translateY: 50
+              }}
+              transition={{
+                  duration: 0.2,
+                  ease: "easeInOut"
+              }} 
+              ref={viewRef} 
+              className="absolute bottom-0 w-full h-[calc(100%-16rem)]"
+            >
+              <JobView jobId={selectedJobId} setDetailView={setJobDetailView} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      }
     </div>
   )
 }
