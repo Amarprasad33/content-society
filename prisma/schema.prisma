@@ -45,7 +45,7 @@ model Job {
   user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   orgLogo        String?
   appliedJobs    AppliedJob[]
-  createdAt DateTime @default(now())
+  createdAt      DateTime        @default(now())
 }
 
 model VerificationToken {
@@ -59,13 +59,14 @@ model VerificationToken {
 }
 
 model AppliedJob {
-  id        String   @id @default(cuid())
-  userId    String
-  jobId     String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  resume    String?
-  createdAt DateTime @default(now())
+  id          String   @id @default(cuid())
+  userId      String
+  jobId       String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job         Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  resume      String?
+  createdAt   DateTime @default(now())
+  coverLetter String   @db.Text
 
   @@unique([userId, jobId]) // To prevent duplicate applications
 }

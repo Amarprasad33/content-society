@@ -1,5 +1,5 @@
 "use client"
-import { getJobById } from "@/actions/job.actions";
+import { getJobById, recordApplyJob } from "@/actions/job.actions";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
@@ -16,7 +16,7 @@ interface JobData {
     description: string;
     type: string;
     experience: string;
-    salary: number;
+    Salary: number;
     currency: string;
     requiredSkills: string[];
     orgLogo: string,
@@ -27,6 +27,7 @@ interface JobData {
 export default function JobView({ jobId, setDetailView }: JobViewProps) {
     const [job, setJob] = useState<JobData | null>(null);
     const [loading, setLoading] = useState(true);
+    const [letter, setLetter] = useState("");
     const { toast } = useToast();
 
     useEffect(() => {
@@ -34,6 +35,7 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
             try {
                 const result = await getJobById(jobId);
                 if (result.status && result.job) {
+                    console.log("job--", result);
                     setJob(result.job);
                 } else {
                     toast({
@@ -56,6 +58,15 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
 
         fetchJobDetails();
     }, [jobId, toast]);
+
+    async function applyToJob(){
+        try {            
+            const appliedRes = await recordApplyJob(jobId);
+            console.log("appliedRes", appliedRes);
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
 
     if (loading) {
         return (
@@ -84,10 +95,15 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
             [&::-webkit-scrollbar-thumb]:hover:bg-zinc-500"
         >
             <button 
-                className="absolute top-4 right-7" 
+                className="absolute top-4 right-7 p-1 rounded-full hover:bg-zinc-800" 
                 onClick={() => setDetailView(false)}
             >
-                X
+                <Image
+                  src='/images/Clear.svg'
+                  width={18}
+                  height={18}
+                  alt="bookmark"
+                />
             </button>
             
             <div className="max-w-4xl mx-auto pt-8">
@@ -117,8 +133,8 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                     <div className="bg-zinc-800/50 p-4 rounded-lg">
                         <p className="text-zinc-400">Salary</p>
                         <p className="text-white">
-                            {job.currency === 'USD' && `$ ${job.salary/1000}k`}
-                            {job.currency === 'INR' && `₹ ${job.salary/100000}L`}
+                            {job.currency === 'USD' && `$ ${job.Salary/1000}k`}
+                            {job.currency === 'INR' && `₹ ${job.Salary/1000}k`}
                         </p>
                     </div>
                 </div>
@@ -148,11 +164,18 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                         name="" id="" 
                         placeholder="Write your cover letter" 
                         className="w-1/2 rounded-xl focus:outline-none py-2 px-4 text-black"
+                        onChange={(e) => setLetter(e.target.value)}
                     ></textarea>
                 </div>
                 
                 <div className="mt-8">
-                    <Button variant="default" className="text-black bg-white hover:bg-zinc-300">Apply</Button>
+                    <Button 
+                        disabled={letter.length < 1} 
+                        variant="default" className="text-black bg-white hover:bg-zinc-300 w-1/2"
+                        onClick={applyToJob}
+                    >
+                        Apply
+                    </Button>
                 </div>
             </div>
         </section>

@@ -103,3 +103,16 @@ export async function getJobById(id: string) {
         return { status: false, error: "Failed to fetch job details" };
     }
 }
+
+export async function recordApplyJob(jobId: string){
+  const session = await getServerSession(authOptions);
+  console.log('job-session', session)
+  if (!session || !session.user?.email) {
+    throw new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.");
+    // return {
+    //   status: false,
+    //   error: new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.")
+    // }
+  }
+  console.log("Checking console removal - E");
+}
