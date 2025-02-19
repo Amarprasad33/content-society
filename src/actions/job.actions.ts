@@ -114,5 +114,4 @@ export async function recordApplyJob(jobId: string){
     //   error: new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.")
     // }
   }
-  console.log("Checking console removal - E");
 }
