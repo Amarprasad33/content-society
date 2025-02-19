@@ -4,7 +4,7 @@ import { JobSchemaType, jobFormSchema } from '@/lib/schema/jobSchema';
 import prisma from "@/config/prisma.config";
 import { ErrorHandler } from '@/lib/error';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/authOptions';
+import { authOptions, decryptId } from '@/lib/authOptions';
 
 
 export async function createJob(_data: JobSchemaType, logoUrl: string | undefined) {
@@ -107,6 +107,9 @@ export async function getJobById(id: string) {
 export async function recordApplyJob(jobId: string){
   const session = await getServerSession(authOptions);
   console.log('job-session', session)
+  console.log("decrypted", decryptId(session?.id as string));
+  let userId = decryptId(session?.id as string);
+  
   if (!session || !session.user?.email) {
     throw new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.");
     // return {
@@ -114,5 +117,4 @@ export async function recordApplyJob(jobId: string){
     //   error: new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.")
     // }
   }
-  console.log("Checking console removal - E");
 }

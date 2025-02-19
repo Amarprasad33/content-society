@@ -187,7 +187,7 @@ export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET
 } satisfies NextAuthOptions;
 
-function encryptId(id: string): string {
+export function encryptId(id: string): string {
     const iv = randomBytes(IV_LENGTH);
     const cipher = createCipheriv('aes-256-cbc', Buffer.from(ENCRYPTION_KEY), iv);
     let encrypted = cipher.update(id);
@@ -195,7 +195,7 @@ function encryptId(id: string): string {
     return `${iv.toString('hex')}:${encrypted.toString('hex')}`;
 }
 
-function decryptId(encrypted: string): string {
+export function decryptId(encrypted: string): string {
     const [ivHex, encryptedHex] = encrypted.split(':');
     const iv = Buffer.from(ivHex, 'hex');
     const encryptedText = Buffer.from(encryptedHex, 'hex');
