@@ -61,8 +61,15 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
 
     async function applyToJob(){
         try {            
-            const appliedRes = await recordApplyJob("adfoubuau8ah3e8208huafb", letter);
+            const appliedRes: any = await recordApplyJob(jobId, letter);
             // console.log("appliedRes", appliedRes);
+            if(!appliedRes.status){
+                toast({
+                    variant: "destructive",
+                    title: appliedRes?.message || "Your application couldn't be submitted, Please try again later.",
+                });
+                return;
+            }
             toast({
                 variant: "default",
                 title: "Successfully applied!",

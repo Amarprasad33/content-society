@@ -109,27 +109,37 @@ export async function recordApplyJob(jobId: string, coverLetter: string){
     const session = await getServerSession(authOptions);
     console.log('job-session', session)
     console.log("decrypted", decryptId(session?.id as string));
-    
+    const role = session?.user?.role;
+    if(role && role !== "APPLICANT"){
+      return {
+        status: false,
+        error: "Access Denied",
+        message: "You should have a profile to apply to this job",
+        code: 401
+      };
+    }
     
     if (!session || !session.user?.email) {
-      throw new ErrorHandler(
-        "Unauthorized: No user session found", 
-        'UNAUTHORIZED', 
-        "You are not authorized, please log in."
-      );
+      return {
+        status: false,
+        error: "Not Authorized",
+        message: "You are not authorized, please log in.",
+        code: 401
+      };
     }
-    let userId = decryptId(session?.id as string);
+    const userId = decryptId(session?.id as string);
     // Check if job exists
     const job = await prisma.job.findUnique({
       where: { id: jobId }
     });
 
     if (!job) {
-      throw new ErrorHandler(
-        "Job not found",
-        'NOT_FOUND',
-        "The job you're trying to apply for doesn't exist"
-      );
+      return {
+        status: false,
+        error: "Not Found",
+        message: "The job you're trying to apply for doesn't exist",
+        code: 404
+      };
     }
     // Create application record
     const application = await prisma.appliedJob.create({
@@ -144,7 +154,19 @@ export async function recordApplyJob(jobId: string, coverLetter: string){
       status: true, 
       application 
     };
-  } catch (error) {
+  } catch (error: any) {
     console.log("err", error);
+    if (error?.code === 'P2002') {
+      return {
+        status: false,
+        error: "You have already applied for this job",
+        code: 400
+      };
+    }
+    return { 
+      status: false, 
+      error: "Failed to apply for job",
+      code: 500
+    };
   }
 }
