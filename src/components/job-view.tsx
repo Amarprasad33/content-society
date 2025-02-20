@@ -61,8 +61,13 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
 
     async function applyToJob(){
         try {            
-            const appliedRes = await recordApplyJob(jobId);
-            console.log("appliedRes", appliedRes);
+            const appliedRes = await recordApplyJob("adfoubuau8ah3e8208huafb", letter);
+            // console.log("appliedRes", appliedRes);
+            toast({
+                variant: "default",
+                title: "Successfully applied!",
+                description: "You can check other jobs which intrests you"
+            });
         } catch (error) {
             console.log("error", error);
         }

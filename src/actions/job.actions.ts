@@ -104,17 +104,47 @@ export async function getJobById(id: string) {
     }
 }
 
-export async function recordApplyJob(jobId: string){
-  const session = await getServerSession(authOptions);
-  console.log('job-session', session)
-  console.log("decrypted", decryptId(session?.id as string));
-  let userId = decryptId(session?.id as string);
-  
-  if (!session || !session.user?.email) {
-    throw new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.");
-    // return {
-    //   status: false,
-    //   error: new ErrorHandler("Unauthorized: No user session found", 'UNAUTHORIZED', "You are not authorized, please log in.")
-    // }
+export async function recordApplyJob(jobId: string, coverLetter: string){
+  try {
+    const session = await getServerSession(authOptions);
+    console.log('job-session', session)
+    console.log("decrypted", decryptId(session?.id as string));
+    
+    
+    if (!session || !session.user?.email) {
+      throw new ErrorHandler(
+        "Unauthorized: No user session found", 
+        'UNAUTHORIZED', 
+        "You are not authorized, please log in."
+      );
+    }
+    let userId = decryptId(session?.id as string);
+    // Check if job exists
+    const job = await prisma.job.findUnique({
+      where: { id: jobId }
+    });
+
+    if (!job) {
+      throw new ErrorHandler(
+        "Job not found",
+        'NOT_FOUND',
+        "The job you're trying to apply for doesn't exist"
+      );
+    }
+    // Create application record
+    const application = await prisma.appliedJob.create({
+      data: {
+        userId,
+        jobId,
+        coverLetter,
+      }
+    });
+    // console.log("applied-ACTION-res", application);
+    return { 
+      status: true, 
+      application 
+    };
+  } catch (error) {
+    console.log("err", error);
   }
 }
