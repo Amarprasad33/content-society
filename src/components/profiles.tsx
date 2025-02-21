@@ -59,18 +59,6 @@ export default function ProfilesPage() {
 
     }, [toast]);
 
-    // if (status === "loading") {
-    //     return <div>Loading...</div>
-    // }
-    // if (status === "unauthenticated") {
-    //     toast({
-    //       variant: 'destructive',
-    //       title: "You are not signed in! Please sign in to see the profiles.",
-    //     });
-    //     // return redirect("/signin");
-    //     return redirect(`/signin?callbackUrl=${encodeURIComponent(pathName)}`);
-    // }
-
     return (
         <div className="container w-full min-h-screen flex justify-center py-7">
             <h2 className="text-white">Find the best talent for your needs</h2>

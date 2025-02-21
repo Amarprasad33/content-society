@@ -21,7 +21,6 @@ interface JobData {
     requiredSkills: string[];
     orgLogo: string,
     orgName: string
-    // Add other fields as needed
 }
 
 export default function JobView({ jobId, setDetailView }: JobViewProps) {

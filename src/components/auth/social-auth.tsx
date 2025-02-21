@@ -15,7 +15,6 @@ export default function GoogleOAuthButton({ label, callbackUrl }: { label: strin
                 e.preventDefault();
                 e.stopPropagation();
                 signIn('google', {callbackUrl: callbackUrl });
-                // router.replace('/')
             }}
         >
             <svg className="h-5 w-5 mr-2" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
