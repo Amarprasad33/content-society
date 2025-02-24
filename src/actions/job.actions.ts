@@ -176,7 +176,7 @@ export async function recordApplyJob(jobId: string, coverLetter: string){
       status: true, 
       application 
     };
-  } catch (error: Error & { code?: string }) {
+  } catch (error: unknown) {
     console.log("err", error);
     if(error instanceof Prisma.PrismaClientKnownRequestError){
       if (error?.code === 'P2002') {

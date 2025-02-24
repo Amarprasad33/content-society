@@ -115,8 +115,8 @@ export default function Jobs() {
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-emerald-400 rounded-full text-xs">
                 {/* $ {(job.minSalary)/1000}k-{(job.maxSalary)/1000}k */}
-                {job.Salary && job.currency === 'USD' && <>$ {job.Salary/1000}k</>}
-                {job.Salary && job.currency === 'INR' && <>₹ {job.Salary/1000}k</>}
+                {job.Salary && job.currency === 'USD' && <>$ {Number(job.Salary)/1000}k</>}
+                {job.Salary && job.currency === 'INR' && <>₹ {Number(job.Salary)/1000}k</>}
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs">
                 {/* {job.minExperience}-{job.maxExperience} Yrs */}

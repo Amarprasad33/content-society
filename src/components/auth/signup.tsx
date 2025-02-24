@@ -150,7 +150,7 @@ export default function Signup() {
                             <span className="bg-black px-2 text-gray-400">or</span>
                         </div>
                     </div>
-                    <GoogleOAuthButton label='Sign in with Google'/>
+                    <GoogleOAuthButton callbackUrl='/' label='Sign in with Google'/>
                 </form>
             </Form>
         </div>
