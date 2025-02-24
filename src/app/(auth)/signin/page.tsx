@@ -20,6 +20,10 @@ export default function SigninPage() {
     }
   }, [session])
 
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="bg-black inset-0 flex justify-center items-center" style={{'minHeight': 'calc(100vh - 3.23rem)'}}>
       <div className="form-container mx-auto bg-black border border-gray-800  w-[80%] sm:w-[60%] md:w-[40%] lg:w-[30%] max-w-[25rem] px-6 py-8 my-14 rounded-xl">

@@ -5,6 +5,7 @@ import prisma from "@/config/prisma.config";
 import { ErrorHandler } from '@/lib/error';
 import { getServerSession } from 'next-auth';
 import { authOptions, decryptId } from '@/lib/authOptions';
+import { Prisma } from '@prisma/client';
 
 
 export async function createJob(_data: JobSchemaType, logoUrl: string | undefined) {
@@ -53,7 +54,7 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
         },
       });
 
-      const updatedUser = await txn.user.update({
+      await txn.user.update({
         where: { id: user.id },
         data: { role: "EMPLOYER" },
         select: { id: true, role: true }
@@ -74,14 +75,35 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
     });
 
     
-  } catch (error: any) {
+  } catch (error: unknown) {
+    if(error instanceof ErrorHandler){
+      return { 
+        status: false, 
+        error: {
+          message: error?.error, 
+          code: error.code, 
+          statusCode: error.status 
+        } 
+      };
+    }
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      return {
+        status: false,
+        error: {
+          message: "Database operation failed",
+          code: error.code,
+          statusCode: 500
+        }
+      };
+    }
+  
     return { 
       status: false, 
       error: {
-        message: error?.error, 
-        code: error.code, 
-        statusCode: error.status 
-      } 
+        message: error instanceof Error ? error.message : "Unknown error occurred",
+        code: "UNKNOWN_ERROR",
+        statusCode: 500
+      }
     };
   }
 }
@@ -154,14 +176,16 @@ export async function recordApplyJob(jobId: string, coverLetter: string){
       status: true, 
       application 
     };
-  } catch (error: any) {
+  } catch (error: Error | unknown) {
     console.log("err", error);
-    if (error?.code === 'P2002') {
-      return {
-        status: false,
-        error: "You have already applied for this job",
-        code: 400
-      };
+    if(error instanceof Prisma.PrismaClientKnownRequestError){
+      if (error?.code === 'P2002') {
+        return {
+          status: false,
+          error: "You have already applied for this job",
+          code: 400
+        };
+      }
     }
     return { 
       status: false, 
