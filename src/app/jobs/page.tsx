@@ -6,9 +6,17 @@ import { Card } from "@/components/ui/card"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
+import { JobSchemaType } from "@/lib/schema/jobSchema"
+
+interface JobType extends JobSchemaType{
+  id: string,
+  orgLogo: string,
+  Salary?: string,
+  userId: string,
+}
 
 export default function Jobs() {
-  const [jobs, setJobs] = useState<any>([]);
+  const [jobs, setJobs] = useState<JobType[]>([]);
   const [jobDetailView, setJobDetailView] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState('');
   const viewRef = useRef<HTMLDivElement | null>(null);
@@ -32,9 +40,18 @@ export default function Jobs() {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const jobs = await getJobs();
+      const jobsData = await getJobs();
+      const processedJobs = jobsData.map(job => ({
+        ...job,
+        orgLogo: job.orgLogo || '',
+        Salary: job.Salary?.toString() || undefined,
+        description: job.description?.toString() || undefined,
+        orgBio: job.orgBio?.toString() || undefined,
+        experience: job.experience?.toString() || undefined,
+      }));
       console.log("jobs", jobs);
-      setJobs(jobs);
+       // Convert `null` orgLogo values to an empty string
+      setJobs(processedJobs);
     }
     fetchJobs();
 
@@ -43,13 +60,13 @@ export default function Jobs() {
     return () => {
       document.removeEventListener('mousedown', handleMouseClick)
     }
-  }, []);
+  }, [jobs]);
 
 
   return (
     <div className="jobs-page border flex justify-center border-green-600 my-30 ">
       <div className="max-w-6xl flex flex-col gap-4">
-        {jobs.map((job) => (
+        {jobs.map((job: JobType) => (
           <Card onClick={() => {
               setJobDetailView(true);
               setSelectedJobId(job.id)
@@ -75,7 +92,7 @@ export default function Jobs() {
                     </span>
                   </div>
                   <p className="text-zinc-400 text-sm mt-0.5">
-                    <CustomTooltip triggerContent={job.description} tooltipContent={job.description} className="bg-white text-black shadow-md" />
+                    <CustomTooltip triggerContent={job.description?? ''} tooltipContent={job.description?? ''} className="bg-white text-black shadow-md" />
                   </p>
                   <p className="text-zinc-500 text-sm mt-0.5">Posted 3 days ago</p>
                 </div>
@@ -98,8 +115,8 @@ export default function Jobs() {
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-emerald-400 rounded-full text-xs">
                 {/* $ {(job.minSalary)/1000}k-{(job.maxSalary)/1000}k */}
-                {job.currency === 'USD' && <>$ {job.Salary/1000}k</>}
-                {job.currency === 'INR' && <>₹ {job.Salary/1000}k</>}
+                {job.Salary && job.currency === 'USD' && <>$ {job.Salary/1000}k</>}
+                {job.Salary && job.currency === 'INR' && <>₹ {job.Salary/1000}k</>}
               </span>
               <span className="px-2.5 py-1 bg-zinc-800 text-zinc-300 rounded-full text-xs">
                 {/* {job.minExperience}-{job.maxExperience} Yrs */}
