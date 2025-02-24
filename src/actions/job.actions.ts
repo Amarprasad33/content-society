@@ -154,7 +154,7 @@ export async function recordApplyJob(jobId: string, coverLetter: string){
       status: true, 
       application 
     };
-  } catch (error: any) {
+  } catch (error: Error & { code?: string }) {
     console.log("err", error);
     if (error?.code === 'P2002') {
       return {
