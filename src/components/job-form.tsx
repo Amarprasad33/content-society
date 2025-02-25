@@ -28,23 +28,26 @@ import {
 import { uploadToClouodinary } from '@/actions/upload-to-cdn';
 import { useState } from 'react';
 import Image from 'next/image';
-import { API_RESPONSE_TYPE } from '@/lib/types';
 import { useSession } from 'next-auth/react';
 
 type JobAPIErrorResponse = {
   status: boolean;
   error: {
-    code: number;
+    code: string | number;
     message: string;
-    statusCode: boolean;
+    statusCode: boolean | false | number;
   };
   requiresSessionUpdate?: boolean
 };
 
 type JobAPISuccessResponse = {
-  status: boolean,
-  job: JobSchemaType
-  error?: undefined
+  status: boolean
+  job?: JobSchemaType
+  error?: {
+    code: string | number;
+    message: string;
+    statusCode: boolean | false | number;
+  };
   requiresSessionUpdate?: boolean
 }
 
