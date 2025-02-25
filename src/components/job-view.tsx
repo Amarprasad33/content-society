@@ -13,13 +13,13 @@ interface JobViewProps {
 interface JobData {
     id: string;
     title: string;
-    description: string;
+    description: string | null;
     type: string;
-    experience: string;
-    Salary: number;
+    experience: string | null;
+    Salary: number | null;
     currency: string;
     requiredSkills: string[];
-    orgLogo: string,
+    orgLogo: string | null,
     orgName: string
 }
 
@@ -120,7 +120,7 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
             <div className="max-w-4xl mx-auto pt-8">
                 <div className="flex items-start gap-4">
                     <Image
-                        src={job.orgLogo}
+                        src={job.orgLogo?? ''}
                         alt={job.orgName}
                         width={80}
                         height={80}
@@ -166,7 +166,7 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
 
                 <div className="mt-8">
                     <h2 className="text-xl font-semibold text-white mb-4">Job Description</h2>
-                    <p className="text-zinc-400 whitespace-pre-wrap">{job.description}</p>
+                    <p className="text-zinc-400 whitespace-pre-wrap">{job.description ?? "No description available"}</p>
                 </div>
 
                 <div className="mt-8">
