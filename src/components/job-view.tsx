@@ -23,6 +23,37 @@ interface JobData {
     orgName: string
 }
 
+interface ApplyJobSuccessResponse {
+    status: boolean;
+    job?: {
+        Salary: number | null;
+        category: string;
+        createdAt: Date;
+        currency: string;
+        description: string;
+        experience: string;
+        id: string;
+        orgBio: string;
+        orgEmail: string;
+        orgLogo: string;
+        orgName: string;
+        requiredSkills: string[];
+        title: string;
+        type: string;
+        userId: string;
+    }
+    error?: string;
+    message?: string;
+}
+
+interface ApplyJobErrorResponse {
+    status: boolean;
+    error: string;
+    message?: string;
+    code: number;
+}
+type ApplyJobResponse = ApplyJobSuccessResponse | ApplyJobErrorResponse;
+
 export default function JobView({ jobId, setDetailView }: JobViewProps) {
     const [job, setJob] = useState<JobData | null>(null);
     const [loading, setLoading] = useState(true);
@@ -60,13 +91,13 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
 
     async function applyToJob(){
         try {            
-            const appliedRes: any = await recordApplyJob(jobId, letter);
+            const appliedRes: ApplyJobResponse = await recordApplyJob(jobId, letter);
             // console.log("appliedRes", appliedRes);
             if(!appliedRes.status){
                 toast({
                     variant: "destructive",
-                    title: appliedRes?.message || "Your application couldn't be submitted, Please try again later.",
-                });
+                    title: appliedRes?.error || appliedRes?.message || "Your application couldn't be submitted, Please try again later.",
+                }); 
                 return;
             }
             toast({
@@ -144,8 +175,8 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                     <div className="bg-zinc-800/50 p-4 rounded-lg">
                         <p className="text-zinc-400">Salary</p>
                         <p className="text-white">
-                            {job.currency === 'USD' && `$ ${job.Salary/1000}k`}
-                            {job.currency === 'INR' && `₹ ${job.Salary/1000}k`}
+                            {job.currency === 'USD' && `$ ${Number(job.Salary)/1000}k`}
+                            {job.currency === 'INR' && `₹ ${Number(job.Salary)/1000}k`}
                         </p>
                     </div>
                 </div>

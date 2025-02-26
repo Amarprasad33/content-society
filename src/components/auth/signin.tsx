@@ -1,8 +1,6 @@
 "use client"
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -21,7 +19,6 @@ import GoogleOAuthButton from './social-auth';
 import { ButtonLoading } from '../custom/button-loading';
 import { signIn } from 'next-auth/react';
 import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
 
 type signInResponseType = {
     error: string | null
@@ -33,7 +30,6 @@ type signInResponseType = {
 export default function Signin() {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const { toast } = useToast();
-    const router = useRouter();
     const [callbackURL, setCallbackUrl] = useState("/");
     useEffect(() => {
         const searchParams = new URLSearchParams(window?.location?.search);
@@ -78,6 +74,7 @@ export default function Signin() {
                 window.location.href = result.url || callbackUrl;
             }
         } catch (_error) {
+            console.log("error while signin - ", _error)
             return toast({
                 title: 'Internal server error',
                 variant: 'destructive',
@@ -103,6 +100,9 @@ export default function Signin() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' {...field} placeholder='name@example.com' />
                                     </FormControl>
+                                    <FormDescription className="text-gray-500">
+                                        Enter the email address you used during registration
+                                    </FormDescription>
                                     <FormMessage className='text-rose-700' />
                                 </FormItem>
                             )}
@@ -119,6 +119,9 @@ export default function Signin() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' type={passwordVisible? 'text' : 'password'} {...field} placeholder='Password' />
                                     </FormControl>
+                                    <FormDescription className="text-gray-500">
+                                        Your password must be at least 8 characters long
+                                    </FormDescription>
                                     <button type='button' className='absolute right-2 top-8' onClick={(e) => {
                                             e.preventDefault();
                                             togglePassword();

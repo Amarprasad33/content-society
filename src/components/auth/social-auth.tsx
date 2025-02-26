@@ -1,11 +1,9 @@
 "use client"
-import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
 
 
 export default function GoogleOAuthButton({ label, callbackUrl }: { label: string, callbackUrl: string }) {
-    const router = useRouter();
 
     return (
         <Button

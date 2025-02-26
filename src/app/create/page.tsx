@@ -22,7 +22,7 @@ export default function Create() {
       return redirect("/");
     }
     // console.log("session", session);
-  }, [session])
+  }, [session, toast])
   if (status === "loading") {
     return <div>Loading...</div>
   }

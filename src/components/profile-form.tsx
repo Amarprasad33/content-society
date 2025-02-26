@@ -14,13 +14,6 @@ import { ButtonLoading } from './custom/button-loading';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { MultiSelect } from './multi-select';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { uploadToClouodinary } from '@/actions/upload-to-cdn';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -90,8 +83,9 @@ export default function ProfileForm() {
       toast({
         variant: 'default',
         title: "Profile updated successfully!",
+        description: "Now you can applyt to jobs!!"
       });
-      // router.push('/profile'); // Redirect to the profile page
+      router.push('/jobs'); // Redirect to the profile page
     } catch (error) {
       toast({
         variant: 'destructive',
@@ -99,6 +93,9 @@ export default function ProfileForm() {
       });
       console.error(error);
     }
+  }
+  if(session?.user?.role !== 'USER'){
+    console.log("If not user, shoudn't have access")
   }
 
   return (
@@ -126,6 +123,9 @@ export default function ProfileForm() {
                     </FormItem>
                 )}
             />
+            {
+              uploading && <div>Uploading...</div>
+            }
             {imageUrl && 
                 <div className='!my-1.5 w-fit p-2 rounded-lg border border-slate-700'> 
                     <Image src={imageUrl} width={36} height={36} alt='profile-image' />

@@ -2,7 +2,6 @@
 "use client";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -101,6 +100,7 @@ export default function JobForm() {
     console.log("img-uploadd--", uploadRes);
     if(uploadRes.success){
       setImageUrl(uploadRes.url);
+      setUploading(false);
     }else{
       toast({
         variant: 'destructive',
@@ -108,6 +108,10 @@ export default function JobForm() {
       });
       console.error(uploadRes.message);
     }
+  }
+
+  if(session?.user?.role !== 'USER'){
+    console.log("Not a user, you shouldn't have access to this page.")
   }
 
   async function onSubmit(data: JobSchemaType) {
@@ -168,6 +172,9 @@ export default function JobForm() {
               </FormItem>
             )}
           />
+          {
+            uploading && <div>Uploading...</div>
+          }
           {imageUrl && 
             <div className='!my-1.5 w-fit p-2 rounded-lg border border-slate-700'> 
               <Image src={imageUrl} width={36} height={36} alt='org-logo' />

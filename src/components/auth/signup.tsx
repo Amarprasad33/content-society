@@ -2,7 +2,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PATHS } from '@/config/path.config';
-import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -82,6 +81,9 @@ export default function Signup() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' type='text' {...field} placeholder='Your name...' />
                                     </FormControl>
+                                    <FormDescription className="text-gray-500">
+                                        Enter your full name as you&apos;d like it to appear
+                                    </FormDescription>
                                     <FormMessage className='text-rose-700' />
                                 </FormItem>
                             )}
@@ -98,6 +100,9 @@ export default function Signup() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' type='email' {...field} placeholder='name@example.com' />
                                     </FormControl>
+                                    <FormDescription className="text-gray-500">
+                                        We&apos;ll never share your email with anyone else
+                                    </FormDescription>
                                     <FormMessage className='text-rose-700' />
                                 </FormItem>
                             )}
@@ -114,6 +119,9 @@ export default function Signup() {
                                     <FormControl>
                                         <Input className='text-white bg-gray-900 border-gray-800' type={passwordVisible? 'text' : 'password'} {...field} placeholder='Password' />
                                     </FormControl>
+                                    <FormDescription className="text-gray-500">
+                                        Use 8+ characters with a mix of letters, numbers & symbols
+                                    </FormDescription>
                                     <button className='absolute right-2 top-8' onClick={togglePassword}>
                                         {passwordVisible? <EyeOffIcon /> : <EyeIcon />}
                                     </button>

@@ -18,7 +18,7 @@ export default function SigninPage() {
       }))
       return redirect("/");
     }
-  }, [session])
+  }, [session, toast])
 
   if (status === "loading") {
     return <div>Loading...</div>

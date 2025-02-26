@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Loader2 } from "lucide-react"
-import { useEffect } from "react";
 
 
 export function ButtonLoading({ className, type, children, disabled, ...props }: 

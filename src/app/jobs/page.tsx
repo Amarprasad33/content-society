@@ -21,11 +21,6 @@ export default function Jobs() {
   const [selectedJobId, setSelectedJobId] = useState('');
   const viewRef = useRef<HTMLDivElement | null>(null);
 
-  const handleMouseClick = (event: MouseEvent) => {
-    if(viewRef.current && !viewRef.current.contains(event.target as Node)){
-      setJobDetailView(false);
-    }
-  }
   useEffect(() => {
     if(jobDetailView){
       document.body.style.overflow = 'hidden';
@@ -38,6 +33,8 @@ export default function Jobs() {
     }
   }, [jobDetailView])
 
+  
+
   useEffect(() => {
     const fetchJobs = async () => {
       const jobsData = await getJobs();
@@ -49,18 +46,25 @@ export default function Jobs() {
         orgBio: job.orgBio?.toString() || undefined,
         experience: job.experience?.toString() || undefined,
       }));
-      console.log("jobs", jobs);
+      console.log("jobs", processedJobs);
        // Convert `null` orgLogo values to an empty string
       setJobs(processedJobs);
     }
     fetchJobs();
 
+    const handleMouseClick = (event: MouseEvent) => {
+      if(viewRef.current && !viewRef.current.contains(event.target as Node)){
+        setJobDetailView(false);
+      }
+    }
     document.addEventListener('mousedown', handleMouseClick);
 
     return () => {
       document.removeEventListener('mousedown', handleMouseClick)
     }
-  }, [jobs]);
+  }, []);
+
+  
 
 
   return (
