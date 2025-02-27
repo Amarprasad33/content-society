@@ -3,7 +3,6 @@ import { getProfiles } from "@/actions/profile.action";
 import { useToast } from "@/hooks/use-toast";
 import { UserRole } from "@prisma/client";
 import { useSession } from "next-auth/react";
-import { redirect, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Profile {
@@ -18,10 +17,7 @@ interface Profile {
 }
 
 export default function ProfilesPage() {
-    const {data: session, status} = useSession();
     const { toast } = useToast();
-    const pathName = usePathname();
-    const [initialReq, setInitialReq] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [profiles, setProfiles] = useState<Profile[]>([]);
 
@@ -30,7 +26,6 @@ export default function ProfilesPage() {
     }, [profiles])
 
     useEffect(() => {
-        console.log("SESSION frm--profiles ->", session)
         async function fetchProfiles() {            
             try {
                 setIsLoading(true);
@@ -58,6 +53,10 @@ export default function ProfilesPage() {
         fetchProfiles();
 
     }, [toast]);
+
+    if(status === "loading" || isLoading){
+        return <div>Loading...</div>
+    }
 
     return (
         <div className="container w-full min-h-screen flex justify-center py-7">
