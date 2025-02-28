@@ -2,7 +2,6 @@
 import { getProfiles } from "@/actions/profile.action";
 import { useToast } from "@/hooks/use-toast";
 import { UserRole } from "@prisma/client";
-import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 interface Profile {

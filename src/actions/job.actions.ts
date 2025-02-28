@@ -80,7 +80,7 @@ export async function createJob(_data: JobSchemaType, logoUrl: string | undefine
       return { 
         status: false, 
         error: {
-          message: error?.error, 
+          message: typeof error.error === 'string' ? error.error : JSON.stringify(error.error) || "Unknown error occurred", 
           code: error.code, 
           statusCode: error.status 
         } 
