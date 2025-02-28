@@ -16,14 +16,26 @@ const ENCRYPTION_KEY = scryptSync(
 );
 const IV_LENGTH = 16;
 
+type AuthUser = {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    profileImg: string | null;
+};
+
 declare module "next-auth" {
     interface Session extends DefaultSession {
       id?: string; // Adding the 'id' field
       user?: {
-        role?: string,
-        profileImg?: string
+        role?: string;
+        profileImg?: string;
+        dbUser?: AuthUser;
       } & DefaultSession["user"];
       updateRole?: boolean
+    }
+    interface User extends AuthUser {
+        dbUser?: AuthUser;
     }
 }
 
@@ -40,7 +52,7 @@ export const authOptions = {
                 email: { label: 'Email', type: 'email', placeholder: 'email' },
                 password: { label: 'password', type: 'password' },
             },
-            async authorize(credentials: any): Promise<any> {
+            async authorize(credentials): Promise<AuthUser> {
                 const result = signInFormSchema.safeParse(credentials);
                 // console.log('result-authOptions', result);
 
@@ -54,7 +66,7 @@ export const authOptions = {
                     )
                 }
                 const { email, password } = result.data;
-                const user:any = await prisma.user.findUnique({
+                const user = await prisma.user.findUnique({
                     where: {
                         email: email,
                     },
@@ -90,11 +102,11 @@ export const authOptions = {
         }),
     ],
     callbacks: {
-        async signIn(signInProps: any) {
+        async signIn(signInProps) {
             console.log("props", signInProps);
-            let { user, account, profile } = signInProps;
+            const { user, account } = signInProps;
 
-            if(account.provider === 'google'){
+            if(account?.provider === 'google'){
                 const { id: googleOauthId, name, email, image: profileImg } = user;
                 let isUserExist = await prisma.user.findFirst({
                     where: {
@@ -121,8 +133,8 @@ export const authOptions = {
                 }
                 user.dbUser = isUserExist;
             }
-            if(account.provider === 'signin'){
-                user.dbUser = user;
+            if(account?.provider === 'signin'){
+                user.dbUser = user as AuthUser;
             }
 
             return true;
@@ -138,14 +150,14 @@ export const authOptions = {
             }
             return baseUrl;
         },
-        async jwt({ token, user, trigger, account, session }){
+        async jwt({ token, user, trigger, session }){
             // console.log("jwt-tok-", token);
             // console.log("jwt-User-", user);            
             if(user){
                 // This runs when user first signs in
-                token.role = (user as any).dbUser?.role;
-                token.profileImg = (user as any).dbUser.profileImg;
-                token.sub = encryptId((user as any).dbUser?.id);
+                token.role = user.dbUser?.role;
+                token.profileImg = user.dbUser?.profileImg;
+                token.sub = encryptId(user.dbUser?.id as string);
             }
             if(trigger === "update" && session?.updateRole){
                 console.log("---- update ROLEEE triggered -----");
@@ -159,7 +171,7 @@ export const authOptions = {
             return token;
         },
 
-        session({ session, token, user}) {
+        session({ session, token}) {
             // console.log("session -authop", session);
             // console.log("TOKEN", token);
             // console.log("user - A-", user);

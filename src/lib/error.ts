@@ -19,7 +19,7 @@ const STATUS_CODES = {
 
 export type ErrorResponseType = {
     name: string;
-    error?: any;
+    error?: Error | string | object;
     code: number;
     message: string;
     status: false;
@@ -27,9 +27,9 @@ export type ErrorResponseType = {
 
 class ErrorHandler extends Error {
     status: false;
-    error?: any;
+    error?: Error | string | object;
     code: number;
-    constructor(message: string, code: keyof typeof STATUS_CODES, error?: any){
+    constructor(message: string, code: keyof typeof STATUS_CODES, error?: Error | string | object){
         super(message);
         this.status = false;
         this.error = error;
