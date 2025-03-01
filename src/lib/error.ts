@@ -6,7 +6,9 @@ const ERROR_NAME = {
     INTERNAL_SERVER_ERROR: 'Internal server error',
     AUTHENTICATION_FAILED: 'Authentication failed',
     USER_NOT_FOUND: 'User not found',
-    NOT_FOUND: 'Not Found'
+    NOT_FOUND: 'Not Found',
+    DUPLICATE_ENTRY: 'Duplicate entry',
+    VALIDATION_ERROR: 'Validation error',
 } as const;
 const STATUS_CODES = {
     UNAUTHORIZED: 401,
@@ -14,7 +16,9 @@ const STATUS_CODES = {
     INTERNAL_SERVER_ERROR: 501,
     AUTHENTICATION_FAILED: 404,
     USER_NOT_FOUND: 404,
-    NOT_FOUND: 404
+    NOT_FOUND: 404,
+    DUPLICATE_ENTRY: 409,
+    VALIDATION_ERROR: 422,
 } as const;
 
 // Error types
