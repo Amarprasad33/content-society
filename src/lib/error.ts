@@ -66,51 +66,51 @@ export function createSuccessResponse<T>(data: T): ApiSuccessResponse<T> {
       status: true,
       data,
     };
-  }
+}
   
-  export function createErrorResponse(
+export function createErrorResponse(
     error: string,
     code: number,
     message?: string
-  ): ApiErrorResponse {
-    return {
-      status: false,
-      error,
-      message,
-      code,
-    };
+): ApiErrorResponse {
+  return {
+    status: false,
+    error,
+    message,
+    code,
+  };
 }
   
 // Helper to handle common errors in server actions
 export function handleServerActionError(error: unknown): ApiErrorResponse {
-    console.error("Server action error:", error);
+  console.error("Server action error:", error);
     
-    if (error instanceof ErrorHandler) {
-      return {
-        status: false,
-        error: error.name,
-        message: error.message,
-        code: error.code,
-      };
-    }
-    
-    // Handle Prisma errors
-    if (error && typeof error === 'object' && 'code' in error && error.code === 'P2002') {
-      return {
-        status: false,
-        error: ERROR_NAME.DUPLICATE_ENTRY,
-        message: "A record with this information already exists",
-        code: STATUS_CODES.DUPLICATE_ENTRY,
-      };
-    }
-    
-    // Default error
+  if (error instanceof ErrorHandler) {
     return {
       status: false,
-      error: "An unexpected error occurred",
-      message: error instanceof Error ? error.message : "Unknown error",
-      code: STATUS_CODES.INTERNAL_SERVER_ERROR,
+      error: error.name,
+      message: error.message,
+      code: error.code,
     };
+  }
+  
+  // Handle Prisma errors
+  if (error && typeof error === 'object' && 'code' in error && error.code === 'P2002') {
+    return {
+      status: false,
+      error: ERROR_NAME.DUPLICATE_ENTRY,
+      message: "A record with this information already exists",
+      code: STATUS_CODES.DUPLICATE_ENTRY,
+    };
+  }
+  
+  // Default error
+  return {
+    status: false,
+    error: "An unexpected error occurred",
+    message: error instanceof Error ? error.message : "Unknown error",
+    code: STATUS_CODES.INTERNAL_SERVER_ERROR,
+  };
 }
 
 export { ErrorHandler }
