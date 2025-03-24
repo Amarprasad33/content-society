@@ -34,9 +34,9 @@ export default function TempLanding() {
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
               <img
-                className="w-[26px] h-[26px] mt-[4px] ml-[2px]"
+                className="w-[26px] h-[26px] ml-[2px]"
                 alt="ContentSociety Logo"
-                src="/group.png"
+                src="/templanding/group.png"
               />
             </div>
             <span className="font-bold text-white text-base leading-[19px] [font-family:'Inter',Helvetica]">
@@ -70,7 +70,7 @@ export default function TempLanding() {
       
 
       <section className="flex flex-col items-center w-full h-[100vh] relative">
-        <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500 overflow-x-hidden">
+        <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500">
           
           <div className="flex flex-col items-center justify-center text-center px-4 mt-[8rem] z-[1] border border-blue-400">
             <h1 className="w-full max-w-[900px] text-4xl lg:text-6xl [font-family:'Inter',Helvetica] font-semibold text-white leading-[60px]">
@@ -94,7 +94,7 @@ export default function TempLanding() {
           <Image
             className="absolute w-[99%] top-[60px] left-0 z-0"
             alt="Textured background"
-            src="/abstract/textured-background.png"
+            src="/templanding/abstract/textured-background.png"
             width={1200}
             height={981}
           />
@@ -105,7 +105,7 @@ export default function TempLanding() {
                 className="h-[490px] mx-auto z-1"
                 // style={{'left': 'calc(100% - 98vw)'}}
                 alt="circle shine"
-                src="/abstract/circle-shine.png" 
+                src="/templanding/abstract/circle-shine.png" 
                 priority={true}
                 placeholder='blur'
                 blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMM5jszGQADqwHCQLH4TQAAAABJRU5ErkJggg=="
@@ -116,7 +116,7 @@ export default function TempLanding() {
                 className="w-full h-[429px] mx-auto absolute top-[3.4rem]"
                 style={{'left': 'calc(100% - 96vw)'}}
                 alt="Circle glow"
-                src="/abstract/circle-glow.png"
+                src="/templanding/abstract/circle-glow.png"
                 width={1820}
                 height={400}
               /> */}
@@ -129,7 +129,7 @@ export default function TempLanding() {
                     <div className="flex items-center p-6 gap-4">
                       <Avatar className="w-[100px] h-[100px]">
                         <AvatarImage
-                          src='/ellipse-4.png'
+                          src='/templanding/ellipse-4.png'
                           alt='Ava Scott'
                         />
                         Should be the first char. of the name
@@ -145,12 +145,12 @@ export default function TempLanding() {
                           </h3>
                           <div className="relative w-[27px] h-[27px]">
                             <img
-                              src={"/star-1.svg"}
+                              src={"/templanding/star-1.svg"}
                               alt="Verification"
                               className="absolute w-full h-full"
                             />
                             <img
-                              src='/qlementine-icons-check-tick-16-1.svg'
+                              src='/templanding/qlementine-icons-check-tick-16-1.svg'
                               alt="Check"
                               className="absolute w-[18px] h-[18px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                             />
@@ -163,7 +163,7 @@ export default function TempLanding() {
 
                       <button className="w-[43px] h-[43px] flex items-center justify-center">
                         <img
-                          src='/material-symbols-bookmark-outline-rounded.svg'
+                          src='/templanding/material-symbols-bookmark-outline-rounded.svg'
                           alt="Bookmark"
                           className="w-full h-full"
                         />
@@ -178,7 +178,7 @@ export default function TempLanding() {
                           className="h-8 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-4 py-1.5"
                         >
                           <img
-                            src={'/bytesize-work.svg'}
+                            src={'/templanding/bytesize-work.svg'}
                             alt="Work type"
                             className="w-5 h-5 mr-2"
                           />
@@ -193,7 +193,7 @@ export default function TempLanding() {
                         >
                           <div className="w-4 h-4 mr-2">
                             <img
-                              src={'/group-4.png'}
+                              src={'/templanding/group-4.png'}
                               alt="Experience"
                               className="w-full h-full"
                             />
@@ -210,7 +210,7 @@ export default function TempLanding() {
                           className="h-8 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-4 py-1.5"
                         >
                           <img
-                            src={'/tdesign-money.svg'}
+                            src={'/templanding/tdesign-money.svg'}
                             alt="Rate"
                             className="w-5 h-5 mr-2"
                           />
@@ -230,7 +230,7 @@ export default function TempLanding() {
                           className="h-8 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-4 py-1.5"
                         >
                           <img
-                            src={'/weui-location-outlined-1.svg'}
+                            src={'/templanding/weui-location-outlined-1.svg'}
                             alt="Location"
                             className="w-5 h-5 mr-2"
                           />
@@ -244,7 +244,7 @@ export default function TempLanding() {
                     {/* Separator */}
                     <div className="px-6 pt-8">
                       <img
-                        src='/line-1-2.svg'
+                        src='/templanding/line-1-2.svg'
                         alt="Separator"
                         className="w-full"
                       />
