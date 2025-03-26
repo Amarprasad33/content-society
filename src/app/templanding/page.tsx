@@ -129,7 +129,36 @@ export default function TempLanding() {
       </section>
 
       {/* Bento-section */}
-      
+      <section className="flex flex-col items-center w-full border border-slate-400 min-h-screen">
+        {/* First bento gradient */}
+        {/* <div class="w-[640px] h-[420px] rounded-lg bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]"></div> */}
+        <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
+          {/* <!-- Box 1: Flexible Search (Takes 2 columns on large screens) --> */}
+          <div className="lg:col-span-2 bg-[#1a1235] rounded-xl p-6"> 
+              <h3 className="text-white font-semibold">Flexible Search</h3>
+              <p className="text-gray-400">Find the right candidate...</p>
+          </div>
+
+          {/* <!-- Box 2: Master Social Presence --> */}
+          <div className="bg-[#1a1235] rounded-xl p-6">
+              <h3 className="text-white font-semibold">Master Social Presence</h3>
+              <p className="text-gray-400">Free social media managers...</p>
+          </div>
+
+          {/* <!-- Box 3: Effortless Hiring Process (Takes 2 columns on large screens) --> */}
+          <div className="lg:col-span-2 bg-[#1a1235] rounded-xl p-6">
+              <h3 className="text-white font-semibold">Effortless Hiring Process</h3>
+              <p className="text-gray-400">Find and onboard top talent...</p>
+          </div>
+
+          {/* <!-- Box 4: Diverse Talent Pool --> */}
+          <div className="bg-[#1a1235] rounded-xl p-6">
+              <h3 className="text-white font-semibold">Diverse Talent Pool</h3>
+              <p className="text-gray-400">Access a curated network...</p>
+          </div>
+        </div>
+
+      </section>
 
     </main> 
     
