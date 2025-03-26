@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import {
   Avatar,
@@ -11,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import HeroProfileCard from "@/components/custom/heroProfileCard";
 
 
 // Data for navigation items
@@ -66,10 +64,8 @@ export default function TempLanding() {
           </Button>
         </div>
       </header>
-
-      
-
-      <section className="flex flex-col items-center w-full h-[100vh] relative">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center w-full min-h-screen relative">
         <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500">
           
           <div className="flex flex-col items-center justify-center text-center px-4 mt-[8rem] z-[1] border border-blue-400">
@@ -99,8 +95,8 @@ export default function TempLanding() {
             height={981}
           />
           {/* Radial glow */}
-          <div className="z-10 mt-[2rem] w-full">
-            <div className="relative flex h-full w-full border border-amber-500">
+          <div className="z-10 relative mt-[2rem] w-full border border-blue-800">
+            <div className="relative flex h-full w-full mt-28">
               <Image
                 className="h-[490px] mx-auto z-1"
                 // style={{'left': 'calc(100% - 98vw)'}}
@@ -112,163 +108,29 @@ export default function TempLanding() {
                 width={1820}
                 height={400}
               />
-              {/* <Image
-                className="w-full h-[429px] mx-auto absolute top-[3.4rem]"
-                style={{'left': 'calc(100% - 96vw)'}}
-                alt="Circle glow"
-                src="/templanding/abstract/circle-glow.png"
-                width={1820}
-                height={400}
-              /> */}
-              {/* Profile card */}
-              <div className="absolute bottom-8 right-2">
-                <Card className="h-fit bg-[#110d27] text-white rounded-3xl relative overflow-hidden border border-green-500">
-                  <CardContent className="py-8 px-8">
-
-                    <div className="flex items-center gap-4">
-                      <Avatar className="w-[70px] h-[70px]">
-                        <AvatarImage
-                          src='/templanding/ellipse-4.png'
-                          alt='Ava Scott'
-                        />
-                        {/* Should be the first char. of the name */}
-                        <AvatarFallback>
-                          A
-                        </AvatarFallback>
-                      </Avatar>
-
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          <h3 className="[font-family:'Inter',Helvetica] font-medium text-white text-[18px]">
-                            Ava Scott
-                          </h3>
-                          <div className="relative w-[27px] h-[27px]">
-                            <Image
-                              src={"/templanding/vefication.svg"}
-                              alt="Verification"
-                              className="absolute w-full h-full"
-                              width={27}
-                              height={27}
-                            />
-                          </div>
-                        </div>
-                        <p className="[font-family:'Inter',Helvetica] font-medium text-[#6b6b6b] text-[18px]">
-                          Script writer
-                        </p>
-                      </div>
-
-                      <button className="w-[34px] h-[34px] flex items-center justify-center">
-                        <img
-                          src='/templanding/material-symbols-bookmark-outline-rounded.svg'
-                          alt="Bookmark"
-                          className="w-full h-full"
-                        />
-                      </button>
-                    </div>
-
-                    <div className="pt-8 space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        <Badge
-                          variant="outline"
-                          className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
-                        >
-                          <img
-                            src={'/templanding/bytesize-work.svg'}
-                            alt="Work type"
-                            className="w-5 h-5 mr-2"
-                          />
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">
-                            Full-time
-                          </span>
-                        </Badge>
-
-                        <Badge
-                          variant="outline"
-                          className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
-                        >
-                          <div className="w-4 h-4 mr-2">
-                            <img
-                              src={'/templanding/group-4.png'}
-                              alt="Experience"
-                              className="w-full h-full"
-                            />
-                          </div>
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">
-                            3+ Years
-                          </span>
-                        </Badge>
-                      </div>
-
-                      <div className="flex flex-wrap gap-2">
-                        <Badge
-                          variant="outline"
-                          className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
-                        >
-                          <img
-                            src={'/templanding/tdesign-money.svg'}
-                            alt="Rate"
-                            className="w-5 h-5 mr-2"
-                          />
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">
-                            $60/hr
-                          </span>
-                          <div className="w-4 h-4 mx-1 flex items-center justify-center">
-                            <div className="w-[7px] h-[7px] bg-white rounded-[3.5px]"></div>
-                          </div>
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">
-                            Negotiable
-                          </span>
-                        </Badge>
-
-                        <Badge
-                          variant="outline"
-                          className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
-                        >
-                          <img
-                            src={'/templanding/weui-location-outlined-1.svg'}
-                            alt="Location"
-                            className="w-5 h-5 mr-2"
-                          />
-                          <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">
-                            Onsite: CA, LA
-                          </span>
-                        </Badge>
-                      </div>
-                    </div>
-
-                    {/* Separator */}
-                    <div className="py-8">
-                      <div className="w-full h-[0.1rem] bg-white/30" />
-                    </div>
-
-                    {/* Actino Button */}
-                    <div className="flex flex-col items-center gap-4">
-                      <Button className="w-[200px] h-10 bg-[#2d23634f] rounded-[58px] text-white hover:bg-[#2d2363] relative overflow-hidden">
-                        <div className="absolute w-[145px] h-[38px] top-[-40px] left-[1.7rem] bg-[#7533c7] rounded-[103px/19px] blur-[18.15px]"></div>
-                        <div className="absolute w-[145px] h-[38px] bottom-[-36px] left-[1.7rem] bg-[#7533c7] rounded-[103px/19px] blur-[18.15px]"></div>
-                        <span className="relative z-10 [font-family:'Inter',Helvetica] font-normal text-sm">
-                          Hire
-                        </span>
-                      </Button>
-
-                      <Button
-                        variant="ghost"
-                        className="w-[200px] h-10 rounded-[58px] [background:linear-gradient(90deg,rgba(255,255,255,1)_0%,rgba(153,153,153,1)_100%)] [-webkit-background-clip:text] bg-clip-text hover:bg-transparent"
-                      >
-                        <span className="[font-family:'Inter',Helvetica] font-normal text-sm">
-                          Discuss
-                        </span>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+            </div>
+            {/* Profile Cards */}
+            <div className="absolute inset-0 border border-pink-500 w-full h-fit flex items-center justify-center">
+              <div className="w-fit z-30">
+                <HeroProfileCard />
+              </div>
+              <div className="absolute h-[27rem] w-[30rem] border border-red-500">
+                <div className="absolute -right-56 top-[3.9rem] rotate-[17.6deg]">
+                  <HeroProfileCard />
+                </div>
+                <div className="absolute -left-56 top-[3.9rem] -rotate-[17.6deg]">
+                  <HeroProfileCard />
+                </div>
               </div>
             </div>
           </div>
-          {/* <div className="w-[70%] h-40 -bottom-[5rem] z-20 rounded-full border absolute  left-[15%] border-purple-700 bg-radial from-[#6738B8] from-20% via-[#6221D1] to-[#380987] blur-[38px]"></div> */}
           
         </div>
       </section>
+
+      {/* Bento-section */}
+      
+
     </main> 
     
   );
