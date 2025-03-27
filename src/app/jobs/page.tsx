@@ -148,7 +148,7 @@ export default function Jobs() {
         ))}
       </div>
       { jobDetailView && 
-        <div className="inset-0 absolute w-full h-full bg-zinc-700/70">
+        <div className="inset-0 absolute w-full h-full bg-zinc-700/70 backdrop-blur-sm">
           <AnimatePresence mode="wait">
             <motion.div 
               key="job-view-modal"
