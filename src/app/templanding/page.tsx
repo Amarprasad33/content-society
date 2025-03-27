@@ -65,7 +65,7 @@ export default function TempLanding() {
         </div>
       </header>
       {/* Hero Section */}
-      <section className="flex flex-col items-center w-full min-h-screen relative">
+      <section className="flex flex-col items-center w-full min-h-screen relative overflow-hidden">
         <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500">
           
           <div className="flex flex-col items-center justify-center text-center px-4 mt-[8rem] z-[1] border border-blue-400">
@@ -132,29 +132,38 @@ export default function TempLanding() {
       <section className="flex flex-col items-center w-full border border-slate-400 min-h-screen">
         {/* First bento gradient */}
         {/* <div class="w-[640px] h-[420px] rounded-lg bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]"></div> */}
-        <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr">
-          {/* <!-- Box 1: Flexible Search (Takes 2 columns on large screens) --> */}
-          <div className="lg:col-span-2 bg-[#1a1235] rounded-xl p-6"> 
+        {/* <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 auto-rows-fr">
+          <!-- Box 1: Flexible Search (Takes 2 columns on large screens) -->
+          <div className="lg:col-span-4 bg-[#1a1235] rounded-xl p-6"> 
               <h3 className="text-white font-semibold">Flexible Search</h3>
               <p className="text-gray-400">Find the right candidate...</p>
           </div>
 
-          {/* <!-- Box 2: Master Social Presence --> */}
-          <div className="bg-[#1a1235] rounded-xl p-6">
+          <!-- Box 2: Master Social Presence -->
+          <div className="lg:col-span- bg-[#1a1235] rounded-xl p-6">
               <h3 className="text-white font-semibold">Master Social Presence</h3>
               <p className="text-gray-400">Free social media managers...</p>
           </div>
 
-          {/* <!-- Box 3: Effortless Hiring Process (Takes 2 columns on large screens) --> */}
+          <!-- Box 3: Effortless Hiring Process (Takes 2 columns on large screens) -->
           <div className="lg:col-span-2 bg-[#1a1235] rounded-xl p-6">
               <h3 className="text-white font-semibold">Effortless Hiring Process</h3>
               <p className="text-gray-400">Find and onboard top talent...</p>
           </div>
 
-          {/* <!-- Box 4: Diverse Talent Pool --> */}
+          <!-- Box 4: Diverse Talent Pool -->
           <div className="bg-[#1a1235] rounded-xl p-6">
               <h3 className="text-white font-semibold">Diverse Talent Pool</h3>
               <p className="text-gray-400">Access a curated network...</p>
+          </div>
+        </div> */}
+
+        <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
+          <div className="w-full">
+            {/* Card-1 */}
+            <div className="w-[640px] h-[420px] rounded-2xl bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]">
+
+            </div>
           </div>
         </div>
 
