@@ -161,8 +161,16 @@ export default function TempLanding() {
         <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
           <div className="w-full">
             {/* Card-1 */}
-            <div className="w-[640px] h-[420px] rounded-2xl bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]">
-
+            <div className="relative w-[640px] h-[420px] rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_69%)]">
+              {/* Search Filter cards */}
+              <div className="border border-rose-500 ">
+                
+              </div>
+              {/* Copy */}
+              <div className="absolute bottom-8 left-7 flex flex-col gap-3 ">
+                <div className="text-lg font-medium text-white">Flexible Search</div>
+                <div className="text-base font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
+              </div>
             </div>
           </div>
         </div>
