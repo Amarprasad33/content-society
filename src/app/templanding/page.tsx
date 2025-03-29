@@ -162,9 +162,19 @@ export default function TempLanding() {
           <div className="w-full">
             {/* Card-1 */}
             <div className="relative w-[640px] h-[420px] rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_69%)]">
-              {/* Search Filter cards */}
-              <div className="border border-rose-500 ">
+              {/* Search Filter cards border-[#282D43] */}
+
+              <div className="relative rounded-lg p-4 w-80 border border-[#282D43]">
+                {/* Gradient Background */}
+                <div className="absolute inset-0 bg-[#101129] opacity-80 rounded-lg"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)] rounded-lg"></div>
                 
+                {/* Solid Color Overlay */}
+                  
+                <div className="relative z-10 text-white">
+                  <div className="text-lg font-medium">Categories</div>
+                  <div className="text-sm text-gray-300">Creative · Post production · Design</div>
+                </div>
               </div>
               {/* Copy */}
               <div className="absolute bottom-8 left-7 flex flex-col gap-3 ">
@@ -172,6 +182,7 @@ export default function TempLanding() {
                 <div className="text-base font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
               </div>
             </div>
+
           </div>
         </div>
 
