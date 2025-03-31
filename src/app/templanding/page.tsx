@@ -161,28 +161,32 @@ export default function TempLanding() {
         <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
           <div className="w-full">
             {/* Card-1 */}
-            <div className="relative w-[640px] h-[420px] rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_69%)]">
+            <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_69%)]">
               {/* Search Filter cards border-[#282D43] */}
-              <div className="cards-container absolute left-32 top-8 border border-slate-300">
-                <div className="flex gap-3">
-                  <div className="relative rounded-lg p-4 w-80 border border-[#373d59]">
-                    {/* Gradient Background */}
-                    <div className="absolute inset-0 bg-[#101129] opacity-80 rounded-lg"></div>
-                    <div className="absolute inset-0 bg-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)] rounded-lg"></div>
-                    
-                    {/* Solid Color Overlay */}
-                      
-                    <div className="relative z-10 text-white flex flex-col gap-3">
-                      <div className="text-sm font-medium">Categories</div>
-                      <div className="text-[12px] font-normal flex gap-2 text-white/60">
-                        <div>Creative</div>
-                        <div>Post production</div>
-                        <div>Design</div>
-                        <div>Video editing</div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="cards-container flex flex-col gap-8 absolute left-28 top-8 border border-slate-300">
+                <div className="flex gap-6">
+                  <Bento_1_FilterCard 
+                    filterHeading="Categories"
+                    filterOptions={["Creative", "Post production", "Design", "Video editing"]}
+                  />
+                  <Bento_1_FilterCard 
+                    filterHeading="Markets"
+                    filterOptions={["Entertainment", "Gaming & Esports", "Education", "IM", "Media"]}
+                  />
                 </div>
+                <div className="flex gap-6">
+                  <Bento_1_FilterCard 
+                    filterHeading="Salary"
+                    filterOptions={["$20,000", "-", "$80,000+"]}
+                  />
+                  <Bento_1_FilterCard 
+                    filterHeading="Job Type"
+                    filterOptions={["Full-time", "Part-time", "Remote", "On-site", "Hybrid", "Contract", "Freelance"]}
+                  />
+                </div>
+              </div>
+              <div className="p-[1px] rounded-lg bg-gradient-to-r from-[#4E0AC2] to-[#25055C] w-fit bottom-[7rem] absolute" style={{'left': 'calc(100% - 23rem);'}}>
+                <button className="bg-[#171036] px-[30px] pt-[5px] pb-[6px] w-full h-full text-xs font-normal rounded-[6px]">Search Filters</button>
               </div>
               {/* Copy */}
               <div className="absolute bottom-8 left-7 flex flex-col gap-3 ">
@@ -199,4 +203,26 @@ export default function TempLanding() {
     </main> 
     
   );
+}
+
+
+const Bento_1_FilterCard = ({ filterHeading, filterOptions }: { filterHeading: string, filterOptions: string[] }) => {
+  return (
+    <div className="relative w-fit rounded-lg p-4 border border-[#373d59] hover:shadow-[0px_0px_9px_3px_rgba(102,_47,_212,_0.35)] transition-shadow duration-200">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-[#101129] opacity-80 rounded-lg"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)] rounded-lg"></div>
+      
+      {/* Solid Color Overlay */}
+        
+      <div className="relative z-10 text-white flex flex-col gap-3">
+        <div className="text-sm font-medium">{filterHeading}</div>
+        <div className="text-[12px] font-normal flex gap-2 text-white/60">
+          {filterOptions.map((item: string) => (
+            <div key={item} className="whitespace-nowrap">{item}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 }
