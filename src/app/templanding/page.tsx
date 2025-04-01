@@ -161,9 +161,9 @@ export default function TempLanding() {
         <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
           <div className="w-full">
             {/* Card-1 */}
-            <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_69%)]">
+            <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
               {/* Search Filter cards border-[#282D43] */}
-              <div className="cards-container flex flex-col gap-8 absolute left-28 top-8 border border-slate-300">
+              <div className="cards-container flex flex-col gap-8 absolute left-28 top-8">
                 <div className="flex gap-6">
                   <Bento_1_FilterCard 
                     filterHeading="Categories"
@@ -185,14 +185,28 @@ export default function TempLanding() {
                   />
                 </div>
               </div>
-              <div className="p-[1px] rounded-lg bg-gradient-to-r from-[#4E0AC2] to-[#25055C] w-fit bottom-[7rem] absolute" style={{'left': 'calc(100% - 23rem);'}}>
-                <button className="bg-[#171036] px-[30px] pt-[5px] pb-[6px] w-full h-full text-xs font-normal rounded-[6px]">Search Filters</button>
+              <div className="p-[1px] rounded-lg z-[1] bg-gradient-to-r from-[#4E0AC2] to-[#25055C] w-fit bottom-[7rem] absolute" style={{'left': 'calc(100% - 23rem)'}}>
+                <button className="bg-[#171036] px-[30px] pt-[5px] pb-[6px] w-full h-full text-xs font-normal rounded-[7px]">Search Filters</button>
               </div>
               {/* Copy */}
               <div className="absolute bottom-8 left-7 flex flex-col gap-3 ">
                 <div className="text-lg font-medium text-white">Flexible Search</div>
                 <div className="text-base font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
               </div>
+              <Image
+                className=""
+                alt="Light glow"
+                src="/templanding/abstract/purple_light_bento-1.png"
+                width={660}
+                height={416}
+              />
+              <Image
+                className="absolute bottom-[7.8rem] left-[4.3rem]"
+                alt="Connecting lines"
+                src="/templanding/mini_assets/connector-bento.svg"
+                width={215}
+                height={244}
+              />
             </div>
 
           </div>
