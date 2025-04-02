@@ -208,14 +208,15 @@ export default function TempLanding() {
                 height={244}
               />
             </div>
-
+            {/* Card-2 */}
+            
           </div>
         </div>
 
       </section>
 
     </main> 
-    
+
   );
 }
 
