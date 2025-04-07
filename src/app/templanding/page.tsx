@@ -159,7 +159,7 @@ export default function TempLanding() {
         </div> */}
 
         <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
-          <div className="w-full">
+          <div className="w-full flex gap-6">
             {/* Card-1 */}
             <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
               {/* Search Filter cards border-[#282D43] */}
@@ -189,9 +189,9 @@ export default function TempLanding() {
                 <button className="bg-[#171036] px-[30px] pt-[5px] pb-[6px] w-full h-full text-xs font-normal rounded-[7px]">Search Filters</button>
               </div>
               {/* Copy */}
-              <div className="absolute bottom-8 left-7 flex flex-col gap-3 ">
-                <div className="text-lg font-medium text-white">Flexible Search</div>
-                <div className="text-base font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
+              <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
+                <div className="text-base font-medium text-white">Flexible Search</div>
+                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
               </div>
               <Image
                 className=""
@@ -209,7 +209,15 @@ export default function TempLanding() {
               />
             </div>
             {/* Card-2 */}
-            
+            <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
+              {/* Copy */}
+              <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
+                <div className="text-base font-medium text-white">Flexible Search</div>
+                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
+              </div>
+              <div className="bg-[#31177E] w-3/4 h-64 absolute -top-44 rounded-[20rem] blur-[60px]" />
+              <div className="bg-[#31177E] w-3/4 h-40 absolute -bottom-24 rounded-[8rem] blur-[60px]" />
+            </div>
           </div>
         </div>
 
