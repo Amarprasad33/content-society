@@ -176,7 +176,7 @@ export default function JobForm() {
             uploading && <div>Uploading...</div>
           }
           {imageUrl && 
-            <div className='!my-1.5 w-fit p-2 rounded-lg border border-slate-700'> 
+            <div className='my-1.5! w-fit p-2 rounded-lg border border-slate-700'> 
               <Image src={imageUrl} width={36} height={36} alt='org-logo' />
             </div>
           }

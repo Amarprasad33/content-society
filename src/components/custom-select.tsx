@@ -13,7 +13,7 @@ const CustomSelect = React.forwardRef<HTMLSelectElement, CustomSelectProps>(
         <select
           className={cn(
             "w-full h-10 px-3 py-2 text-sm bg-background border border-input rounded-md",
-            "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:border-input transition",
+            "focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:border-input transition",
             "hover:bg-gray-800 hover:text-white",
             "peer appearance-none cursor-pointer",
             // "hover:bg-accent hover:text-accent-foreground",

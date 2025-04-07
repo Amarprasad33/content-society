@@ -205,7 +205,7 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                     <textarea 
                         name="" id="" 
                         placeholder="Write your cover letter" 
-                        className="w-1/2 rounded-xl focus:outline-none py-2 px-4 text-black"
+                        className="w-1/2 rounded-xl focus:outline-hidden py-2 px-4 text-black"
                         onChange={(e) => setLetter(e.target.value)}
                     ></textarea>
                 </div>

@@ -17,7 +17,7 @@ export default function Appbar() {
 
     // if (status === "loading") {
     //     return (
-    //         <div className="border-b border-zinc-800 sticky top-0 z-50 bg-black/50 backdrop-blur-sm p-[14px] flex justify-between">
+    //         <div className="border-b border-zinc-800 sticky top-0 z-50 bg-black/50 backdrop-blur-xs p-[14px] flex justify-between">
     //             <Skeleton className="h-6 w-48 bg-gray-600 rounded-full"></Skeleton>
     //             <div className="flex gap-2">
     //                 <Skeleton className="h-6 w-16 bg-gray-600 rounded-full"></Skeleton>
@@ -44,10 +44,10 @@ export default function Appbar() {
       ]
 
     return (
-        <header className="border-b border-zinc-800 sticky top-0 z-50 bg-black/50 backdrop-blur-sm">
+        <header className="border-b border-zinc-800 sticky top-0 z-50 bg-black/50 backdrop-blur-xs">
             <div className="container flex-wrap mx-auto px-4 h-16 flex items-center justify-between">
                 <Link href="/" className="text-2xl font-bold text-primary text-white"  onClick={() => setCurrentPath('/')}>Content Society</Link>
-                <nav className="px-1.5 py-1.5 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50">
+                <nav className="px-1.5 py-1.5 rounded-full bg-zinc-900/50 backdrop-blur-xs border border-zinc-800/50">
                     <ul className="flex items-center space-x-1">
                         {navigation.map((item) => (
                             <li key={item.name}>
