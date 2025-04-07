@@ -75,10 +75,12 @@ export default function HeroProfileCard() {
                             className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
                         >
                             <div className="w-4 h-4 mr-2">
-                                <img
-                                    src={'/templanding/group-4.png'}
+                                <Image
+                                    src={'/templanding/mini_assets/clock.svg'}
                                     alt="Experience"
                                     className="w-full h-full"
+                                    width={18}
+                                    height={18}
                                 />
                             </div>
                             <span className="[font-family:'Inter',Helvetica] font-normal text-white text-sm">

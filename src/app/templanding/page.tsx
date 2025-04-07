@@ -217,6 +217,8 @@ export default function TempLanding() {
               </div>
               <div className="bg-[#31177E] w-3/4 h-64 absolute -top-44 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-40 absolute -bottom-24 rounded-[8rem] blur-[60px]" />
+              {/* side - rods */}
+              <div className="w-52 h-6 rounded-full overflow-hidden "></div>
             </div>
           </div>
         </div>
@@ -231,7 +233,7 @@ export default function TempLanding() {
 
 const Bento_1_FilterCard = ({ filterHeading, filterOptions }: { filterHeading: string, filterOptions: string[] }) => {
   return (
-    <div className="relative w-fit rounded-lg p-4 border border-[#373d59] hover:shadow-[0px_0px_9px_3px_rgba(102,_47,_212,_0.35)] transition-shadow duration-200">
+    <div className="relative w-fit rounded-lg p-4 border border-[#292e43] hover:shadow-[0px_0px_9px_3px_rgba(102,_47,_212,_0.35)] transition-shadow duration-200">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-[#101129] opacity-80 rounded-lg"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)] rounded-lg"></div>
