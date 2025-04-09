@@ -204,13 +204,63 @@ export default function TempLanding() {
             {/* Card-2 */}
             <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
 
-              <div className="rounded-[9px] mt-12 bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.6)_-30%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[60%] h-[60%]">
+              <div className="rounded-[9px] mt-12 bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-30%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[60%] h-[60%]">
                 <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
-                  <div className="rounded-[8px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-70%,_rgba(0,0,0,0)_50%)] p-[1px] w-[90%] h-[90%] self-center">
-                    <div className="w-full h-full bg-[#120E29] rounded-[7px]">
 
+                  <div className="rounded-[9px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.4)_-50%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[85%] h-[85%] self-center">
+                    <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
+                      <div className="rounded-[8px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-70%,_rgba(0,0,0,0)_50%)] p-[1px] w-[85%] h-[85%] self-center">
+                        <div className="w-full h-full bg-[#19133ddd] rounded-[7px] flex items-center justify-center">
+                          <Image
+                            className="absolute"
+                            alt="Connecting lines"
+                            src="/templanding/mini_assets/sm-connector.svg"
+                            width={118}
+                            height={118}
+                          />
+                          <div className="w-[118px] h-[118px] relative">
+                            <figure className="w-7 h-7 rounded-full absolute -top-2 -left-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
+                              <Image
+                                className=""
+                                alt="Connecting lines"
+                                src="/templanding/mini_assets/facebook.svg"
+                                width={20}
+                                height={20}
+                              />
+                            </figure>
+                            <figure className="w-7 h-7 rounded-full absolute -top-2 -right-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
+                              <Image
+                                className=""
+                                alt="Connecting lines"
+                                src="/templanding/mini_assets/instagram.svg"
+                                width={20}
+                                height={20}
+                              />
+                            </figure>
+                            <figure className="w-7 h-7 rounded-full absolute -bottom-2 -left-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
+                              <Image
+                                className=""
+                                alt="Connecting lines"
+                                src="/templanding/mini_assets/youtube.svg"
+                                width={20}
+                                height={20}
+                              />
+                            </figure>
+                            <figure className="w-7 h-7 rounded-full absolute -bottom-2 -right-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
+                              <Image
+                                className=""
+                                alt="Connecting lines"
+                                src="/templanding/mini_assets/X.svg"
+                                width={18}
+                                height={18}
+                              />
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
               {/* side - rods */}
@@ -218,6 +268,12 @@ export default function TempLanding() {
                 <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
               </div>
               <div className="w-44 h-[2rem] p-[1px] absolute bottom-[9rem] right-[-6.5rem] rounded-full z-10 bg-radial-[at_10%_15%] from-[#A9A0FA] to-transparent/5 to-25%">
+                <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
+              </div>
+              <div className="w-44 h-[2rem] p-[1px] absolute bottom-[11rem] left-[-8rem] rounded-full z-10 bg-radial-[at_90%_15%] from-[#A9A0FA] to-transparent/5 to-25%">
+                <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
+              </div>
+              <div className="w-44 h-[2rem] p-[1px] absolute top-[2.5rem] left-[-6.5rem] rounded-full z-10 bg-radial-[at_90%_15%] from-[#A9A0FA] to-transparent/5 to-25%">
                 <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
               </div>
               {/* Copy */}
