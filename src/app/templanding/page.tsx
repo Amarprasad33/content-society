@@ -203,6 +203,23 @@ export default function TempLanding() {
             </div>
             {/* Card-2 */}
             <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
+
+              <div className="rounded-[9px] mt-12 bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.6)_-30%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[60%] h-[60%]">
+                <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
+                  <div className="rounded-[8px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-70%,_rgba(0,0,0,0)_50%)] p-[1px] w-[90%] h-[90%] self-center">
+                    <div className="w-full h-full bg-[#120E29] rounded-[7px]">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* side - rods */}
+              <div className="w-44 h-[2rem] p-[1px] absolute top-[4rem] right-[-8rem] rounded-full z-10 bg-radial-[at_10%_15%] from-[#A9A0FA] to-transparent/5 to-25%">
+                <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
+              </div>
+              <div className="w-44 h-[2rem] p-[1px] absolute bottom-[9rem] right-[-6.5rem] rounded-full z-10 bg-radial-[at_10%_15%] from-[#A9A0FA] to-transparent/5 to-25%">
+                <div className="w-full h-full rounded-full bg-[linear-gradient(to_top,_rgba(28,16,70,1)_13%,_rgba(90,60,185,1)_170%)]"></div>
+              </div>
               {/* Copy */}
               <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
                 <div className="text-base font-medium text-white">Flexible Search</div>
@@ -210,14 +227,11 @@ export default function TempLanding() {
               </div>
               <div className="bg-[#31177E] w-3/4 h-64 absolute -top-44 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-40 absolute -bottom-24 rounded-[8rem] blur-[60px]" />
-              {/* side - rods */}
-              <div className="w-52 h-6 rounded-full overflow-hidden "></div>
             </div>
           </div>
         </div>
 
       </section>
-
     </main> 
 
   );
