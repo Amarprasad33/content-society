@@ -151,8 +151,8 @@ export default function TempLanding() {
           </div>
         </div> */}
 
-        <div className="border border-rose-600 w-[80%] h-[70vh] mt-8">
-          <div className="w-full flex gap-6">
+        <div className="border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
+          <div className="w-fit flex gap-6">
             {/* Card-1 */}
             <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
               {/* Search Filter cards border-[#282D43] */}
@@ -203,14 +203,13 @@ export default function TempLanding() {
             </div>
             {/* Card-2 */}
             <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
-
+              {/* central design */}
               <div className="rounded-[9px] mt-12 bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-30%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[60%] h-[60%]">
                 <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
-
                   <div className="rounded-[9px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.4)_-50%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[85%] h-[85%] self-center">
                     <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
                       <div className="rounded-[8px] bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-70%,_rgba(0,0,0,0)_50%)] p-[1px] w-[85%] h-[85%] self-center">
-                        <div className="w-full h-full bg-[#19133ddd] rounded-[7px] flex items-center justify-center">
+                        <div className="w-full h-full bg-[#19133ddd] rounded-[7px] flex items-center justify-center shadow-[4px_9px_12px_0px_rgba(0,_0,_0,_0.2)]">
                           <Image
                             className="absolute"
                             alt="Connecting lines"
@@ -259,8 +258,7 @@ export default function TempLanding() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  
+                  </div> 
                 </div>
               </div>
               {/* side - rods */}
@@ -284,6 +282,15 @@ export default function TempLanding() {
               <div className="bg-[#31177E] w-3/4 h-64 absolute -top-44 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-40 absolute -bottom-24 rounded-[8rem] blur-[60px]" />
             </div>
+            
+          </div>
+          <div className="w-fit flex gap-6">
+            <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
+              
+              <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -top-60 rounded-[20rem] blur-[60px]" />
+              <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
+            </div>
+
           </div>
         </div>
 
