@@ -221,7 +221,7 @@ export default function TempLanding() {
                             <figure className="w-7 h-7 rounded-full absolute -top-2 -left-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
                               <Image
                                 className=""
-                                alt="Connecting lines"
+                                alt="facebook"
                                 src="/templanding/mini_assets/facebook.svg"
                                 width={20}
                                 height={20}
@@ -230,7 +230,7 @@ export default function TempLanding() {
                             <figure className="w-7 h-7 rounded-full absolute -top-2 -right-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
                               <Image
                                 className=""
-                                alt="Connecting lines"
+                                alt="instagram"
                                 src="/templanding/mini_assets/instagram.svg"
                                 width={20}
                                 height={20}
@@ -239,7 +239,7 @@ export default function TempLanding() {
                             <figure className="w-7 h-7 rounded-full absolute -bottom-2 -left-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
                               <Image
                                 className=""
-                                alt="Connecting lines"
+                                alt="youtube"
                                 src="/templanding/mini_assets/youtube.svg"
                                 width={20}
                                 height={20}
@@ -248,7 +248,7 @@ export default function TempLanding() {
                             <figure className="w-7 h-7 rounded-full absolute -bottom-2 -right-3 bg-[#190E4E] border border-[#8F7CFC] flex items-center justify-center">
                               <Image
                                 className=""
-                                alt="Connecting lines"
+                                alt="X"
                                 src="/templanding/mini_assets/X.svg"
                                 width={18}
                                 height={18}
@@ -276,8 +276,8 @@ export default function TempLanding() {
               </div>
               {/* Copy */}
               <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
-                <div className="text-base font-medium text-white">Flexible Search</div>
-                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Find the right candidate your content needs according to your requirements</div>
+                <div className="text-base font-medium text-white">Master Social Presence</div>
+                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Find social media managers, strategists who can amplify your online presence.</div>
               </div>
               <div className="bg-[#31177E] w-3/4 h-64 absolute -top-44 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-40 absolute -bottom-24 rounded-[8rem] blur-[60px]" />
@@ -285,8 +285,34 @@ export default function TempLanding() {
             
           </div>
           <div className="w-fit flex gap-6">
+            {/* card  - 3 */}
             <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
-              
+              <div className="center-dzn w-[170px] h-[170px] border border-sky-400 absolute top-20 ml-[10px] flex items-center justify-center">
+                <div className="w-full h-full rounded-full" style={{
+                  backgroundImage: `
+                    radial-gradient(at 50% 0%, #A9A0FA, transparent 45%),
+                    radial-gradient(at 50% 95%, #A9A0FA, transparent 45%)
+                  `
+                }}></div>
+                <div className="bg-[#110D27] w-[99%] h-[99%] rounded-full absolute top-[1px]" style={{
+                  backgroundImage: `
+                    radial-gradient(at 50% -260%, rgba(169, 160, 250, 0.3) 0%, transparent 80%),
+                    radial-gradient(at 50% 420%, rgba(169, 160, 250, 0.3) 0%, transparent 80%)
+                  `,
+                }}></div>
+              </div>
+              <Image
+                className=""
+                alt="Connecting lines"
+                src="/templanding/abstract/masked-grid.png"
+                width={450}
+                height={390}
+              />
+              {/* copy */}
+              <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
+                <div className="text-base font-medium text-white">Effortless Hiring Process</div>
+                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Find and onboard top creative talent quickly with a seamless, hassle-free hiring experience</div>
+              </div>
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -top-60 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
             </div>
