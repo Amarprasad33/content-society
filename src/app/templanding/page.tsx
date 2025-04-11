@@ -287,7 +287,14 @@ export default function TempLanding() {
           <div className="w-fit flex gap-6">
             {/* card  - 3 */}
             <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
-              <div className="center-dzn w-[170px] h-[170px] border border-sky-400 absolute top-20 ml-[10px] flex items-center justify-center">
+                <Image
+                  className="absolute z-20"
+                  alt="Person"
+                  src="/templanding/abstract/particle-glow.png"
+                  width={64}
+                  height={373}
+                />
+              <div className="center-dzn w-[170px] h-[170px] absolute top-20 ml-[10px] flex items-center justify-center">
                 <div className="w-full h-full rounded-full" style={{
                   backgroundImage: `
                     radial-gradient(at 50% 0%, #A9A0FA, transparent 45%),
@@ -300,6 +307,39 @@ export default function TempLanding() {
                     radial-gradient(at 50% 420%, rgba(169, 160, 250, 0.3) 0%, transparent 80%)
                   `,
                 }}></div>
+                <Image
+                  className="absolute top-3 -left-0.5"
+                  alt="Person"
+                  src="/templanding/mini_assets/bento-3-connector-upleft.svg"
+                  width={50}
+                  height={60}
+                />
+                <Image
+                  className="absolute bottom-3 -right-0.5"
+                  alt="Person"
+                  src="/templanding/mini_assets/bento-3-connector-downright.svg"
+                  width={50}
+                  height={60}
+                />
+                <div className="absolute rounded-full w-[60%] h-[60%] bg-[#120E29] flex items-center justify-center" style={{
+                  boxShadow: `
+                    inset 0px 1px 12px -5px rgba(152, 126, 248, 1),
+                    4px 9px 12px 0px rgba(0, 0, 0, 0.2)
+                  `
+                }}>
+                  <figure className="h-px bg-[#D4C6FF] w-[80%] absolute top-[49%] mx-auto left-2.5 -rotate-45"></figure>
+                  <div className="bg-[#120E29]/50 backdrop-blur-sm z-10 w-[55%] h-[55%] rounded-full flex items-center justify-center">
+                    <div className="w-[70%] h-[70%] rounded-full bg-radial-[at_50%_50%] from-[#19133A] to-[#3F318F] from-10% to-190% flex items-center justify-center">
+                      <Image
+                        className=""
+                        alt="Person"
+                        src="/templanding/mini_assets/person.svg"
+                        width={18}
+                        height={18}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <Image
                 className=""
