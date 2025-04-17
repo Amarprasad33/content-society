@@ -360,26 +360,44 @@ export default function TempLanding() {
             <div className="relative flex flex-col items-center justify-center rounded-2xl w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
               <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
                 <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
-                  <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32">
+                  <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32 flex items-center justify-center">
                     <Image
                       className=""
-                      alt="Connecting lines"
+                      alt="chart"
                       src="/templanding/mini_assets/chart.svg"
-                      width={450}
-                      height={390}
+                      width={22}
+                      height={22}
                     />
                   </figure>
                   <div className="relative w-[80%] h-[80%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                    <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-5 left-12">
-
+                    <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-5 left-12 flex items-center justify-center">
+                      <Image
+                        className=""
+                        alt="pen"
+                        src="/templanding/mini_assets/pen.svg"
+                        width={22}
+                        height={22}
+                      />
                     </figure>
                     <div className="relative w-[76%] h-[76%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                      <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-7 right-2">
-
+                      <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-7 right-2 flex items-center justify-center">
+                        <Image
+                          className=""
+                          alt="camera"
+                          src="/templanding/mini_assets/camera.svg"
+                          width={22}
+                          height={22}
+                        />
                       </figure>
                       <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 left-[0.3rem]">
-
+                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 left-[0.3rem] flex items-center justify-center">
+                          <Image
+                            className=""
+                            alt="mic"
+                            src="/templanding/mini_assets/mic.svg"
+                            width={22}
+                            height={22}
+                          />
                         </figure>
                       </div>
                     </div>
