@@ -309,14 +309,14 @@ export default function TempLanding() {
                 }}></div>
                 <Image
                   className="absolute top-3 -left-0.5"
-                  alt="Person"
+                  alt="connector"
                   src="/templanding/mini_assets/bento-3-connector-upleft.svg"
                   width={50}
                   height={60}
                 />
                 <Image
                   className="absolute bottom-3 -right-0.5"
-                  alt="Person"
+                  alt="connector"
                   src="/templanding/mini_assets/bento-3-connector-downright.svg"
                   width={50}
                   height={60}
@@ -343,7 +343,7 @@ export default function TempLanding() {
               </div>
               <Image
                 className=""
-                alt="Connecting lines"
+                alt="grid"
                 src="/templanding/abstract/masked-grid.png"
                 width={450}
                 height={390}
@@ -356,12 +356,18 @@ export default function TempLanding() {
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -top-60 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
             </div>
-            
+            {/* Card - 4 */}
             <div className="relative flex flex-col items-center justify-center rounded-2xl w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
               <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
                 <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
                   <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32">
-
+                    <Image
+                      className=""
+                      alt="Connecting lines"
+                      src="/templanding/mini_assets/chart.svg"
+                      width={450}
+                      height={390}
+                    />
                   </figure>
                   <div className="relative w-[80%] h-[80%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
                     <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-5 left-12">
@@ -372,14 +378,14 @@ export default function TempLanding() {
 
                       </figure>
                       <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -right-[0.3rem]">
+                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 left-[0.3rem]">
 
                         </figure>
                       </div>
                     </div>
                   </div>
                   {/* Gradient overlay */}
-                  <div className="w-full h-full rounded-t-[222px] absolute bg-[linear-gradient(to_top,_rgba(33,19,68,0.7)_0%,_rgba(83,69,129,0.2)_120%)]"></div>
+                  <div className="w-full h-full rounded-t-[222px] absolute bg-[linear-gradient(to_top,_rgba(22,19,68,0.7)_0%,_rgba(83,69,129,0.2)_120%)]"></div>
                 </div>
               </div>
               <div className="w-[86%] h-[5rem] absolute bottom-[7rem] blur-[23px] z-20 bg-[#10082c]"></div>
