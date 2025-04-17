@@ -27,7 +27,7 @@ export default function TempLanding() {
               <img
                 className="w-[26px] h-[26px] ml-[2px]"
                 alt="ContentSociety Logo"
-                src="/templanding/group.png"
+                src="/templanding/mini_assets/cs-logo.svg"
               />
             </div>
             <span className="font-bold text-white text-base leading-[19px] [font-family:'Inter',Helvetica]">
@@ -286,7 +286,7 @@ export default function TempLanding() {
           </div>
           <div className="w-fit flex gap-6">
             {/* card  - 3 */}
-            <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
+            <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[460px] bg-[#110D27] overflow-hidden">
                 <Image
                   className="absolute z-20"
                   alt="Person"
@@ -356,7 +356,45 @@ export default function TempLanding() {
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -top-60 rounded-[20rem] blur-[60px]" />
               <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
             </div>
+            
+            <div className="relative flex flex-col items-center justify-center rounded-2xl w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
+              <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
+                <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
+                  <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32">
 
+                  </figure>
+                  <div className="relative w-[80%] h-[80%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
+                    <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-5 left-12">
+
+                    </figure>
+                    <div className="relative w-[76%] h-[76%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
+                      <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-7 right-2">
+
+                      </figure>
+                      <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
+                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -right-[0.3rem]">
+
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Gradient overlay */}
+                  <div className="w-full h-full rounded-t-[222px] absolute bg-[linear-gradient(to_top,_rgba(33,19,68,0.7)_0%,_rgba(83,69,129,0.2)_120%)]"></div>
+                </div>
+              </div>
+              <div className="w-[86%] h-[5rem] absolute bottom-[7rem] blur-[23px] z-20 bg-[#10082c]"></div>
+              <Image
+                className="absolute -right-4"
+                alt="soft-light"
+                src="/templanding/abstract/soft-light.png"
+                width={718}
+                height={586}
+              />
+              <div className="absolute bottom-8 left-7 flex flex-col gap-1 ">
+                <div className="text-base font-medium text-white">Diverse Talent Pool</div>
+                <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Access a curated network of skilled content creators, from video editors to strategists, ensuring you find the perfect match for your projects</div>
+              </div>
+            </div>
           </div>
         </div>
 
