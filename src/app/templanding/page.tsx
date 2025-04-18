@@ -123,6 +123,29 @@ export default function TempLanding() {
 
       {/* Bento-section */}
       <section className="flex flex-col items-center w-full border border-slate-400 min-h-screen">
+        <div className="border border-amber-500 relative mt-10">
+          <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute top-4 -left-12">
+            <div className="w-32 h-px bg-gradient-to-l from-white to-[#999999]/10 absolute top-[7px] right-6"></div>
+          </figure>
+          <div className="text-5xl font-semibold z-10 relative">Why Us?</div>
+          <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute z-10 top-4 -right-12">
+            <div className="w-32 h-px bg-gradient-to-r from-white to-[#999999]/10 absolute top-[7px] left-6"></div>
+          </figure>
+          <Image
+            className="absolute z-0 -right-22 -top-2"
+            alt="Textured background"
+            src="/templanding/abstract/dots-light.png"
+            width={100}
+            height={100}
+          />
+          <Image
+            className="absolute z-0 -left-23 -top-2"
+            alt="Textured background"
+            src="/templanding/abstract/dots-light.png"
+            width={100}
+            height={100}
+          />
+        </div>
         {/* First bento gradient */}
         {/* <div class="w-[640px] h-[420px] rounded-lg bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]"></div> */}
         {/* <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 auto-rows-fr">
@@ -390,7 +413,7 @@ export default function TempLanding() {
                         />
                       </figure>
                       <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 left-[0.3rem] flex items-center justify-center">
+                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -left-[0.2rem] flex items-center justify-center">
                           <Image
                             className=""
                             alt="mic"
