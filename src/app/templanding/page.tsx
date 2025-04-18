@@ -412,7 +412,7 @@ export default function TempLanding() {
                           height={22}
                         />
                       </figure>
-                      <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
+                      <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] flex items-center justify-center border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
                         <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -left-[0.2rem] flex items-center justify-center">
                           <Image
                             className=""
@@ -429,6 +429,17 @@ export default function TempLanding() {
                   <div className="w-full h-full rounded-t-[222px] absolute bg-[linear-gradient(to_top,_rgba(22,19,68,0.7)_0%,_rgba(83,69,129,0.2)_120%)]"></div>
                 </div>
               </div>
+                  <div className="absolute bottom-[6rem] w-[7rem] h-[7rem] rounded-full z-100 bg-[#2a2475eb] flex items-center justify-center">
+                    <div className="w-[90%] h-[90%] border border-[#5D41FA]/60 bg-[#1D1647] rounded-full flex items-center justify-center">
+                      <Image
+                        className=""
+                        alt="mic"
+                        src="/templanding/mini_assets/cs-logo-violet.svg"
+                        width={49}
+                        height={49}
+                      />
+                    </div>
+                  </div>
               <div className="w-[86%] h-[5rem] absolute bottom-[7rem] blur-[23px] z-20 bg-[#10082c]"></div>
               <Image
                 className="absolute -right-4"
