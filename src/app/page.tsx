@@ -32,6 +32,12 @@ export default function Home() {
         <Button onClick={()  => router.push("/jobs")} variant="default" className="bg-slate-500 border-rose-600">
             <span  className="">Explore jobs</span>                
         </Button>
+        <div className="flex gap-4 items-center">
+          <span>Landing page in Development</span>
+          <Button onClick={()  => router.push("/templanding")} variant="default" className="bg-slate-500 border-rose-600">
+            <span  className="">Click to see</span>                
+        </Button>
+        </div>
     </main>
   );
 }
