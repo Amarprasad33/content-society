@@ -385,7 +385,7 @@ export default function TempLanding() {
                       />
                     </figure>
                     <div className="relative w-[76%] h-[76%] rounded-full bg-[#1A1243] border border-[#8975FD] flex items-center justify-center shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                      <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-7 right-2 flex items-center justify-center">
+                      <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-7 right-[1.1rem] flex items-center justify-center">
                         <Image
                           className=""
                           alt="camera"
@@ -395,7 +395,7 @@ export default function TempLanding() {
                         />
                       </figure>
                       <div className="relative w-[69%] h-[69%] rounded-full bg-[#1A1243] flex items-center justify-center border border-[#8975FD] shadow-[0px_-4px_11px_10px_rgba(0,_0,_0,_0.25)]">
-                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -left-[0.2rem] flex items-center justify-center">
+                        <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute top-8 -left-[0.4rem] flex items-center justify-center">
                           <Image
                             className=""
                             alt="mic"
@@ -446,9 +446,75 @@ export default function TempLanding() {
           mainHeading="Find and Hire Top Creative Talent"
           subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
         />
-        <div className="border border-rose-600 mt-10 flex gap-4">
-          <div className="fc-1  w-[428px] h-[460px] bg-[#0F0B28] border border-[#363151]">
-                 
+        <div className="border border-rose-600 mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="fc-1 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151]">
+            <div className="center-dzn w-[270px] h-[270px] absolute top-1/10 left-[17%] mx-auto flex items-center justify-center">
+              <div className="w-full h-full rounded-full" style={{
+                backgroundImage: `
+                  radial-gradient(at 50% 0%, #7E5BFF, transparent 45%)
+                `
+              }}></div>
+              <div className="bg-[#110D27] w-[99%] h-[99%] rounded-full absolute top-[1px] flex items-center justify-center" style={{
+                backgroundImage: `
+                  linear-gradient(to top, rgba(109, 72, 242, 1) -30%, transparent 30%)
+                `,
+              }}>
+                <div className="p-[1px] h-[60%] w-[60%] rounded-full bg-[linear-gradient(to_bottom,_#6D48F2_0%,_#00000000_35%)] to-0%">
+                  <div className=" w-full h-full rounded-full bg-[linear-gradient(to_bottom,_#120d28d1_0%,_#00000000_45%)] to-0%"></div>
+                </div>
+                <div className="w-18 h-18 rounded-full blur-md bg-[#6D48F2]/13 absolute bottom-[2rem] right-[5rem]" />
+                <div className="w-18 h-18 rounded-full blur-md bg-[#6D48F2]/13 absolute bottom-[2rem] left-[2rem]" />
+                <div className="w-16 h-16 rounded-full border border-[#9091F3] absolute"></div>
+                <div className="absolute w-[24rem] h-16 rounded-xl flex gap-8 items-center justify-center" >
+                  <div className="w-full h-full absolute rounded-xl z-20" style={{
+                    backgroundImage: `
+                      linear-gradient(to right, #0F0B28 3%, transparent 30%),
+                      linear-gradient(to left, #0F0B28 3%, transparent 30%)
+                    `
+                  }}/>
+                  <Person_Icon_Container imgSrc="/templanding/mini_assets/person.svg" />
+                  <Person_Icon_Container imgSrc="/templanding/mini_assets/person.svg" />
+                  <Person_Icon_Container imgSrc="/templanding/mini_assets/person.svg" />
+                  <Person_Icon_Container imgSrc="/templanding/mini_assets/person.svg" />
+                  <Person_Icon_Container imgSrc="/templanding/mini_assets/person.svg" />
+                </div>
+                <Image
+                  className="absolute -top-4"
+                  alt="lineart"
+                  src="/templanding/svgs/lineart-in-circle.svg"
+                  width={75}
+                  height={290}
+                />
+              </div>
+              <div className="rounded-sm w-10 h-3 absolute bottom-[3.6rem] bg-radial-[at_10%_15%] from-[#9E73F4]/60 to-transparent/5 to-75% p-[1px] shadow-[0px_9px_8px_0px_rgba(0,_0,_0,_0.25)]">
+                <div className="w-full h-full bg-[#211357] rounded-[3px] relative flex items-center justify-center"><div className="block w-[26px] h-[4px] bg-[#B4A1FA] rounded-full"></div></div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="text-base font-medium text-white">Find the Perfect Creative Talent</div>
+              <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Discover and connect with skilled talents, from video editors to social media strategists, who bring your vision to life.</div>
+            </div>
+          </div>
+
+          <div className="fc-2 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0E0C36] rounded-2xl border border-[#363151]">
+            <div className="h-[72%] w-full rounded-t-2xl absolute left-0 top-0">
+              <Image
+                className="w-full h-full rounded-t-2xl border border-red-300"
+                alt="lineart"
+                src="/templanding/abstract/feature-card-2-bg.png"
+                width={320}
+                height={221}
+              />
+            </div>
+            <div className="flex flex-col gap-1 mb-[1.3rem]">
+              <div className="text-base font-medium text-white">Sophisticated Job Listings</div>
+              <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Specify time zone, benefits, and skill requirements to get in the front  of the most relevant candidates</div>
+            </div>
+
+          </div>
+          <div className="fc-3 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
+
           </div>
         </div>
       </section>
@@ -476,5 +542,19 @@ const Bento_1_FilterCard = ({ filterHeading, filterOptions }: { filterHeading: s
         </div>
       </div>
     </div>
+  )
+}
+
+const Person_Icon_Container = ({ imgSrc }: { imgSrc: string }) => {
+  return (
+    <figure className="w-[50px] h-[50px] z-10 rounded-full bg-[linear-gradient(to_top,_#19133A_30%,_#3F318F_100%)] border border-[#765EFF]/53 flex justify-center items-center">
+      <Image
+        className=""
+        alt="lineart"
+        src={imgSrc}
+        width={20}
+        height={20}
+      />
+    </figure>
   )
 }
