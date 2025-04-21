@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import HeroProfileCard from "@/components/custom/heroProfileCard";
+import SectionHeading from "@/components/custom/section-heading";
 
 
 // Data for navigation items
@@ -123,29 +124,10 @@ export default function TempLanding() {
 
       {/* Bento-section */}
       <section className="flex flex-col items-center w-full border border-slate-400 min-h-screen">
-        <div className="border border-amber-500 relative mt-10">
-          <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute top-4 -left-12">
-            <div className="w-32 h-px bg-gradient-to-l from-white to-[#999999]/10 absolute top-[7px] right-6"></div>
-          </figure>
-          <div className="text-5xl font-semibold z-10 relative">Why Us?</div>
-          <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute z-10 top-4 -right-12">
-            <div className="w-32 h-px bg-gradient-to-r from-white to-[#999999]/10 absolute top-[7px] left-6"></div>
-          </figure>
-          <Image
-            className="absolute z-0 -right-22 -top-2"
-            alt="Textured background"
-            src="/templanding/abstract/dots-light.png"
-            width={100}
-            height={100}
-          />
-          <Image
-            className="absolute z-0 -left-23 -top-2"
-            alt="Textured background"
-            src="/templanding/abstract/dots-light.png"
-            width={100}
-            height={100}
-          />
-        </div>
+        <SectionHeading
+          mainHeading="Why Us?"
+          subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
+        />
         {/* First bento gradient */}
         {/* <div class="w-[640px] h-[420px] rounded-lg bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]"></div> */}
         {/* <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 auto-rows-fr">
@@ -456,6 +438,19 @@ export default function TempLanding() {
           </div>
         </div>
 
+      </section>
+      
+      {/* Features Section */}
+      <section className="flex flex-col items-center w-full border border-cyan-400 min-h-screen">
+        <SectionHeading
+          mainHeading="Find and Hire Top Creative Talent"
+          subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
+        />
+        <div className="border border-rose-600 mt-10 flex gap-4">
+          <div className="fc-1  w-[428px] h-[460px] bg-[#0F0B28] border border-[#363151]">
+                 
+          </div>
+        </div>
       </section>
     </main> 
 

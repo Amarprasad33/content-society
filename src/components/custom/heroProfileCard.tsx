@@ -16,12 +16,12 @@ export default function HeroProfileCard() {
                 <div className="flex items-center gap-4">
                     <Avatar className="w-[70px] h-[70px]">
                         <AvatarImage
-                            src='/templanding/ellipse-4.png'
+                            src='/templanding/abstract/avatar.png'
                             alt='Ava Scott'
                         />
                         {/* Should be the first char. of the name */}
                         <AvatarFallback>
-                            A
+                            A     
                         </AvatarFallback>
                     </Avatar>
 
@@ -32,7 +32,7 @@ export default function HeroProfileCard() {
                             </h3>
                             <div className="relative w-[18px] h-[18px]">
                                 <Image
-                                    src={"/templanding/vefication.svg"}
+                                    src={"/templanding/mini_assets/verification.svg"}
                                     alt="Verification"
                                     className="absolute w-full h-full"
                                     width={18}
@@ -47,7 +47,7 @@ export default function HeroProfileCard() {
 
                     <button className="w-[34px] h-[34px] flex items-center justify-center">
                         <img
-                            src='/templanding/material-symbols-bookmark-outline-rounded.svg'
+                            src='/templanding/mini_assets/bookmark.svg'
                             alt="Bookmark"
                             className="w-full h-full"
                         />
@@ -61,7 +61,7 @@ export default function HeroProfileCard() {
                             className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
                         >
                             <img
-                                src={'/templanding/bytesize-work.svg'}
+                                src={'/templanding/mini_assets/bytesize-work.svg'}
                                 alt="Work type"
                                 className="w-5 h-5 mr-2"
                             />
@@ -95,7 +95,7 @@ export default function HeroProfileCard() {
                             className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
                         >
                             <img
-                                src={'/templanding/tdesign-money.svg'}
+                                src={'/templanding/mini_assets/tdesign-money.svg'}
                                 alt="Rate"
                                 className="w-5 h-5 mr-2"
                             />
@@ -115,7 +115,7 @@ export default function HeroProfileCard() {
                             className="h-7 bg-[#7171712e] rounded-[25px] border-[#aeaeae] shadow-[inset_4px_7px_13.5px_#0000006b] px-3 py-1"
                         >
                             <img
-                                src={'/templanding/weui-location-outlined-1.svg'}
+                                src={'/templanding/mini_assets/location.svg'}
                                 alt="Location"
                                 className="w-5 h-5 mr-2"
                             />

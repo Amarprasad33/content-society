@@ -36,7 +36,7 @@ export default function Home() {
           <span>Landing page in Development</span>
           <Button onClick={()  => router.push("/templanding")} variant="default" className="bg-slate-500 border-rose-600">
             <span  className="">Click to see</span>                
-        </Button>
+          </Button>
         </div>
     </main>
   );
