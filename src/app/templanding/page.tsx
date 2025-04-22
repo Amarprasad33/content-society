@@ -536,11 +536,18 @@ export default function TempLanding() {
               width={673}
               height={379}
             />
-            <div className="border border-red-700 absolute top-[20%] z-10">
-
-              <div className="w-40 h-40 rounded-full bg-[#490cff]  blur-3xl flex items-center justify-center">
+            <div className="absolute top-[20%] z-10">
+              <div className="w-40 h-40 rounded-full bg-[#4E16F6]  blur-3xl flex items-center justify-center"></div>
+              <div className="w-28 h-28 z-20 rounded-2xl bg-[#4E16F6] absolute top-6 left-6 blur-xs"></div>
+              <div className="w-[108px] h-[108px] z-20 rounded-2xl bg-[#15112D] border border-[#8e7ffe] absolute top-[1.7rem] left-[1.7rem] flex items-center justify-center">
+                <div className="w-[70%] h-[70%] border border-[#515050] bg-[#0B0821] rounded-[10px] shadow-[0px_2px_12px_5px_rgba(0,_0,_0,_0.35)] flex items-center justify-center">
+                  <img
+                    className="w-[28px] h-[28px]"
+                    alt="ContentSociety Logo"
+                    src="/templanding/mini_assets/cs-logo.svg"
+                  />
+                </div>
               </div>
-              <div className="w-28 h-28 z-20 rounded-2xl bg-[#4E16F6] absolute"></div>
             </div>
             <div className="flex flex-col gap-1">
               <div className="text-base font-medium text-white">Showcase Your Brand & Vision</div>
