@@ -500,21 +500,52 @@ export default function TempLanding() {
           <div className="fc-2 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0E0C36] rounded-2xl border border-[#363151]">
             <div className="h-[72%] w-full rounded-t-2xl absolute left-0 top-0">
               <Image
-                className="w-full h-full rounded-t-2xl border border-red-300"
+                className="w-full h-full rounded-t-2xl"
                 alt="lineart"
                 src="/templanding/abstract/feature-card-2-bg.png"
                 width={320}
                 height={221}
               />
             </div>
+            {/* job-card */}
+            <Image
+              className="z-10 absolute top-12 -right-28 mask-r-to-60%"
+              alt="lineart"
+              src="/templanding/abstract/job-card-sm.png"
+              width={320}
+              height={221}
+            />
+            <Image
+              className="z-10 absolute top-48 -left-20 mask-l-to-70%"
+              alt="lineart"
+              src="/templanding/abstract/job-card-sm.png"
+              width={320}
+              height={221}
+            />
             <div className="flex flex-col gap-1 mb-[1.3rem]">
               <div className="text-base font-medium text-white">Sophisticated Job Listings</div>
               <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Specify time zone, benefits, and skill requirements to get in the front  of the most relevant candidates</div>
             </div>
-
           </div>
-          <div className="fc-3 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
 
+          <div className="fc-3 flex flex-col items-center justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
+            <Image
+              className="z-10 absolute top-1 right-0"
+              alt="lineart"
+              src="/templanding/abstract/bg-visuals.png"
+              width={673}
+              height={379}
+            />
+            <div className="border border-red-700 absolute top-[20%] z-10">
+
+              <div className="w-40 h-40 rounded-full bg-[#490cff]  blur-3xl flex items-center justify-center">
+              </div>
+              <div className="w-28 h-28 z-20 rounded-2xl bg-[#4E16F6] absolute"></div>
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="text-base font-medium text-white">Showcase Your Brand & Vision</div>
+              <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Share your company&apos;s culture, creative process, and tools to attract professionals who align with your workflow and values.</div>
+            </div>
           </div>
         </div>
       </section>
