@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import HeroProfileCard from "@/components/custom/heroProfileCard";
 import SectionHeading from "@/components/custom/section-heading";
+import { testimonialsData } from "@/lib/utils";
 
 
 // Data for navigation items
@@ -441,7 +442,7 @@ export default function TempLanding() {
       </section>
       
       {/* Features Section */}
-      <section className="flex flex-col items-center w-full border border-cyan-400 min-h-screen">
+      <section className="flex flex-col items-center w-full border border-cyan-400 min-h-[90vh]">
         <SectionHeading
           mainHeading="Find and Hire Top Creative Talent"
           subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
@@ -554,6 +555,53 @@ export default function TempLanding() {
               <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Share your company&apos;s culture, creative process, and tools to attract professionals who align with your workflow and values.</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials section */}
+      <section className="flex flex-col items-center w-full border border-green-400 min-h-screen">
+        <SectionHeading
+          mainHeading="Find & Collaborate with Top Creative Talent"
+          subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
+        />
+        <div className="testimonials-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border border-amber-200 w-[75%]">
+          {testimonialsData.map((item, idx) => (
+            <div id="card" key={idx} className="px-7 py-6 bg-[#0F0B28] flex flex-col gap-3 border border-[#26176A] rounded-[6px]">
+              <div className="w-full flex justify-between items-center">
+                <div className="flex gap-3">
+                  <Image
+                    className=""
+                    alt="person-feedback"
+                    src="/templanding/abstract/person-feedback.png"
+                    width={45}
+                    height={45}
+                  />
+                  <div className="flex flex-col gap-1">
+                    <p className="text-sm font-normal text-[#9DA7B3]">Anon</p>
+                    <p className="text-xs font-normal text-[#737678]">@anon</p>
+                  </div>
+                </div>
+                
+                <div className="px-4 py-[2px] h-fit bg-inherit border border-[#23105A] rounded-full text-sm font-normal">Creator</div>
+              </div>
+
+              <p className="text-sm font-normal text-[#9DA7B3] ">{item.feedbackText}</p>
+              <div className="w-full flex justify-between items-center">
+                <span className="text-sm font-normal text-[#737678]">{item.createdAt}</span>
+                <div className="flex gap-1">
+                  <Image
+                    className=""
+                    alt="star"
+                    src="/templanding/svgs/purple-star.svg"
+                    width={12}
+                    height={12}
+                  />
+                  <span className="text-xs">4.4</span>
+                </div>
+              </div>
+            </div>
+          ))}
+            
         </div>
       </section>
     </main> 
