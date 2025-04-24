@@ -19,7 +19,7 @@ const navItems = [
 
 export default function TempLanding() {
   return (
-    <main className="flex flex-col items-center w-full min-h-screen">
+    <main className="flex flex-col items-center w-full min-h-screen bg-[#0B051D]">
       {/* Navigation Bar - Reduced height and spacing */}
       <header className="absolute w-full h-[80px] backdrop-blur-[5.85px] z-40">
         <div className="flex items-center justify-between px-[180px] h-full">
@@ -604,6 +604,54 @@ export default function TempLanding() {
             
         </div>
       </section>
+
+      {/* Footer -- add border when done - border-top  [#241B36]/90     */}
+      <footer className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
+          <div className="max-w-7xl w-[75%] border border-green-400 flex flex-col px-8 pt-6 pb-6 mt-16">
+            <section aria-label="details" className="flex justify-between">
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3 items-center">
+                  <img
+                    className="w-[36px] h-[36px]"
+                    alt="ContentSociety Logo"
+                    src="/templanding/mini_assets/cs-logo.svg"
+                  />
+                  <div className="font-bold text-white text-xl leading-[19px] [font-family:'Inter',Helvetica]">ContentSociety</div>
+                </div>
+                <span className="text-sm font-normal text-[#9DA7B3] w-60">The best place to find you next best hire for your content creation.</span>
+              </div>
+              <div className="flex gap-6">
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-base font-semibold text-white">Pages</h2>
+                  <span className="footer-links">Pricing</span>
+                  <span className="footer-links">Contact</span>
+                  <span className="footer-links">Blog</span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-base font-semibold text-white">Getting Started</h2>
+                  <span className="footer-links">Sign Up</span>
+                  <span className="footer-links">Forgot Password</span>
+                  <span className="footer-links">Change this ☝️ section</span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-base font-semibold text-white">Socials</h2>
+                  <span className="footer-links">Twitter / X</span>
+                  <span className="footer-links">Discort</span>
+                </div>
+              </div>
+            </section>
+            <div className="w-full mt-6">
+              <div className="h-px bg-[#241B36]/90 mb-4"></div>
+              <div className="flex justify-between">
+                <div className="text-[#9DA7B3] text-xs font-normal">Copyright @ 2025 ContentSociety. All rights reserverd</div>
+                <div className="flex gap-11">
+                  <span className="text-[#9DA7B3] text-xs font-normal">Privacy Policy</span>
+                  <span className="text-[#9DA7B3] text-xs font-normal">Terms of services</span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </footer>
     </main> 
 
   );
