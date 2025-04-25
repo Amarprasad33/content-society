@@ -68,14 +68,14 @@
     color: #fff;
   }
 
-  .glow-gradient {
-    background: linear-gradient(90deg, #8f57ff00 0%, #4A00F6 51%, #8f57ff00 100%);
-  }
 }
 
 @layer components{
   .footer-links {
     @apply text-[#9DA7B3] text-sm font-normal hover:text-zinc-300 transition-colors duration-200 cursor-pointer;
+  }
+  .glow-gradient {
+    background: linear-gradient(90deg, #8f57ff00 0%, #4A00F6 51%, #8f57ff00 100%);
   }
 }
 

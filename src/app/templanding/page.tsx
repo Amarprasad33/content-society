@@ -650,6 +650,10 @@ export default function TempLanding() {
                 </div>
               </div>
             </div>
+            <div className="w-full mt-6 relative">
+              <div className="w-full glow-gradient h-[1px]"></div>
+              <div className="w-full glow-gradient h-[1px] blur-[3px]"></div>
+            </div>
           </div>
       </footer>
     </main> 
