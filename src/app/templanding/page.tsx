@@ -657,7 +657,6 @@ export default function TempLanding() {
             <div className="mt-8">
               <p className="text-[142px] 3xl:text-[152px] leading-[124px] w-fit font-bold mx-auto bg-gradient-to-t from-[#1B1040]/0 to-[#271b59] to-[120%] bg-clip-text text-transparent">ContentSociety</p>
             </div>
-
           </div>
       </footer>
     </main> 
@@ -674,7 +673,6 @@ const Bento_1_FilterCard = ({ filterHeading, filterOptions }: { filterHeading: s
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)] rounded-lg"></div>
       
       {/* Solid Color Overlay */}
-        
       <div className="relative z-10 text-white flex flex-col gap-3">
         <div className="text-sm font-medium">{filterHeading}</div>
         <div className="text-[12px] font-normal flex gap-2 text-white/60">
