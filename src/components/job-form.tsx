@@ -146,7 +146,7 @@ export default function JobForm() {
   }
 
   return (
-    <div className='max-w-2xl w-[55%] pb-12'>
+    <div className='max-w-2xl w-[60%] mb-8 py-6 px-7 border border-[#353535] rounded-2xl'>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField

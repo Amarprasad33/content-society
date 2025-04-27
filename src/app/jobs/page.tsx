@@ -68,7 +68,7 @@ export default function Jobs() {
 
 
   return (
-    <div className="jobs-page border flex justify-center border-green-600 my-30 ">
+    <div className="jobs-page border flex justify-center border-green-600 mt-20 ">
       <div className="max-w-6xl flex flex-col gap-4">
         {jobs.map((job: JobType) => (
           <Card onClick={() => {
