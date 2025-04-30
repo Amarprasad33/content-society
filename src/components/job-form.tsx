@@ -146,7 +146,16 @@ export default function JobForm() {
   }
 
   return (
-    <div className='max-w-2xl w-[60%] mb-8 py-6 px-7 border border-[#353535] rounded-2xl'>
+    <div className='max-w-2xl w-[60%] mb-8 py-6 px-7 border border-[#353535] rounded-2xl relative'>
+      {/* <div className='inset-0 w-full h-full absolute rounded-2xl border-1 [border-image:linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)_1]'>
+        <div className='inset-0 w-full h-full absolute rounded-2xl border border-[linear-gradient(to_bottom_left,_rgba(120,86,220,0.4)_-47%,_rgba(0,0,0,0.1)_70%)]'></div>
+      </div> */}
+      <div className='inset-0 w-full h-full absolute rounded-2xl p-[1px] bg-[linear-gradient(to_bottom,_#963BEF_7%,_#4D1B7E_90%)]'>
+        <div className='w-full h-full rounded-2xl bg-[#000]'>
+          {/* Your content goes here */}
+        </div>
+      </div>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -158,7 +167,6 @@ export default function JobForm() {
                 <FormControl>
                   <Input 
                     {...field}
-
                     type='file' 
                     placeholder="Upload Org. logo" 
                     className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600' 
