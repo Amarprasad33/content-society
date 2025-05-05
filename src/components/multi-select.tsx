@@ -34,7 +34,7 @@ export function MultiSelect({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between text-white bg-black hover:bg-zinc-900 hover:text-white"
+          className="w-full justify-between text-white hover:bg-zinc-900 hover:text-white bg-[#121115] border border-[#312F37]"
         >
           {selected.length > 0
             ? selected.map((value) => options.find((option) => option.value === value)?.label).join(", ")

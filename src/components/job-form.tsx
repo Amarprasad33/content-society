@@ -161,12 +161,12 @@ export default function JobForm() {
                     {...field}
                     type='file' 
                     placeholder="Upload Org. logo" 
-                    className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600' 
+                    className='file:text-white file:bg-zinc-700/80 file:rounded-md placeholder:text-slate-600 border-[#312F37]'
                     onChange={(e) => {
                       handleFileChange(e);
                       field.onChange(e);
                     }}
-                  />
+                  />         
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -186,9 +186,17 @@ export default function JobForm() {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Job Title</FormLabel>
+                <FormLabel className='flex font-semibold'>
+                  Job Title
+                  <Image 
+                    src="/images/create/asterisk.svg"
+                    alt='asterisk'
+                    width={20}
+                    height={20}
+                  />
+                </FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter job title" />
+                  <Input {...field} className='bg-[#121115] border border-[#312F37]' placeholder="Enter job title" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -200,9 +208,17 @@ export default function JobForm() {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Job Description</FormLabel>
+                <FormLabel className='flex font-semibold'>
+                  Job Description
+                  <Image 
+                    src="/images/create/asterisk.svg"
+                    alt='asterisk'
+                    width={20}
+                    height={20}
+                  />
+                </FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter job description" />
+                  <Input {...field} className='bg-[#121115] border border-[#312F37]' placeholder="Enter job description" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -216,7 +232,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Organization Name</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter organization name" />
+                  <Input {...field} placeholder="Enter organization name" className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -230,7 +246,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Organization Email</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter organization email" />
+                  <Input {...field} placeholder="Enter organization email" className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -244,7 +260,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Organization Bio</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter organization bio" />
+                  <Input {...field} placeholder="Enter organization bio" className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -258,7 +274,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Category</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter job category" />
+                  <Input {...field} placeholder="Enter job category" className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -273,7 +289,7 @@ export default function JobForm() {
                 <FormLabel>Employment Type</FormLabel>
                 <FormControl>
                   <Select {...field} onValueChange={(e) => field.onChange(e)}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full bg-[#121115] border border-[#312F37]">
                       <SelectValue placeholder="Theme" />
                     </SelectTrigger>
                     <SelectContent>
@@ -300,7 +316,7 @@ export default function JobForm() {
                     
                   </CustomSelect> */}
                   <Select {...field} onValueChange={(e) => field.onChange(e)}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full bg-[#121115] border border-[#312F37]">
                       <SelectValue placeholder="Theme" />
                     </SelectTrigger>
                     <SelectContent>
@@ -321,7 +337,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Salary</FormLabel>
                 <FormControl>
-                  <Input type="number" {...field} onChange={(e) => field.onChange(Number(e.target.value))} placeholder="Enter salary" />
+                  <Input type="number" {...field} onChange={(e) => field.onChange(Number(e.target.value))} placeholder="Enter salary" className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -359,7 +375,7 @@ export default function JobForm() {
               <FormItem>
                 <FormLabel>Experience</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="Enter required experience" />
+                  <Input {...field} placeholder="Enter required experience"  className='bg-[#121115] border border-[#312F37]'/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -379,3 +395,44 @@ export default function JobForm() {
     </div>
   );
 }
+
+
+/*
+  --- Custom file upload
+
+  <FormField
+  control={form.control}
+  name="logoUrl"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Org. logo</FormLabel>
+      <FormControl>
+        <div>
+           Hide the default file input 
+          <input
+            id="file-upload"
+            type="file"
+            style={{ display: 'none' }}
+            onChange={(e) => {
+              handleFileChange(e);
+              field.onChange(e);
+            }}
+          />
+          <label
+            htmlFor="file-upload"
+            className="cursor-pointer px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+          >
+            Choose File
+          </label>
+           
+          {field.value && typeof field.value === "string" && (
+            <span className="ml-2 text-slate-300">{field.value.split('\\').pop()}</span>
+          )}
+        </div>
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+
+*/
