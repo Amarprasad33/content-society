@@ -131,8 +131,8 @@ export default function Home() {
             </div>
           </div> */}
   
-          <div className="border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
-            <div className="w-fit flex gap-6">
+          <div className="bento-container border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
+            <div className="bento-row w-fit flex gap-6">
               {/* Card-1 */}
               <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
                 {/* Search Filter cards border-[#282D43] */}
@@ -182,7 +182,7 @@ export default function Home() {
                 />
               </div>
               {/* Card-2 */}
-              <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
+              <div className="bento-card-sm relative flex flex-col items-center rounded-2xl w-[428px] h-[420px] bg-[#110D27] overflow-hidden">
                 {/* central design */}
                 <div className="rounded-[9px] mt-12 bg-[linear-gradient(to_bottom,_rgba(192,180,251,0.5)_-30%,_rgba(0,0,0,0)_50%)] z-10 p-[1px] w-[60%] h-[60%]">
                   <div className="bg-transparent bg-[linear-gradient(to_bottom,_rgba(46,37,95,1)_0%,_rgba(28,23,56,0.6)_100%)] w-full h-full rounded-[8px] flex items-centers justify-center">
@@ -264,9 +264,9 @@ export default function Home() {
               </div>
               
             </div>
-            <div className="w-fit flex gap-6">
+            <div className="bento-row w-fit flex gap-6">
               {/* card  - 3 */}
-              <div className="relative flex flex-col items-center rounded-2xl w-[428px] h-[460px] bg-[#110D27] overflow-hidden">
+              <div className="bento-card-smrelative flex flex-col items-center rounded-2xl w-[428px] h-[460px] bg-[#110D27] overflow-hidden">
                   <Image
                     className="absolute z-20"
                     alt="Person"

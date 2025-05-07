@@ -142,3 +142,13 @@
     @apply bg-background text-foreground;
   }
 } */
+
+/* Media queries */
+@media screen and (max-width: 1130px) {
+  .bento-container .bento-row {
+    flex-direction: column;
+  }
+  .bento-container .bento-row .bento-card-sm {
+    width: 100%;
+  }
+}
