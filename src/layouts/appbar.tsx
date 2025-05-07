@@ -38,23 +38,32 @@ export default function Appbar() {
     const navigation = [
         { name: "Home", href: "/" },
         { name: "Jobs", href: "/jobs" },
-        { name: "Talents", href: "/talents" },
-        { name: "Companies", href: "/companies" },
+        { name: "Pricing", href: "/pricing" },
         { name: "About", href: "/about" },
+        { name: "Contact", href: "/contact" },
       ]
 
     return (
-        <header className="border-b border-zinc-800 sticky top-0 z-50 bg-black/50 backdrop-blur-xs">
+        <header className="border-b border-zinc-800 sticky top-0 z-50 bg-[#0B051D]/50 backdrop-blur-sm">
             <div className="container flex-wrap mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold text-primary text-white"  onClick={() => setCurrentPath('/')}>Content Society</Link>
-                <nav className="px-1.5 py-1.5 rounded-full bg-zinc-900/50 backdrop-blur-xs border border-zinc-800/50">
+                <Link href="/" className="flex items-center gap-2 font-bold text-white text-base leading-[19px] [font-family:'Inter',Helvetica]"  onClick={() => setCurrentPath('/')}>
+                    <div className="w-8 h-8">
+                        <img
+                            className="w-[26px] h-[26px] ml-[2px]"
+                            alt="ContentSociety Logo"
+                            src="/templanding/mini_assets/cs-logo.svg"
+                        />
+                    </div>
+                    <span>Content Society </span>
+                </Link>
+                <nav className="px-1.5 py-1.5 rounded-full">
                     <ul className="flex items-center space-x-1">
                         {navigation.map((item) => (
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
                                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors hover:text-white ${
-                                        currentPath === item.href ? "bg-zinc-800 text-white" : "text-zinc-400"
+                                        currentPath === item.href ? "text-white" : "text-zinc-400"
                                     }`}
                                     onClick={() => setCurrentPath(item.href)}
                                 >
