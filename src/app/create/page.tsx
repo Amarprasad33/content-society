@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { redirect, usePathname } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
-import { motion } from 'motion/react';
+// import { motion } from 'motion/react';
 import Image from "next/image";
 
 export default function Create() {
@@ -13,34 +13,28 @@ export default function Create() {
   const pathName = usePathname();
 
   // Animation for dots traveling clockwise
-  const clockwiseDotAnimation = {
-    animate: {
-      offsetDistance: ["0%", "100%"],
-      transition: {
-        duration: 10,
-        ease: "linear",
-        repeat: Infinity
-      }
-    }
-  };
+  // const clockwiseDotAnimation = {
+  //   animate: {
+  //     offsetDistance: ["0%", "100%"],
+  //     transition: {
+  //       duration: 10,
+  //       ease: "linear",
+  //       repeat: Infinity
+  //     }
+  //   }
+  // };
 
-  // Animation for dots traveling counter-clockwise
-  const counterClockwiseDotAnimation = {
-    animate: {
-      offsetDistance: ["100%", "0%"],
-      transition: {
-        duration: 10,
-        ease: "linear",
-        repeat: Infinity
-      }
-    }
-  };
-  const paths = {
-    circle1: `M ${532.5},${61.5 - 487}   a487,487   0 1,1 -1,0 z`,
-    circle2: `M ${532.5},${53.5 - 451}   a451,451   0 1,0 -1,0 z`,  // 1,0 => anti-clockwise , 1,1 => clockwise
-    circle3: `M ${533},${61 - 405.5}     a405.5,405.5 0 1,1 -1,0 z`,
-    circle4: `M ${533.5},${62.5 - 533}   a533,533   0 1,0 -1,0 z`
-  };
+  // // Animation for dots traveling counter-clockwise
+  // const counterClockwiseDotAnimation = {
+  //   animate: {
+  //     offsetDistance: ["100%", "0%"],
+  //     transition: {
+  //       duration: 10,
+  //       ease: "linear",
+  //       repeat: Infinity
+  //     }
+  //   }
+  // };
 
 
   useEffect(() => {

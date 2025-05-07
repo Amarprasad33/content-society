@@ -14,7 +14,7 @@ import { testimonialsData } from "@/lib/utils";
 
 export default function Home() {
   const { toast } = useToast();
-  const router = useRouter();
+  // const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -34,42 +34,6 @@ export default function Home() {
 
   return (
       <main className="flex flex-col items-center w-full min-h-screen bg-[#0B051D]">
-        {/* Navigation Bar - Reduced height and spacing */}
-        {/* <header className="absolute w-full h-[80px] backdrop-blur-[5.85px] z-40">
-          <div className="flex items-center justify-between px-[180px] h-full">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8">
-                <img
-                  className="w-[26px] h-[26px] ml-[2px]"
-                  alt="ContentSociety Logo"
-                  src="/templanding/mini_assets/cs-logo.svg"
-                />
-              </div>
-              <span className="font-bold text-white text-base leading-[19px] [font-family:'Inter',Helvetica]">
-                ContentSociety
-              </span>
-            </div>
-  
-            <nav className="flex items-center gap-[40px] px-[30px] py-[8px]">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="[font-family:'Inter',Helvetica] font-medium text-[#86878a] text-base leading-[19px] hover:text-white transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-  
-            <Button
-              variant="outline"
-              className="w-[120px] h-10 bg-white text-black rounded-xl hover:bg-gray-100 text-sm"
-            >
-              Post a job
-            </Button>
-          </div>
-        </header> */}
         {/* Hero Section */}
         <section className="flex flex-col items-center w-full min-h-screen relative overflow-hidden">
           <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500">
