@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 
@@ -14,7 +14,6 @@ import { testimonialsData } from "@/lib/utils";
 
 export default function Home() {
   const { toast } = useToast();
-  // const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
