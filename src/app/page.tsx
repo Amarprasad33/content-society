@@ -266,7 +266,7 @@ export default function Home() {
             </div>
             <div className="bento-row w-fit flex gap-6">
               {/* card  - 3 */}
-              <div className="bento-card-smrelative flex flex-col items-center rounded-2xl w-[428px] h-[460px] bg-[#110D27] overflow-hidden">
+              <div className="bento-card-sm relative flex flex-col items-center rounded-2xl w-[428px] h-[460px] bg-[#110D27] overflow-hidden">
                   <Image
                     className="absolute z-20"
                     alt="Person"
