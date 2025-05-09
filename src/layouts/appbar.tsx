@@ -39,8 +39,8 @@ export default function Appbar() {
         { name: "Home", href: "/" },
         { name: "Jobs", href: "/jobs" },
         { name: "Pricing", href: "/pricing" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
+        { name: "About", href: "/#footer" },
+        { name: "Contact", href: "/#footer" },
       ]
 
     return (

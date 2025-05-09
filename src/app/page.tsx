@@ -580,7 +580,7 @@ export default function Home() {
         </section>
   
         {/* Footer -- add border when done - border-top  [#241B36]/90     */}
-        <footer className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
+        <footer id="footer" className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
             <div className="max-w-7xl w-[75%] border border-green-400 flex flex-col px-8 pt-6 pb-6 mt-16">
               <section aria-label="details" className="flex justify-between">
                 <div className="flex flex-col gap-3">
