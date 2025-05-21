@@ -422,7 +422,7 @@ export default function Home() {
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
           <div className="border border-rose-600 mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            <div className="fc-1 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151]">
+            <div className="fc-1 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151]">
               <div className="center-dzn w-[270px] h-[270px] absolute top-1/10 left-[17%] mx-auto flex items-center justify-center">
                 <div className="w-full h-full rounded-full" style={{
                   backgroundImage: `
@@ -470,9 +470,9 @@ export default function Home() {
                 <div className="text-base font-medium text-white">Find the Perfect Creative Talent</div>
                 <div className="text-sm w-[98%] leading-[20px] font-normal text-[#C4C5C8]">Discover and connect with skilled talents, from video editors to social media strategists, who bring your vision to life.</div>
               </div>
-            </div>
+            </div> 
   
-            <div className="fc-2 flex flex-col justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0E0C36] rounded-2xl border border-[#363151]">
+            <div className="fc-2 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0E0C36] rounded-2xl border border-[#363151]">
               <div className="h-[72%] w-full rounded-t-2xl absolute left-0 top-0">
                 <Image
                   className="w-full h-full rounded-t-2xl"
@@ -503,7 +503,7 @@ export default function Home() {
               </div>
             </div>
   
-            <div className="fc-3 flex flex-col items-center justify-end relative px-7 py-[22px] w-[428px] h-[460px] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
+            <div className="fc-3 overflow-hidden flex flex-col items-center justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
               <Image
                 className="z-10 absolute top-1 right-0"
                 alt="lineart"

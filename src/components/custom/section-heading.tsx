@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SectionHeading({ mainHeading, subHeading }: { mainHeading: string, subHeading: string }) {
     return (
-        <div className="mt-10 mb flex flex-col gap-3">
+        <div className="mt-10 mb flex flex-col gap-3 w-[80%] lg:w-full">
           <div className="relative mx-auto w-fit max-w-[64%] text-center">
             <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute top-4 -left-12">
               <div className="w-32 z-10 h-[2px] bg-gradient-to-l from-white to-[#999999]/10 absolute top-[7px] right-6"></div>
