@@ -538,7 +538,7 @@ export default function Home() {
             mainHeading="Find & Collaborate with Top Creative Talent"
             subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
           />
-          <div className="testimonials-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border border-amber-200 w-[75%] max-w-7xl">
+          <div className="testimonials-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border border-amber-200 w-[85%] lg:w-[75%] max-w-7xl">
             {testimonialsData.map((item, idx) => (
               <div id="card" key={idx} className="px-7 py-6 bg-[#0F0B28] flex flex-col gap-3 border border-[#26176A] rounded-[6px]">
                 <div className="w-full flex justify-between items-center">
