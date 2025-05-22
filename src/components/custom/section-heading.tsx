@@ -5,11 +5,11 @@ export default function SectionHeading({ mainHeading, subHeading }: { mainHeadin
         <div className="mt-10 mb flex flex-col gap-3 w-[80%] lg:w-full">
           <div className="relative mx-auto w-fit max-w-[64%] text-center">
             <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute top-4 -left-12">
-              <div className="w-32 z-10 h-[2px] bg-gradient-to-l from-white to-[#999999]/10 absolute top-[7px] right-6"></div>
+              <div className="w-[75px] md:w-32 z-10 h-[2px] bg-gradient-to-l from-white to-[#999999]/10 absolute top-[7px] right-6"></div>
             </figure>
-            <div className="text-5xl font-semibold z-10 relative">{mainHeading}</div>
+            <div className="text-4xl md:text-5xl font-semibold z-10 relative">{mainHeading}</div>
             <figure className="w-4 h-4 rounded-full bg-gradient-to-t from-[#5C32F5] to-[#7268F6]/10 absolute z-10 top-4 -right-12">
-              <div className="w-32 z-10 h-[2px] bg-gradient-to-r from-white to-[#999999]/10 absolute top-[7px] left-6"></div>
+              <div className="w-[75px] md:w-32 z-10 h-[2px] bg-gradient-to-r from-white to-[#999999]/10 absolute top-[7px] left-6"></div>
             </figure>
             <Image
               className="absolute z-0 -right-22 -top-2"

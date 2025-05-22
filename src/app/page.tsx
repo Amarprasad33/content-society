@@ -134,7 +134,7 @@ export default function Home() {
           <div className="bento-container border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
             <div className="bento-row w-fit flex gap-6">
               {/* Card-1 */}
-              <div className="relative w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
+              <div className="relative w-[468px] sm:w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
                 {/* Search Filter cards border-[#282D43] */}
                 <div className="cards-container flex flex-col gap-8 absolute left-28 top-8">
                   <div className="flex gap-6">
@@ -337,7 +337,7 @@ export default function Home() {
                 <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
               </div>
               {/* Card - 4 */}
-              <div className="relative flex flex-col items-center justify-center rounded-2xl w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
+              <div className="relative flex flex-col items-center justify-center rounded-2xl w-[468px] sm:w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
                 <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
                   <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
                     <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32 flex items-center justify-center">
@@ -399,7 +399,7 @@ export default function Home() {
                     </div>
                 <div className="w-[86%] h-[5rem] absolute bottom-[7rem] blur-[23px] z-20 bg-[#10082c]"></div>
                 <Image
-                  className="absolute -right-4"
+                  className="absolute -right-4 top-0"
                   alt="soft-light"
                   src="/templanding/abstract/soft-light.png"
                   width={718}
@@ -422,7 +422,7 @@ export default function Home() {
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
           <div className="border border-rose-600 mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-            <div className="fc-1 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151]">
+            <div className="fc-1 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] md:w-[23rem] lg:w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151]">
               <div className="center-dzn w-[270px] h-[270px] absolute top-1/10 left-[17%] mx-auto flex items-center justify-center">
                 <div className="w-full h-full rounded-full" style={{
                   backgroundImage: `
@@ -472,7 +472,7 @@ export default function Home() {
               </div>
             </div> 
   
-            <div className="fc-2 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0E0C36] rounded-2xl border border-[#363151]">
+            <div className="fc-2 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] md:w-[23rem] lg:w-[26rem] bg-[#0E0C36] rounded-2xl border border-[#363151]">
               <div className="h-[72%] w-full rounded-t-2xl absolute left-0 top-0">
                 <Image
                   className="w-full h-full rounded-t-2xl"
@@ -503,7 +503,7 @@ export default function Home() {
               </div>
             </div>
   
-            <div className="fc-3 overflow-hidden flex flex-col items-center justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
+            <div className="fc-3 overflow-hidden flex flex-col items-center justify-end relative px-7 py-[22px] w-[26rem] min-h-[30rem] md:w-[23rem] lg:w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151] md:col-span-2 md:place-self-center xl:col-span-1 xl:place-self-end">
               <Image
                 className="z-10 absolute top-1 right-0"
                 alt="lineart"
@@ -581,7 +581,7 @@ export default function Home() {
   
         {/* Footer -- add border when done - border-top  [#241B36]/90     */}
         <footer id="footer" className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
-            <div className="max-w-7xl w-[75%] border border-green-400 flex flex-col px-8 pt-6 pb-6 mt-16">
+            <div className="max-w-7xl w-[85%] md:w-[75%] border border-green-400 flex flex-col px-8 pt-6 pb-6 mt-16">
               <section aria-label="details" className="flex justify-between">
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3 items-center">
