@@ -21,7 +21,7 @@ export default function HeroProfileCard() {
                         />
                         {/* Should be the first char. of the name */}
                         <AvatarFallback>
-                            A     
+                            A
                         </AvatarFallback>
                     </Avatar>
 
