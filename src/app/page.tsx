@@ -533,7 +533,7 @@ export default function Home() {
         </section>
   
         {/* Testimonials section */}
-        <section className="flex flex-col items-center w-full border border-green-400 min-h-screen">
+        <section className="flex flex-col items-center w-full min-h-screen">
           <SectionHeading
             mainHeading="Find & Collaborate with Top Creative Talent"
             subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
@@ -581,7 +581,7 @@ export default function Home() {
   
         {/* Footer -- add border when done - border-top  [#241B36]/90     */}
         <footer id="footer" className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
-            <div className="max-w-7xl w-[85%] md:w-[75%] border border-green-400 flex flex-col px-8 pt-6 pb-6 mt-16">
+            <div className="max-w-7xl w-[85%] md:w-[75%] flex flex-col px-8 pt-6 pb-6 mt-16">
               <section aria-label="details" className="flex justify-between flex-col sm:flex-row gap-6 sm:gap-0">
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3 items-center">

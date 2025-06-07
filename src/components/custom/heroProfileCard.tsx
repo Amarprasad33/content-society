@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function HeroProfileCard() {
     return (
-        <Card className="h-fit bg-[#110d27] text-white rounded-3xl relative overflow-hidden border border-green-500">
+        <Card className="h-fit bg-[#110d27] text-white rounded-3xl relative overflow-hidden">
             <CardContent className="py-8 px-8">
 
                 <div className="flex items-center gap-4">
