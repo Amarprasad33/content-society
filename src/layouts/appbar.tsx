@@ -56,7 +56,7 @@ export default function Appbar() {
                     </div>
                     <span>Content Society </span>
                 </Link>
-                <nav className="px-1.5 py-1.5 rounded-full">
+                <nav className="px-1.5 py-1.5 rounded-full hidden md:block">
                     <ul className="flex items-center space-x-1">
                         {navigation.map((item) => (
                             <li key={item.name}>
@@ -73,7 +73,7 @@ export default function Appbar() {
                         ))}
                     </ul>
                 </nav>
-                <div className="flex gap-2 items-center">
+                <div className="hidden md:flex gap-2 items-center">
                     {session?.user && 
                         <Button variant="outline" className="bg-white text-black border-black hover:bg-slate-30"
                             onClick={() => {

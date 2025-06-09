@@ -64,7 +64,7 @@ export default function Home() {
               height={981}
             />
             {/* Radial glow */}
-            <div className="z-10 relative mt-[2rem] w-full border border-blue-800">
+            <div className="z-10 relative mt-[2rem] w-full">
               <div className="relative flex h-full w-full mt-28">
                 <Image
                   className="h-[490px] mx-auto z-1"
@@ -79,11 +79,11 @@ export default function Home() {
                 />
               </div>
               {/* Profile Cards */}
-              <div className="absolute inset-0 border border-pink-500 w-full h-fit flex items-center justify-center">
+              <div className="absolute inset-0 w-full h-fit flex items-center justify-center">
                 <div className="w-fit z-30">
                   <HeroProfileCard />
                 </div>
-                <div className="absolute z-10 h-[27rem] w-[30rem] border border-red-500">
+                <div className="absolute z-10 h-[27rem] w-[30rem]">
                   <div className="absolute -right-12 md:-right-56 top-[2.9rem] md:top-[3.9rem] rotate-[10.6deg] md:rotate-[17.6deg]">
                     <HeroProfileCard />
                   </div>
@@ -98,40 +98,12 @@ export default function Home() {
         </section>
   
         {/* Bento-section */}
-        <section className="flex flex-col items-center w-full border border-slate-400 min-h-screen">
+        <section className="flex flex-col items-center w-full min-h-screen">
           <SectionHeading
             mainHeading="Why Us?"
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
-          {/* First bento gradient */}
-          {/* <div class="w-[640px] h-[420px] rounded-lg bg-[linear-gradient(to_bottom,_#120E25_14%,_#352390_69%)]"></div> */}
-          {/* <div className="grid gap-6 p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 auto-rows-fr">
-            <!-- Box 1: Flexible Search (Takes 2 columns on large screens) -->
-            <div className="lg:col-span-4 bg-[#1a1235] rounded-xl p-6"> 
-                <h3 className="text-white font-semibold">Flexible Search</h3>
-                <p className="text-gray-400">Find the right candidate...</p>
-            </div>
-  
-            <!-- Box 2: Master Social Presence -->
-            <div className="lg:col-span- bg-[#1a1235] rounded-xl p-6">
-                <h3 className="text-white font-semibold">Master Social Presence</h3>
-                <p className="text-gray-400">Free social media managers...</p>
-            </div>
-  
-            <!-- Box 3: Effortless Hiring Process (Takes 2 columns on large screens) -->
-            <div className="lg:col-span-2 bg-[#1a1235] rounded-xl p-6">
-                <h3 className="text-white font-semibold">Effortless Hiring Process</h3>
-                <p className="text-gray-400">Find and onboard top talent...</p>
-            </div>
-  
-            <!-- Box 4: Diverse Talent Pool -->
-            <div className="bg-[#1a1235] rounded-xl p-6">
-                <h3 className="text-white font-semibold">Diverse Talent Pool</h3>
-                <p className="text-gray-400">Access a curated network...</p>
-            </div>
-          </div> */}
-  
-          <div className="bento-container border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
+          <div className="bento-container w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
             <div className="bento-row w-fit flex gap-6">
               {/* Card-1 */}
               <div className="relative w-[428px] sm:w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
@@ -338,7 +310,7 @@ export default function Home() {
               </div>
               {/* Card - 4 */}
               <div className="relative flex flex-col items-center justify-center rounded-2xl w-[428px] sm:w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
-                <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
+                <div className="z-10 relative -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
                   <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
                     <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32 flex items-center justify-center">
                       <Image
@@ -416,12 +388,12 @@ export default function Home() {
         </section>
         
         {/* Features Section */}
-        <section className="flex flex-col items-center w-full border border-cyan-400 min-h-[90vh] overflow-hidden">
+        <section className="flex flex-col items-center w-full min-h-[90vh] overflow-hidden">
           <SectionHeading
             mainHeading="Find and Hire Top Creative Talent"
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
-          <div className="border border-rose-600 mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             <div className="fc-1 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] md:w-[23rem] lg:w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151]">
               <div className="center-dzn w-[270px] h-[270px] absolute top-1/10 left-[17%] mx-auto flex items-center justify-center">
                 <div className="w-full h-full rounded-full" style={{
@@ -538,7 +510,7 @@ export default function Home() {
             mainHeading="Find & Collaborate with Top Creative Talent"
             subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
           />
-          <div className="testimonials-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border border-amber-200 w-[85%] lg:w-[75%] max-w-7xl">
+          <div className="testimonials-container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-[85%] lg:w-[75%] max-w-7xl">
             {testimonialsData.map((item, idx) => (
               <div id="card" key={idx} className="px-7 py-6 bg-[#0F0B28] flex flex-col gap-3 border border-[#26176A] rounded-[6px]">
                 <div className="w-full flex justify-between items-center">
@@ -580,7 +552,7 @@ export default function Home() {
         </section>
   
         {/* Footer -- add border when done - border-top  [#241B36]/90     */}
-        <footer id="footer" className="flex flex-col items-center w-full border border-rose-400 min-h-[40vh]">
+        <footer id="footer" className="flex flex-col items-center w-full min-h-[40vh]">
             <div className="max-w-7xl w-[85%] md:w-[75%] flex flex-col px-8 pt-6 pb-6 mt-16">
               <section aria-label="details" className="flex justify-between flex-col sm:flex-row gap-6 sm:gap-0">
                 <div className="flex flex-col gap-3">
