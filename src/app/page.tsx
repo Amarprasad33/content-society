@@ -35,24 +35,24 @@ export default function Home() {
       <main className="flex flex-col items-center w-full min-h-screen bg-[#0B051D]">
         {/* Hero Section */}
         <section className="flex flex-col items-center w-full min-h-screen relative overflow-hidden">
-          <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 border border-red-500">
+          <div className="relative w-full h-full max-w-[1920px] flex flex-col gap-5 ">
             
-            <div className="flex flex-col items-center justify-center text-center px-4 mt-[8rem] z-1 border border-blue-400">
+            <div className="flex flex-col items-center justify-center text-center px-4 mt-[8rem] z-1">
               <h1 className="w-full max-w-[900px] text-4xl lg:text-6xl [font-family:'Inter',Helvetica] font-semibold text-white leading-[60px]">
                 Hire top talent for your
               </h1>
-              <h1 className="[font-family:'Inter',Helvetica] font-semibold text-4xl lg:text-6xl leading-[70px] bg-linear-to-r from-[#F0EEBD] via-[#F17945] to-[#7431E8] bg-clip-text text-transparent">
+              <h1 className="[font-family:'Inter',Helvetica] font-semibold -mt-4 md:mt-0 text-4xl lg:text-6xl leading-[70px] bg-linear-to-r from-[#F0EEBD] via-[#F17945] to-[#7431E8] bg-clip-text text-transparent">
                 content creation
               </h1>
               <p className="max-w-[600px] mt-4 [font-family:'Inter',Helvetica] font-normal text-[#9da7b3] text-base text-center leading-[24px]">
                 Connect with skilled professionals to bring your content vision to
                 life. From videographers to editors, find your perfect team.
               </p>
-              <Button className="mt-8 w-[209px] h-14 rounded-[106px] bg-white text-black hover:bg-gray-100">
+              <button className="mt-8 w-fit px-12 cursor-pointer py-3 rounded-[106px] bg-white text-black hover:bg-gray-100">
                 <span className="[font-family:'Inter',Helvetica] font-medium text-base">
                   Hire Talent
                 </span>
-              </Button>
+              </button>
             </div>
   
             {/* Background images */}
@@ -84,10 +84,10 @@ export default function Home() {
                   <HeroProfileCard />
                 </div>
                 <div className="absolute z-10 h-[27rem] w-[30rem] border border-red-500">
-                  <div className="absolute -right-56 top-[3.9rem] rotate-[17.6deg]">
+                  <div className="absolute -right-12 md:-right-56 top-[2.9rem] md:top-[3.9rem] rotate-[10.6deg] md:rotate-[17.6deg]">
                     <HeroProfileCard />
                   </div>
-                  <div className="absolute -left-56 top-[3.9rem] -rotate-[17.6deg]">
+                  <div className="absolute -left-12 md:-left-56 top-[2.9rem] md:top-[3.9rem] -rotate-[10.6deg] md:-rotate-[17.6deg]">
                     <HeroProfileCard />
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="bento-container border border-rose-600 w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
             <div className="bento-row w-fit flex gap-6">
               {/* Card-1 */}
-              <div className="relative w-[468px] sm:w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
+              <div className="relative w-[428px] sm:w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
                 {/* Search Filter cards border-[#282D43] */}
                 <div className="cards-container flex flex-col gap-8 absolute left-28 top-8">
                   <div className="flex gap-6">
@@ -337,7 +337,7 @@ export default function Home() {
                 <div className="bg-[#31177E] w-3/4 h-[20rem] absolute -bottom-72 rounded-[18rem] blur-[60px]" />
               </div>
               {/* Card - 4 */}
-              <div className="relative flex flex-col items-center justify-center rounded-2xl w-[468px] sm:w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
+              <div className="relative flex flex-col items-center justify-center rounded-2xl w-[428px] sm:w-[640px] h-[460px] bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_20%,_rgba(43,29,111,0.63)_130%)] overflow-hidden">
                 <div className="border z-10 relative border-amber-300 -mt-24 h-64 w-full flex items-center justify-center overflow-hidden" aria-label="card-center-dzn">
                   <div className="relative w-[28rem] h-[28rem] rounded-full bg-[#1A1243] border border-[#8975FD] mt-[15rem] flex items-center justify-center">
                     <figure className="w-9 h-9 z-20 rounded-full bg-[#190E4E] border border-[#8F7CFC] absolute -top-1 right-32 flex items-center justify-center">
@@ -416,7 +416,7 @@ export default function Home() {
         </section>
         
         {/* Features Section */}
-        <section className="flex flex-col items-center w-full border border-cyan-400 min-h-[90vh]">
+        <section className="flex flex-col items-center w-full border border-cyan-400 min-h-[90vh] overflow-hidden">
           <SectionHeading
             mainHeading="Find and Hire Top Creative Talent"
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
@@ -533,7 +533,7 @@ export default function Home() {
         </section>
   
         {/* Testimonials section */}
-        <section className="flex flex-col items-center w-full min-h-screen">
+        <section className="flex flex-col items-center w-full min-h-screen overflow-hidden">
           <SectionHeading
             mainHeading="Find & Collaborate with Top Creative Talent"
             subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
