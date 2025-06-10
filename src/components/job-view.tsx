@@ -96,7 +96,8 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
             if(!appliedRes.status){
                 toast({
                     variant: "destructive",
-                    title: appliedRes?.error || appliedRes?.message || "Your application couldn't be submitted, Please try again later.",
+                    title: appliedRes?.error || "Your application couldn't be submitted, Please try again later.",
+                    description: appliedRes?.message
                 }); 
                 return;
             }
@@ -205,7 +206,7 @@ export default function JobView({ jobId, setDetailView }: JobViewProps) {
                     <textarea 
                         name="" id="" 
                         placeholder="Write your cover letter" 
-                        className="w-1/2 rounded-xl focus:outline-hidden py-2 px-4 text-black"
+                        className="w-1/2 rounded-xl focus:outline-hidden py-2 px-4 text-white"
                         onChange={(e) => setLetter(e.target.value)}
                     ></textarea>
                 </div>

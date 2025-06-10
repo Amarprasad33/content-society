@@ -84,10 +84,10 @@ export default function Home() {
                   <HeroProfileCard />
                 </div>
                 <div className="absolute z-10 h-[27rem] w-[30rem]">
-                  <div className="absolute -right-12 md:-right-56 top-[2.9rem] md:top-[3.9rem] rotate-[10.6deg] md:rotate-[17.6deg]">
+                  <div className="absolute -right-12 md:-right-56 top-[2.9rem] md:top-[3.99rem] rotate-[10.6deg] md:rotate-[17.6deg]">
                     <HeroProfileCard />
                   </div>
-                  <div className="absolute -left-12 md:-left-56 top-[2.9rem] md:top-[3.9rem] -rotate-[10.6deg] md:-rotate-[17.6deg]">
+                  <div className="absolute -left-12 md:-left-56 top-[2.9rem] md:top-[3.99rem] -rotate-[10.6deg] md:-rotate-[17.6deg]">
                     <HeroProfileCard />
                   </div>
                 </div>
