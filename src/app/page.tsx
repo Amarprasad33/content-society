@@ -103,7 +103,7 @@ export default function Home() {
             mainHeading="Why Us?"
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
-          <div className="bento-container w-[80%] min-h-screen mt-8 flex flex-col items-center gap-6 pb-16">
+          <div className="bento-container w-[80%] min-h-screen mt-20 flex flex-col items-center gap-6 pb-16">
             <div className="bento-row w-fit flex gap-6">
               {/* Card-1 */}
               <div className="relative w-[428px] sm:w-[640px] h-[420px] overflow-hidden rounded-2xl bg-[linear-gradient(to_top,_rgba(18,14,37,0.84)_14%,_rgba(53,35,144,0.69)_100%)]">
@@ -393,7 +393,7 @@ export default function Home() {
             mainHeading="Find and Hire Top Creative Talent"
             subHeading="Discover the benefits of out platform designed specifically for content creators and creative individuals"
           />
-          <div className="mt-10 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-20 grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             <div className="fc-1 overflow-hidden flex flex-col justify-end relative px-7 py-[22px] min-h-[30rem] w-[26rem] md:w-[23rem] lg:w-[26rem] bg-[#0F0B28] rounded-2xl border border-[#363151]">
               <div className="center-dzn w-[270px] h-[270px] absolute top-1/10 left-[17%] mx-auto flex items-center justify-center">
                 <div className="w-full h-full rounded-full" style={{
@@ -510,7 +510,7 @@ export default function Home() {
             mainHeading="Find & Collaborate with Top Creative Talent"
             subHeading="From video editors to content strategists, agencies and brands have found the project creative minds to bring their vision to life"
           />
-          <div className="testimonials-container mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-[85%] lg:w-[75%] max-w-7xl">
+          <div className="testimonials-container mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-[85%] lg:w-[75%] max-w-7xl">
             {testimonialsData.map((item, idx) => (
               <div id="card" key={idx} className="px-7 py-6 bg-[#0F0B28] flex flex-col gap-3 border border-[#26176A] rounded-[6px]">
                 <div className="w-full flex justify-between items-center">
