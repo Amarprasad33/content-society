@@ -12,29 +12,6 @@ export default function Create() {
   const { data: session, status } = useSession();
   const pathName = usePathname();
 
-  // Animation for dots traveling clockwise
-  // const clockwiseDotAnimation = {
-  //   animate: {
-  //     offsetDistance: ["0%", "100%"],
-  //     transition: {
-  //       duration: 10,
-  //       ease: "linear",
-  //       repeat: Infinity
-  //     }
-  //   }
-  // };
-
-  // // Animation for dots traveling counter-clockwise
-  // const counterClockwiseDotAnimation = {
-  //   animate: {
-  //     offsetDistance: ["100%", "0%"],
-  //     transition: {
-  //       duration: 10,
-  //       ease: "linear",
-  //       repeat: Infinity
-  //     }
-  //   }
-  // };
 
 
   useEffect(() => {
