@@ -20,6 +20,28 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Content society",
   description: "Made by Amar Prasad",
+  openGraph: {
+    title: "Content society",
+    description: "Made by Amar Prasad",
+    url: "https://content-society.vercel.app/",
+    siteName: "Content society",
+    images: [
+      {
+        url: "https://content-society.vercel.app/og-img.png",
+        width: 1200,
+        height: 630,
+        alt: "Content society preview image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Content society",
+    description: "Made by Amar Prasad",
+    images: ["https://content-society.vercel.app/og-img.png"],
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +53,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen relative`}
-      >                 
+      >
         <Provider>
           <Appbar />
           <Suspense fallback={<div>Loading...</div>}>
